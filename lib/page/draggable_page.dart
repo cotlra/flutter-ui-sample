@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sand_box_002/const/style_const.dart';
+import 'package:ui_sample/const/style_const.dart';
 
 class DraggablePage extends StatefulWidget {
   const DraggablePage({super.key, required this.title});

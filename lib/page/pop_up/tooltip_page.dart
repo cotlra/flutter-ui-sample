@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sand_box_002/const/style_const.dart';
+import 'package:ui_sample/const/style_const.dart';
 
 class TooltipPage extends StatefulWidget {
   const TooltipPage({super.key, required this.title});

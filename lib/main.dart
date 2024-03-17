@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:sand_box_002/page/async/future_builder_page.dart';
-import 'package:sand_box_002/page/async/indicator_page.dart';
-import 'package:sand_box_002/page/button/floating_action_button_page.dart';
-import 'package:sand_box_002/page/button/icon_button_page.dart';
-import 'package:sand_box_002/page/button/segmented_button_page.dart';
-import 'package:sand_box_002/page/button/toggle_buttons_page.dart';
-import 'package:sand_box_002/page/draggable_page.dart';
-import 'package:sand_box_002/page/input_page.dart';
-import 'package:sand_box_002/page/list/list_view_page.dart';
-import 'package:sand_box_002/page/pop_up/menu_anchor_page.dart';
-import 'package:sand_box_002/page/async/refresh_indicator_page.dart';
-import 'package:sand_box_002/page/pop_up/tooltip_page.dart';
-import 'package:sand_box_002/page/root_navigation/bottom_app_bar_page.dart';
-import 'package:sand_box_002/page/root_navigation/cupertino_tab_bar_page.dart';
-import 'package:sand_box_002/page/stepper_page.dart';
-import 'package:sand_box_002/page/async/stream_builder_page.dart';
+import 'package:ui_sample/page/async/future_builder_page.dart';
+import 'package:ui_sample/page/async/indicator_page.dart';
+import 'package:ui_sample/page/button/floating_action_button_page.dart';
+import 'package:ui_sample/page/button/icon_button_page.dart';
+import 'package:ui_sample/page/button/segmented_button_page.dart';
+import 'package:ui_sample/page/button/toggle_buttons_page.dart';
+import 'package:ui_sample/page/draggable_page.dart';
+import 'package:ui_sample/page/input_page.dart';
+import 'package:ui_sample/page/list/list_view_page.dart';
+import 'package:ui_sample/page/pop_up/menu_anchor_page.dart';
+import 'package:ui_sample/page/async/refresh_indicator_page.dart';
+import 'package:ui_sample/page/pop_up/tooltip_page.dart';
+import 'package:ui_sample/page/root_navigation/bottom_app_bar_page.dart';
+import 'package:ui_sample/page/root_navigation/cupertino_tab_bar_page.dart';
+import 'package:ui_sample/page/stepper_page.dart';
+import 'package:ui_sample/page/async/stream_builder_page.dart';
 
 import 'data/page_info.dart';
 import 'page/blink_page.dart';
@@ -80,7 +80,7 @@ class MyApp extends StatelessWidget {
     routeMap['/'] = (context) => MyHomePage(pageList: pageList,);
 
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'UI Sample',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,

@@ -1,6 +1,6 @@
 {
-    "name": "sand_box_002",
-    "short_name": "sand_box_002",
+    "name": "ui_sample",
+    "short_name": "ui_sample",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

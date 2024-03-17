@@ -1,4 +1,4 @@
-package jp.gr.java_conf.cotlra.sand_box_002
+package jp.gr.java_conf.cotlra.ui_sample
 
 import io.flutter.embedding.android.FlutterActivity
 

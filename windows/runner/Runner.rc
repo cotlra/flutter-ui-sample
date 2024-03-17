@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "jp.gr.java_conf.cotlra" "\0"
-            VALUE "FileDescription", "sand_box_002" "\0"
+            VALUE "FileDescription", "ui_sample" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "sand_box_002" "\0"
+            VALUE "InternalName", "ui_sample" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 jp.gr.java_conf.cotlra. All rights reserved." "\0"
-            VALUE "OriginalFilename", "sand_box_002.exe" "\0"
-            VALUE "ProductName", "sand_box_002" "\0"
+            VALUE "OriginalFilename", "ui_sample.exe" "\0"
+            VALUE "ProductName", "ui_sample" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
