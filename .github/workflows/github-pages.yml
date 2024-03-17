@@ -1,36 +1,50 @@
-name: deploy flutter web
+name: Deploy static content to Pages
 
 on:
   push:
     branches: ["main"]
+
   workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-      contents: write
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: ./.github/actions/install_flutter_dependencies
-
-      # --base-hrefには、リポジトリ名に変えてください
-      - name: build web
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Repository
+        id: version
         run: |
-          flutter build web --base-href=/widgetbook_sample/
-
-      - uses: actions/upload-pages-artifact@v1
+          REPOSITORY=$(echo ${{ github.repository }} | sed -e "s#.*/##")
+          echo ::set-output name=repository::$REPOSITORY
+      - name: Flutter
+        uses: subosito/flutter-action@v2
         with:
-          path: ./build/web
-
+          flutter-version: '3.0.0'
+          channel: 'stable'
+          cache: true
+      - run: flutter --version
+      - run: flutter pub get
+      - run: flutter build web --web-renderer html --base-href /${{ steps.version.outputs.repository }}/
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './build/web'
+          
   deploy:
     needs: build
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -38,4 +52,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
