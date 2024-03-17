@@ -30,8 +30,21 @@ jobs:
       - run: flutter pub get
       - run: flutter build web --web-renderer html --base-href /${{ steps.version.outputs.repository }}/
 
-      - name: Deploy
-        uses: actions/upload-pages-artifact@v1
+      - name: Upload build artifacts
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./build/web
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest 
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v3
           
