@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../const/style_const.dart';
-
 class ButtonPage extends StatefulWidget {
   const ButtonPage({super.key, required this.title});
 
@@ -14,8 +12,6 @@ class ButtonPage extends StatefulWidget {
 
 class _ButtonPageState extends State<ButtonPage> {
   bool _isDisabled = false;
-  final List<bool> _toggleStateList = [false, false, false];
-
 
   @override
   Widget build(BuildContext context) {

@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../const/style_const.dart';
-
 class ToggleButtonsPage extends StatefulWidget {
   const ToggleButtonsPage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<ToggleButtonsPage> createState() =>
-      _ToggleButtonsPageState();
+  State<ToggleButtonsPage> createState() => _ToggleButtonsPageState();
 }
 
 class _ToggleButtonsPageState extends State<ToggleButtonsPage> {
@@ -38,11 +35,13 @@ class _ToggleButtonsPageState extends State<ToggleButtonsPage> {
             child: Center(
               child: ToggleButtons(
                 isSelected: _toggleStateList,
-                onPressed: _isDisabled ? null : (index){
-                  setState(() {
-                    _toggleStateList[index] = !_toggleStateList[index];
-                  });
-                },
+                onPressed: _isDisabled
+                    ? null
+                    : (index) {
+                        setState(() {
+                          _toggleStateList[index] = !_toggleStateList[index];
+                        });
+                      },
                 children: const [
                   Icon(Icons.home),
                   Icon(Icons.search),

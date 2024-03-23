@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../components/blink.dart';
+import '../../components/blink.dart';
 
 class BlinkPage extends StatefulWidget {
   const BlinkPage({super.key, required this.title});
@@ -11,7 +11,6 @@ class BlinkPage extends StatefulWidget {
 }
 
 class _BlinkPageState extends State<BlinkPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

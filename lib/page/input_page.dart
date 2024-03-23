@@ -19,7 +19,7 @@ class _InputPageState extends State<InputPage> {
   String? _currentPullDownValue;
   double _currentSliderValue1 = 0;
   double _currentSliderValue2 = 0;
-  RangeValues _rangeValues = RangeValues(0, 10);
+  RangeValues _rangeValues = const RangeValues(0, 10);
 
   @override
   Widget build(BuildContext context) {

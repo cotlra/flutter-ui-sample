@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../const/style_const.dart';
-
 class IconButtonPage extends StatefulWidget {
   const IconButtonPage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<IconButtonPage> createState() =>
-      _IconButtonPageState();
+  State<IconButtonPage> createState() => _IconButtonPageState();
 }
 
 class _IconButtonPageState extends State<IconButtonPage> {

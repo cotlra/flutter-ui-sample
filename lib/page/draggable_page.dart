@@ -27,10 +27,10 @@ class _DraggablePageState extends State<DraggablePage> {
                   width: StyleConsts.value128,
                   height: StyleConsts.value128,
                   child: DragTarget<int>(
-                    builder: (BuildContext context, List<int?> candidateData, List<dynamic> rejectedData) {
-                      return Placeholder();
+                    builder: (BuildContext context, List<int?> candidateData,
+                        List<dynamic> rejectedData) {
+                      return const Placeholder();
                     },
-
                   ),
                 ),
               ),
