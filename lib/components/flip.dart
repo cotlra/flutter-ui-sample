@@ -30,7 +30,7 @@ class _FlipState extends State<Flip> {
       transitionBuilder: _transitionBuilder,
       layoutBuilder: (w, list) {
         return Stack(
-          children: [w!, ...list],
+          children: [if (w != null) w, ...list],
         );
       },
       child: widget.isFront
