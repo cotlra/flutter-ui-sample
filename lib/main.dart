@@ -12,12 +12,14 @@ import 'package:ui_sample/page/draggable_page.dart';
 import 'package:ui_sample/page/flutter_logo_page.dart';
 import 'package:ui_sample/page/input_page.dart';
 import 'package:ui_sample/page/list/list_view_page.dart';
+import 'package:ui_sample/page/page_view_page.dart';
 import 'package:ui_sample/page/placeholder_page.dart';
 import 'package:ui_sample/page/pop_up/menu_anchor_page.dart';
 import 'package:ui_sample/page/pop_up/tooltip_page.dart';
 import 'package:ui_sample/page/root_navigation/bottom_app_bar_page.dart';
 import 'package:ui_sample/page/root_navigation/cupertino_tab_bar_page.dart';
 import 'package:ui_sample/page/stepper_page.dart';
+import 'package:ui_sample/page/tab_page_selector.dart';
 
 import 'data/page_info.dart';
 import 'page/animation/blink_page.dart';
@@ -235,7 +237,17 @@ class MyApp extends StatelessWidget {
       PageInfo(
         pageName: 'Placeholder',
         pageRoute: '/placeholder',
-        page: const PlaceholderPage(title: 'placeholder'),
+        page: const PlaceholderPage(title: 'Placeholder'),
+      ),
+      PageInfo(
+        pageName: 'Page View',
+        pageRoute: '/pageView',
+        page: const PageViewPage(title: 'Page View'),
+      ),
+      PageInfo(
+        pageName: 'Tab Page Selector',
+        pageRoute: '/tabPageSelector',
+        page: const TabPageSelectorPage(title: 'Tab Page Selector'),
       ),
       PageInfo(
         pageName: 'お試しページ',
