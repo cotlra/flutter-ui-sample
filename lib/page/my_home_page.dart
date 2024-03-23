@@ -19,12 +19,12 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text('デモ'),
       ),
       body: ListView(
-        children: createListTiles(),
+        children: _createListTiles(),
       ),
     );
   }
 
-  List<Widget> createListTiles() {
+  List<Widget> _createListTiles() {
     List<Widget> allWidgets = [];
     List<Widget> rootNavigationWidgets = [];
     List<Widget> buttonWidgets = [];
@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
     List<Widget> animationWidgets = [];
 
     for (var element in widget.pageList) {
-      var listTile = createListTile(element);
+      var listTile = _createListTile(element);
       if (element.category == PageCategory.rootNavigation) {
         rootNavigationWidgets.add(listTile);
       } else if (element.category == PageCategory.popUp) {
@@ -90,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return allWidgets;
   }
 
-  Widget createListTile(PageInfo page) {
+  Widget _createListTile(PageInfo page) {
     return Column(
       children: [
         ListTile(

@@ -13,7 +13,7 @@ class TabPageSelectorPage extends StatefulWidget {
 class _TabPageSelectorPageState extends State<TabPageSelectorPage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
-  late PageController _pageController = PageController(initialPage: 1);
+  final PageController _pageController = PageController(initialPage: 1);
 
   @override
   void initState() {

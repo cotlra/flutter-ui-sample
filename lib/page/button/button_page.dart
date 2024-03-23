@@ -78,21 +78,6 @@ class _ButtonPageState extends State<ButtonPage> {
                 label: const Text('Text Button'),
                 icon: const Icon(Icons.favorite_border),
               ),
-              // const Divider(),
-              // OverflowBar(
-              //   alignment: MainAxisAlignment.spaceEvenly,
-              //   children: <Widget>[
-              //     TextButton(
-              //         onPressed: _isDisabled ? null : () {},
-              //         child: const Text('Button Bar 1')),
-              //     TextButton(
-              //         onPressed: _isDisabled ? null : () {},
-              //         child: const Text('Button Bar 2')),
-              //     TextButton(
-              //         onPressed: _isDisabled ? null : () {},
-              //         child: const Text('Button Bar 3')),
-              //   ],
-              // ),
             ],
           ),
         ));

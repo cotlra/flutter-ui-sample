@@ -27,13 +27,13 @@ class _PageViewPageState extends State<PageViewPage> {
           children: [
             Container(
               color: Theme.of(context).colorScheme.primaryContainer,
-              child: Center(
+              child: const Center(
                 child: Text('Page 1'),
               ),
             ),
             Container(
               color: Theme.of(context).colorScheme.tertiaryContainer,
-              child: Center(
+              child: const Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -46,7 +46,7 @@ class _PageViewPageState extends State<PageViewPage> {
             ),
             Container(
               color: Theme.of(context).colorScheme.secondaryContainer,
-              child: Center(
+              child: const Center(
                 child: Text('Page 3'),
               ),
             ),
