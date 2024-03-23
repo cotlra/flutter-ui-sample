@@ -9,8 +9,10 @@ import 'package:ui_sample/page/button/icon_button_page.dart';
 import 'package:ui_sample/page/button/segmented_button_page.dart';
 import 'package:ui_sample/page/button/toggle_buttons_page.dart';
 import 'package:ui_sample/page/draggable_page.dart';
+import 'package:ui_sample/page/flutter_logo_page.dart';
 import 'package:ui_sample/page/input_page.dart';
 import 'package:ui_sample/page/list/list_view_page.dart';
+import 'package:ui_sample/page/placeholder_page.dart';
 import 'package:ui_sample/page/pop_up/menu_anchor_page.dart';
 import 'package:ui_sample/page/pop_up/tooltip_page.dart';
 import 'package:ui_sample/page/root_navigation/bottom_app_bar_page.dart';
@@ -224,6 +226,16 @@ class MyApp extends StatelessWidget {
         pageName: 'Draggable',
         pageRoute: '/draggable',
         page: const DraggablePage(title: 'Draggable'),
+      ),
+      PageInfo(
+        pageName: 'Flutter Logo',
+        pageRoute: '/flutterLogo',
+        page: const FlutterLogoPage(title: 'Flutter Logo'),
+      ),
+      PageInfo(
+        pageName: 'Placeholder',
+        pageRoute: '/placeholder',
+        page: const PlaceholderPage(title: 'placeholder'),
       ),
       PageInfo(
         pageName: 'お試しページ',
