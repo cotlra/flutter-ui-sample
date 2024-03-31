@@ -20,6 +20,7 @@ class _InputPageState extends State<InputPage> {
   double _currentSliderValue1 = 0;
   double _currentSliderValue2 = 0;
   RangeValues _rangeValues = const RangeValues(0, 10);
+  String? _radioValue = 'sunny';
 
   @override
   Widget build(BuildContext context) {
@@ -79,6 +80,40 @@ class _InputPageState extends State<InputPage> {
                     _isChecked2 = newValue;
                   });
                 },
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Radio<String>(
+                      value: 'sunny',
+                      groupValue: _radioValue,
+                      onChanged: (newValue) {
+                        setState(() {
+                          _radioValue = newValue;
+                        });
+                      }),
+                  Text('Sunny'),
+                  StyleConsts.sizedBoxW32,
+                  Radio<String>(
+                      value: 'cloudy',
+                      groupValue: _radioValue,
+                      onChanged: (newValue) {
+                        setState(() {
+                          _radioValue = newValue;
+                        });
+                      }),
+                  Text('Cloudy'),
+                  StyleConsts.sizedBoxW32,
+                  Radio<String>(
+                      value: 'rainy',
+                      groupValue: _radioValue,
+                      onChanged: (newValue) {
+                        setState(() {
+                          _radioValue = newValue;
+                        });
+                      }),
+                  Text('Rainy'),
+                ],
               ),
               DropdownMenu(
                 dropdownMenuEntries: const [
