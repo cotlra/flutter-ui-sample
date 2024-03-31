@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class StyleConsts {
-
   StyleConsts._();
   static const TextStyle fontBold = TextStyle(fontWeight: FontWeight.bold);
 
@@ -68,14 +67,22 @@ class StyleConsts {
   static const EdgeInsets paddingR336 = EdgeInsets.only(right: value336);
 
   static const EdgeInsets paddingX8 = EdgeInsets.symmetric(horizontal: value8);
-  static const EdgeInsets paddingX16 = EdgeInsets.symmetric(horizontal: value16);
-  static const EdgeInsets paddingX24 = EdgeInsets.symmetric(horizontal: value24);
-  static const EdgeInsets paddingX32 = EdgeInsets.symmetric(horizontal: value32);
-  static const EdgeInsets paddingX48 = EdgeInsets.symmetric(horizontal: value48);
-  static const EdgeInsets paddingX80 = EdgeInsets.symmetric(horizontal: value80);
-  static const EdgeInsets paddingX128 = EdgeInsets.symmetric(horizontal: value128);
-  static const EdgeInsets paddingX208 = EdgeInsets.symmetric(horizontal: value208);
-  static const EdgeInsets paddingX336 = EdgeInsets.symmetric(horizontal: value336);
+  static const EdgeInsets paddingX16 =
+      EdgeInsets.symmetric(horizontal: value16);
+  static const EdgeInsets paddingX24 =
+      EdgeInsets.symmetric(horizontal: value24);
+  static const EdgeInsets paddingX32 =
+      EdgeInsets.symmetric(horizontal: value32);
+  static const EdgeInsets paddingX48 =
+      EdgeInsets.symmetric(horizontal: value48);
+  static const EdgeInsets paddingX80 =
+      EdgeInsets.symmetric(horizontal: value80);
+  static const EdgeInsets paddingX128 =
+      EdgeInsets.symmetric(horizontal: value128);
+  static const EdgeInsets paddingX208 =
+      EdgeInsets.symmetric(horizontal: value208);
+  static const EdgeInsets paddingX336 =
+      EdgeInsets.symmetric(horizontal: value336);
 
   static const EdgeInsets paddingY8 = EdgeInsets.symmetric(vertical: value8);
   static const EdgeInsets paddingY16 = EdgeInsets.symmetric(vertical: value16);
@@ -83,9 +90,12 @@ class StyleConsts {
   static const EdgeInsets paddingY32 = EdgeInsets.symmetric(vertical: value32);
   static const EdgeInsets paddingY48 = EdgeInsets.symmetric(vertical: value48);
   static const EdgeInsets paddingY80 = EdgeInsets.symmetric(vertical: value80);
-  static const EdgeInsets paddingY128 = EdgeInsets.symmetric(vertical: value128);
-  static const EdgeInsets paddingY208 = EdgeInsets.symmetric(vertical: value208);
-  static const EdgeInsets paddingY336 = EdgeInsets.symmetric(vertical: value336);
+  static const EdgeInsets paddingY128 =
+      EdgeInsets.symmetric(vertical: value128);
+  static const EdgeInsets paddingY208 =
+      EdgeInsets.symmetric(vertical: value208);
+  static const EdgeInsets paddingY336 =
+      EdgeInsets.symmetric(vertical: value336);
 
   static const SizedBox sizedBoxH8 = SizedBox(height: value8);
   static const SizedBox sizedBoxH16 = SizedBox(height: value16);
@@ -108,4 +118,17 @@ class StyleConsts {
   static const SizedBox sizedBoxW336 = SizedBox(width: value336);
 
   static const SizedBox sizedBox0 = SizedBox.shrink();
+
+  static const BorderRadiusGeometry borderRadiusCircle4 =
+      BorderRadius.all(Radius.circular(value4));
+  static const BorderRadiusGeometry borderRadiusCircle8 =
+      BorderRadius.all(Radius.circular(value8));
+  static const BorderRadiusGeometry borderRadiusCircle16 =
+      BorderRadius.all(Radius.circular(value16));
+  static const BorderRadiusGeometry borderRadiusCircle32 =
+      BorderRadius.all(Radius.circular(value32));
+  static const BorderRadiusGeometry borderRadiusCircle48 =
+      BorderRadius.all(Radius.circular(value48));
+  static const BorderRadiusGeometry borderRadiusCircle80 =
+      BorderRadius.all(Radius.circular(value80));
 }

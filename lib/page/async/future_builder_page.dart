@@ -17,7 +17,7 @@ class _FutureBuilderPageState extends State<FutureBuilderPage> {
   void initState() {
     _future = Future<String>.delayed(
       const Duration(seconds: 2),
-          () => 'Data Loaded',
+      () => 'Data Loaded',
     );
     super.initState();
   }
@@ -32,17 +32,27 @@ class _FutureBuilderPageState extends State<FutureBuilderPage> {
         child: FutureBuilder<String>(
           future: _future,
           builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-            if(snapshot.hasData){
-              return Text('読み込み完了！',style: Theme.of(context).textTheme.displaySmall,);
-            }else if(snapshot.hasError){
-              return Text('読み込み失敗…',style: Theme.of(context).textTheme.displaySmall,);
-            }else{
+            if (snapshot.hasData) {
+              return Text(
+                '読み込み完了！\nデータ：${snapshot.data!}',
+                style: Theme.of(context).textTheme.displaySmall,
+              );
+            } else if (snapshot.hasError) {
+              return Text(
+                '読み込み失敗…\nデータ：${snapshot.error}',
+                style: Theme.of(context).textTheme.displaySmall,
+              );
+            } else {
               return Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text('読み込み中', style: Theme.of(context).textTheme.bodyLarge,),
+                  Text(
+                    '読み込み中',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
                   StyleConsts.sizedBoxH16,
-                  const CircularProgressIndicator()],
+                  const CircularProgressIndicator()
+                ],
               );
             }
           },
