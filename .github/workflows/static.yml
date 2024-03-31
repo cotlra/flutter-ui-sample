@@ -31,6 +31,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Repository
+        id: version
+        run: |
+          REPOSITORY=$(echo ${{ github.repository }} | sed -e "s#.*/##")
+          echo "repository=$REPOSITORY" >> $GITHUB_OUTPUT
       - name: Flutter
         uses: subosito/flutter-action@v2
         with:
@@ -39,7 +44,7 @@ jobs:
           cache: true
       - run: flutter --version
       - run: flutter pub get
-      - run: flutter build web --base-href /flutter-ui-sample/
+      - run: flutter build web --base-href /${{ steps.version.outputs.repository }}/
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
