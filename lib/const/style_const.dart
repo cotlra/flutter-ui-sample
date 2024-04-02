@@ -119,16 +119,23 @@ class StyleConsts {
 
   static const SizedBox sizedBox0 = SizedBox.shrink();
 
+  static const Radius radiusCircle4 = Radius.circular(value4);
+  static const Radius radiusCircle8 = Radius.circular(value8);
+  static const Radius radiusCircle16 = Radius.circular(value16);
+  static const Radius radiusCircle32 = Radius.circular(value32);
+  static const Radius radiusCircle48 = Radius.circular(value48);
+  static const Radius radiusCircle80 = Radius.circular(value80);
+
   static const BorderRadiusGeometry borderRadiusCircle4 =
-      BorderRadius.all(Radius.circular(value4));
+      BorderRadius.all(radiusCircle4);
   static const BorderRadiusGeometry borderRadiusCircle8 =
-      BorderRadius.all(Radius.circular(value8));
+      BorderRadius.all(radiusCircle8);
   static const BorderRadiusGeometry borderRadiusCircle16 =
-      BorderRadius.all(Radius.circular(value16));
+      BorderRadius.all(radiusCircle16);
   static const BorderRadiusGeometry borderRadiusCircle32 =
-      BorderRadius.all(Radius.circular(value32));
+      BorderRadius.all(radiusCircle32);
   static const BorderRadiusGeometry borderRadiusCircle48 =
-      BorderRadius.all(Radius.circular(value48));
+      BorderRadius.all(radiusCircle48);
   static const BorderRadiusGeometry borderRadiusCircle80 =
-      BorderRadius.all(Radius.circular(value80));
+      BorderRadius.all(radiusCircle80);
 }
