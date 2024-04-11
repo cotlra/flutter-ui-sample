@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_sample/page/object/container_page.dart';
+import 'package:ui_sample/page/other/sliver_page.dart';
 import 'package:ui_sample/page/scroll/scrollbar_page.dart';
 import 'package:ui_sample/page/theme/color_theme_page.dart';
 import 'package:ui_sample/page/theme/text_theme_page.dart';
@@ -15,17 +16,18 @@ import '../page/button/floating_action_button_page.dart';
 import '../page/button/icon_button_page.dart';
 import '../page/button/segmented_button_page.dart';
 import '../page/button/toggle_buttons_page.dart';
-import '../page/data_table_page.dart';
-import '../page/draggable_page.dart';
 import '../page/free_page.dart';
-import '../page/input_page.dart';
 import '../page/list/list_tile_page.dart';
 import '../page/list/list_view_builder_page.dart';
 import '../page/list/list_view_page.dart';
 import '../page/list/reorderable_list_view_page.dart';
-import '../page/navigator.dart';
 import '../page/object/flutter_logo_page.dart';
 import '../page/object/placeholder_page.dart';
+import '../page/other/data_table_page.dart';
+import '../page/other/draggable_page.dart';
+import '../page/other/input_page.dart';
+import '../page/other/navigator.dart';
+import '../page/other/stepper_page.dart';
 import '../page/pop_up/dialog_page.dart';
 import '../page/pop_up/menu_anchor_page.dart';
 import '../page/pop_up/picker_page.dart';
@@ -41,7 +43,6 @@ import '../page/root_navigation/tab_bar_page.dart';
 import '../page/scroll/page_view_page.dart';
 import '../page/scroll/single_child_scroll_view_page.dart';
 import '../page/scroll/tab_page_selector.dart';
-import '../page/stepper_page.dart';
 
 class PageInfo {
   final String pageName;
@@ -246,6 +247,18 @@ class PageList {
       page: const FlipCardPage(title: 'カードの回転'),
     ),
   ];
+  final themeList = [
+    PageInfo(
+      pageName: 'Text Theme',
+      pageRoute: '/textTheme',
+      page: const TextThemePage(title: 'Text Theme'),
+    ),
+    PageInfo(
+      pageName: 'Color Theme',
+      pageRoute: '/colorTheme',
+      page: const ColorThemePage(title: 'Color Theme'),
+    ),
+  ];
   final otherList = [
     PageInfo(
       pageName: 'Data Table',
@@ -273,22 +286,14 @@ class PageList {
       page: const NavigatorPage(title: 'Navigator（画面遷移）'),
     ),
     PageInfo(
+      pageName: 'Sliver',
+      pageRoute: '/sliver',
+      page: const SliverPage(title: 'Sliver'),
+    ),
+    PageInfo(
       pageName: 'お試しページ',
       pageRoute: '/free',
       page: const FreePage(title: 'お試しページ'),
-    ),
-  ];
-
-  final themeList = [
-    PageInfo(
-      pageName: 'Text Theme',
-      pageRoute: '/textTheme',
-      page: const TextThemePage(title: 'Text Theme'),
-    ),
-    PageInfo(
-      pageName: 'Color Theme',
-      pageRoute: '/colorTheme',
-      page: const ColorThemePage(title: 'Color Theme'),
     ),
   ];
 
