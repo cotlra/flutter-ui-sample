@@ -24,29 +24,32 @@ class _StreamBuilderPageState extends State<StreamBuilderPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: StreamBuilder<String>(
-          stream: _stream,
-          builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-            String? message = 'エラー; ;';
-            if(snapshot.hasData){
-              message = snapshot.data;
-            }
-            return Text(message ?? '',style: Theme.of(context).textTheme.displaySmall,);
-          },
-
+      body: SafeArea(
+        child: Center(
+          child: StreamBuilder<String>(
+            stream: _stream,
+            builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+              String? message = 'エラー; ;';
+              if (snapshot.hasData) {
+                message = snapshot.data;
+              }
+              return Text(
+                message ?? '',
+                style: Theme.of(context).textTheme.displaySmall,
+              );
+            },
+          ),
         ),
       ),
     );
   }
 
-  Stream<String> clock()async*{
-    while(true){
+  Stream<String> clock() async* {
+    while (true) {
       var now = DateTime.now();
       DateFormat format = DateFormat('yyyy/MM/dd hh:mm:ss');
-      yield  format.format(now);
+      yield format.format(now);
       await Future<void>.delayed(const Duration(milliseconds: 500));
     }
   }
-
 }

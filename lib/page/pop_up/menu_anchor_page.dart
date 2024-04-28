@@ -16,47 +16,49 @@ class _MenuAnchorPageState extends State<MenuAnchorPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: MenuAnchor(
-          builder: (context, controller, child) {
-            return IconButton(
-              onPressed: () {
-                if (controller.isOpen) {
-                  controller.close();
-                } else {
-                  controller.open();
-                }
-              },
-              icon: const Icon(Icons.more_vert),
-            );
-          },
-          menuChildren: [
-            MenuItemButton(
-              child: const Text('Menu 1'),
-              onPressed: () {},
-            ),
-            MenuItemButton(
-              child: const Text('Menu 2'),
-              onPressed: () {},
-            ),
-            SubmenuButton(
-              menuChildren: <Widget>[
-                MenuItemButton(
-                  onPressed: () {},
-                  child: const Text('Menu 3.1'),
-                ),
-                MenuItemButton(
-                  onPressed: () {},
-                  child: const Text('Menu 3.2'),
-                ),
-                MenuItemButton(
-                  onPressed: () {},
-                  child: const Text('Menu 3.3'),
-                ),
-              ],
-              child: const Text('Menu 3'),
-            ),
-          ],
+      body: SafeArea(
+        child: Center(
+          child: MenuAnchor(
+            builder: (context, controller, child) {
+              return IconButton(
+                onPressed: () {
+                  if (controller.isOpen) {
+                    controller.close();
+                  } else {
+                    controller.open();
+                  }
+                },
+                icon: const Icon(Icons.more_vert),
+              );
+            },
+            menuChildren: [
+              MenuItemButton(
+                child: const Text('Menu 1'),
+                onPressed: () {},
+              ),
+              MenuItemButton(
+                child: const Text('Menu 2'),
+                onPressed: () {},
+              ),
+              SubmenuButton(
+                menuChildren: <Widget>[
+                  MenuItemButton(
+                    onPressed: () {},
+                    child: const Text('Menu 3.1'),
+                  ),
+                  MenuItemButton(
+                    onPressed: () {},
+                    child: const Text('Menu 3.2'),
+                  ),
+                  MenuItemButton(
+                    onPressed: () {},
+                    child: const Text('Menu 3.3'),
+                  ),
+                ],
+                child: const Text('Menu 3'),
+              ),
+            ],
+          ),
         ),
       ),
     );

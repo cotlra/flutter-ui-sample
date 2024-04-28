@@ -26,57 +26,59 @@ class _FloatingActionButtonPageState extends State<FloatingActionButtonPage> {
         heroTag: "hero1",
         child: const Icon(Icons.add),
       ),
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          SwitchListTile(
-              title: const Text('非活性'),
-              value: _isDisabled,
-              onChanged: (newValue) {
-                setState(() {
-                  _isDisabled = newValue;
-                });
-              }),
-          const Divider(),
-          Expanded(
-            child: Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      FloatingActionButton.small(
-                        onPressed: _isDisabled ? null : () {},
-                        heroTag: "hero2",
-                        child: const Icon(Icons.add),
-                      ),
-                      StyleConsts.sizedBoxW16,
-                      FloatingActionButton(
-                        onPressed: _isDisabled ? null : () {},
-                        heroTag: "hero3",
-                        child: const Icon(Icons.add),
-                      ),
-                      StyleConsts.sizedBoxW16,
-                      FloatingActionButton.large(
-                        onPressed: _isDisabled ? null : () {},
-                        heroTag: "hero4",
-                        child: const Icon(Icons.add),
-                      ),
-                    ],
-                  ),
-                  StyleConsts.sizedBoxH16,
-                  FloatingActionButton.extended(
-                    onPressed: _isDisabled ? null : () {},
-                    heroTag: "hero5",
-                    label: const Text('add'),
-                    icon: const Icon(Icons.add),
-                  ),
-                ],
+      body: SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            SwitchListTile(
+                title: const Text('非活性'),
+                value: _isDisabled,
+                onChanged: (newValue) {
+                  setState(() {
+                    _isDisabled = newValue;
+                  });
+                }),
+            const Divider(),
+            Expanded(
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        FloatingActionButton.small(
+                          onPressed: _isDisabled ? null : () {},
+                          heroTag: "hero2",
+                          child: const Icon(Icons.add),
+                        ),
+                        StyleConsts.sizedBoxW16,
+                        FloatingActionButton(
+                          onPressed: _isDisabled ? null : () {},
+                          heroTag: "hero3",
+                          child: const Icon(Icons.add),
+                        ),
+                        StyleConsts.sizedBoxW16,
+                        FloatingActionButton.large(
+                          onPressed: _isDisabled ? null : () {},
+                          heroTag: "hero4",
+                          child: const Icon(Icons.add),
+                        ),
+                      ],
+                    ),
+                    StyleConsts.sizedBoxH16,
+                    FloatingActionButton.extended(
+                      onPressed: _isDisabled ? null : () {},
+                      heroTag: "hero5",
+                      label: const Text('add'),
+                      icon: const Icon(Icons.add),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -18,42 +18,44 @@ class _SingleChildScrollViewPageState extends State<SingleChildScrollViewPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: SizedBox(
-        width: double.infinity,
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                color: Theme.of(context).primaryColor,
-                height: StyleConsts.value208,
-                width: StyleConsts.value208,
-              ),
-              const SizedBox(
-                height: StyleConsts.value72,
-              ),
-              Container(
-                color: Theme.of(context).primaryColor,
-                height: StyleConsts.value208,
-                width: StyleConsts.value208,
-              ),
-              const SizedBox(
-                height: StyleConsts.value72,
-              ),
-              Container(
-                color: Theme.of(context).primaryColor,
-                height: StyleConsts.value208,
-                width: StyleConsts.value208,
-              ),
-              const SizedBox(
-                height: StyleConsts.value72,
-              ),
-              Container(
-                color: Theme.of(context).primaryColor,
-                height: StyleConsts.value208,
-                width: StyleConsts.value208,
-              ),
-            ],
+      body: SafeArea(
+        child: SizedBox(
+          width: double.infinity,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  color: Theme.of(context).primaryColor,
+                  height: StyleConsts.value208,
+                  width: StyleConsts.value208,
+                ),
+                const SizedBox(
+                  height: StyleConsts.value72,
+                ),
+                Container(
+                  color: Theme.of(context).primaryColor,
+                  height: StyleConsts.value208,
+                  width: StyleConsts.value208,
+                ),
+                const SizedBox(
+                  height: StyleConsts.value72,
+                ),
+                Container(
+                  color: Theme.of(context).primaryColor,
+                  height: StyleConsts.value208,
+                  width: StyleConsts.value208,
+                ),
+                const SizedBox(
+                  height: StyleConsts.value72,
+                ),
+                Container(
+                  color: Theme.of(context).primaryColor,
+                  height: StyleConsts.value208,
+                  width: StyleConsts.value208,
+                ),
+              ],
+            ),
           ),
         ),
       ),

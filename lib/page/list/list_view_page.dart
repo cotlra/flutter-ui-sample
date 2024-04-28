@@ -24,12 +24,14 @@ class _ListViewPageState extends State<ListViewPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: ListView.builder(
-        itemBuilder: (BuildContext context, int index) {
-          return ListTile(
-            title: Text(_values[index].toString()),
-          );
-        },
+      body: SafeArea(
+        child: ListView.builder(
+          itemBuilder: (BuildContext context, int index) {
+            return ListTile(
+              title: Text(_values[index].toString()),
+            );
+          },
+        ),
       ),
     );
   }

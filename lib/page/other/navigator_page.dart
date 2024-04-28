@@ -17,35 +17,37 @@ class _NavigatorPageState extends State<NavigatorPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ElevatedButton(
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const NavigatorChildPage(
+                              title: 'Navigator Child（push）');
+                        },
+                      ),
+                    );
+                  },
+                  child: const Text('push')),
+              StyleConsts.sizedBoxH32,
+              ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return const NavigatorChildPage(
-                            title: 'Navigator Child（push）');
-                      },
-                    ),
-                  );
+                  // main.dartにrouteの設定が必要
+                  // {
+                  //  '/': (context) => const MyHomePage(title: '…'),
+                  //  '/navigatorChild': (context) => const NavigatorChildPage(title: '…'),
+                  // }
+                  Navigator.of(context).pushNamed('/navigatorChild');
                 },
-                child: const Text('push')),
-            StyleConsts.sizedBoxH32,
-            ElevatedButton(
-              onPressed: () {
-                // main.dartにrouteの設定が必要
-                // {
-                //  '/': (context) => const MyHomePage(title: '…'),
-                //  '/navigatorChild': (context) => const NavigatorChildPage(title: '…'),
-                // }
-                Navigator.of(context).pushNamed('/navigatorChild');
-              },
-              child: const Text('pushNamed'),
-            ),
-          ],
+                child: const Text('pushNamed'),
+              ),
+            ],
+          ),
         ),
       ),
     );

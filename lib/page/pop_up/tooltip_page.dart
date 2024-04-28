@@ -17,14 +17,15 @@ class _TooltipPageState extends State<TooltipPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
+      body: SafeArea(
+        child: Center(
+            child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
               icon: const Icon(Icons.info_outline),
               tooltip: 'Tooltip（プロパティ）',
-              onPressed: () {  },
+              onPressed: () {},
             ),
             StyleConsts.sizedBoxH16,
             Tooltip(
@@ -38,7 +39,7 @@ class _TooltipPageState extends State<TooltipPage> {
               ),
             )
           ],
-        )
+        )),
       ),
     );
   }

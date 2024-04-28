@@ -19,38 +19,40 @@ class _ToggleButtonsPageState extends State<ToggleButtonsPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          SwitchListTile(
-              title: const Text('非活性'),
-              value: _isDisabled,
-              onChanged: (newValue) {
-                setState(() {
-                  _isDisabled = newValue;
-                });
-              }),
-          const Divider(),
-          Expanded(
-            child: Center(
-              child: ToggleButtons(
-                isSelected: _toggleStateList,
-                onPressed: _isDisabled
-                    ? null
-                    : (index) {
-                        setState(() {
-                          _toggleStateList[index] = !_toggleStateList[index];
-                        });
-                      },
-                children: const [
-                  Icon(Icons.home),
-                  Icon(Icons.search),
-                  Icon(Icons.settings),
-                ],
+      body: SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            SwitchListTile(
+                title: const Text('非活性'),
+                value: _isDisabled,
+                onChanged: (newValue) {
+                  setState(() {
+                    _isDisabled = newValue;
+                  });
+                }),
+            const Divider(),
+            Expanded(
+              child: Center(
+                child: ToggleButtons(
+                  isSelected: _toggleStateList,
+                  onPressed: _isDisabled
+                      ? null
+                      : (index) {
+                          setState(() {
+                            _toggleStateList[index] = !_toggleStateList[index];
+                          });
+                        },
+                  children: const [
+                    Icon(Icons.home),
+                    Icon(Icons.search),
+                    Icon(Icons.settings),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

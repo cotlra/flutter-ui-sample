@@ -26,43 +26,45 @@ class _TabPageSelectorPageState extends State<TabPageSelectorPage>
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Expanded(
-              child: PageView(
-                onPageChanged: (newValue) {
-                  setState(() {
-                    _tabController.index = newValue;
-                  });
-                },
-                controller: _pageController,
-                children: const [
-                  Center(
-                    child: Text('Page 1'),
-                  ),
-                  Center(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text('左右にスクロールできます。'),
-                        StyleConsts.sizedBoxH16,
-                        Text('Page 2'),
-                      ],
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Expanded(
+                child: PageView(
+                  onPageChanged: (newValue) {
+                    setState(() {
+                      _tabController.index = newValue;
+                    });
+                  },
+                  controller: _pageController,
+                  children: const [
+                    Center(
+                      child: Text('Page 1'),
                     ),
-                  ),
-                  Center(
-                    child: Text('Page 3'),
-                  ),
-                ],
+                    Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text('左右にスクロールできます。'),
+                          StyleConsts.sizedBoxH16,
+                          Text('Page 2'),
+                        ],
+                      ),
+                    ),
+                    Center(
+                      child: Text('Page 3'),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            TabPageSelector(
-              controller: _tabController,
-            ),
-            StyleConsts.sizedBoxH32,
-          ],
+              TabPageSelector(
+                controller: _tabController,
+              ),
+              StyleConsts.sizedBoxH32,
+            ],
+          ),
         ),
       ),
     );

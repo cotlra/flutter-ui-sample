@@ -17,10 +17,12 @@ class _BlinkPageState extends State<BlinkPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: const Center(
-        child: Blink(
-          duration: Duration(seconds: 1),
-          child: Text('点滅します'),
+      body: const SafeArea(
+        child: Center(
+          child: Blink(
+            duration: Duration(seconds: 1),
+            child: Text('点滅します'),
+          ),
         ),
       ),
     );

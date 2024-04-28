@@ -28,148 +28,151 @@ class _InputPageState extends State<InputPage> {
         appBar: AppBar(
           title: Text(widget.title),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(
-                width: StyleConsts.value208,
-                child: TextField(),
-              ),
-              StyleConsts.sizedBoxH16,
-              const SizedBox(
-                width: StyleConsts.value208,
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const SizedBox(
+                  width: StyleConsts.value208,
+                  child: TextField(),
+                ),
+                StyleConsts.sizedBoxH16,
+                const SizedBox(
+                  width: StyleConsts.value208,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                    ),
                   ),
                 ),
-              ),
-              StyleConsts.sizedBoxH16,
-              const SizedBox(
-                width: StyleConsts.value208,
-                child: CupertinoTextField(),
-              ),
-              Switch(
-                value: _isSwitched1,
-                onChanged: (newValue) {
-                  setState(() {
-                    _isSwitched1 = newValue;
-                  });
-                },
-              ),
-              CupertinoSwitch(
-                value: _isSwitched2,
-                onChanged: (newValue) {
-                  setState(() {
-                    _isSwitched2 = newValue;
-                  });
-                },
-              ),
-              Checkbox(
-                value: _isChecked1,
-                onChanged: (newValue) {
-                  setState(() {
-                    _isChecked1 = newValue;
-                  });
-                },
-              ),
-              CupertinoCheckbox(
-                value: _isChecked2,
-                onChanged: (newValue) {
-                  setState(() {
-                    _isChecked2 = newValue;
-                  });
-                },
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Radio<String>(
-                      value: 'sunny',
-                      groupValue: _radioValue,
-                      onChanged: (newValue) {
-                        setState(() {
-                          _radioValue = newValue;
-                        });
-                      }),
-                  Text('Sunny'),
-                  StyleConsts.sizedBoxW32,
-                  Radio<String>(
-                      value: 'cloudy',
-                      groupValue: _radioValue,
-                      onChanged: (newValue) {
-                        setState(() {
-                          _radioValue = newValue;
-                        });
-                      }),
-                  Text('Cloudy'),
-                  StyleConsts.sizedBoxW32,
-                  Radio<String>(
-                      value: 'rainy',
-                      groupValue: _radioValue,
-                      onChanged: (newValue) {
-                        setState(() {
-                          _radioValue = newValue;
-                        });
-                      }),
-                  Text('Rainy'),
-                ],
-              ),
-              DropdownMenu(
-                dropdownMenuEntries: const [
-                  DropdownMenuEntry(value: '項目1', label: '項目1'),
-                  DropdownMenuEntry(value: '項目2', label: '項目2'),
-                  DropdownMenuEntry(value: '項目3', label: '項目3'),
-                ],
-                onSelected: (value) {
-                  _currentPullDownValue = value;
-                },
-              ),
-              StyleConsts.sizedBoxH16,
-              DropdownMenu(
-                inputDecorationTheme: const InputDecorationTheme(filled: true),
-                dropdownMenuEntries: const [
-                  DropdownMenuEntry(value: '項目1', label: '項目1'),
-                  DropdownMenuEntry(value: '項目2', label: '項目2'),
-                  DropdownMenuEntry(value: '項目3', label: '項目3'),
-                ],
-                onSelected: (value) {
-                  _currentPullDownValue = value;
-                },
-              ),
-              Slider(
-                value: _currentSliderValue1,
-                max: 100,
-                divisions: 10,
-                label: _currentSliderValue1.round().toString(),
-                onChanged: (double value) {
-                  setState(() {
-                    _currentSliderValue1 = value;
-                  });
-                },
-              ),
-              RangeSlider(
-                max: 100,
-                min: 0,
-                divisions: 10,
-                values: _rangeValues,
-                onChanged: (RangeValues value) {
-                  setState(() {
-                    _rangeValues = value;
-                  });
-                },
-              ),
-              CupertinoSlider(
-                value: _currentSliderValue2,
-                max: 100,
-                divisions: 10,
-                onChanged: (double value) {
-                  setState(() {
-                    _currentSliderValue2 = value;
-                  });
-                },
-              ),
-            ],
+                StyleConsts.sizedBoxH16,
+                const SizedBox(
+                  width: StyleConsts.value208,
+                  child: CupertinoTextField(),
+                ),
+                Switch(
+                  value: _isSwitched1,
+                  onChanged: (newValue) {
+                    setState(() {
+                      _isSwitched1 = newValue;
+                    });
+                  },
+                ),
+                CupertinoSwitch(
+                  value: _isSwitched2,
+                  onChanged: (newValue) {
+                    setState(() {
+                      _isSwitched2 = newValue;
+                    });
+                  },
+                ),
+                Checkbox(
+                  value: _isChecked1,
+                  onChanged: (newValue) {
+                    setState(() {
+                      _isChecked1 = newValue;
+                    });
+                  },
+                ),
+                CupertinoCheckbox(
+                  value: _isChecked2,
+                  onChanged: (newValue) {
+                    setState(() {
+                      _isChecked2 = newValue;
+                    });
+                  },
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Radio<String>(
+                        value: 'sunny',
+                        groupValue: _radioValue,
+                        onChanged: (newValue) {
+                          setState(() {
+                            _radioValue = newValue;
+                          });
+                        }),
+                    Text('Sunny'),
+                    StyleConsts.sizedBoxW32,
+                    Radio<String>(
+                        value: 'cloudy',
+                        groupValue: _radioValue,
+                        onChanged: (newValue) {
+                          setState(() {
+                            _radioValue = newValue;
+                          });
+                        }),
+                    Text('Cloudy'),
+                    StyleConsts.sizedBoxW32,
+                    Radio<String>(
+                        value: 'rainy',
+                        groupValue: _radioValue,
+                        onChanged: (newValue) {
+                          setState(() {
+                            _radioValue = newValue;
+                          });
+                        }),
+                    Text('Rainy'),
+                  ],
+                ),
+                DropdownMenu(
+                  dropdownMenuEntries: const [
+                    DropdownMenuEntry(value: '項目1', label: '項目1'),
+                    DropdownMenuEntry(value: '項目2', label: '項目2'),
+                    DropdownMenuEntry(value: '項目3', label: '項目3'),
+                  ],
+                  onSelected: (value) {
+                    _currentPullDownValue = value;
+                  },
+                ),
+                StyleConsts.sizedBoxH16,
+                DropdownMenu(
+                  inputDecorationTheme:
+                      const InputDecorationTheme(filled: true),
+                  dropdownMenuEntries: const [
+                    DropdownMenuEntry(value: '項目1', label: '項目1'),
+                    DropdownMenuEntry(value: '項目2', label: '項目2'),
+                    DropdownMenuEntry(value: '項目3', label: '項目3'),
+                  ],
+                  onSelected: (value) {
+                    _currentPullDownValue = value;
+                  },
+                ),
+                Slider(
+                  value: _currentSliderValue1,
+                  max: 100,
+                  divisions: 10,
+                  label: _currentSliderValue1.round().toString(),
+                  onChanged: (double value) {
+                    setState(() {
+                      _currentSliderValue1 = value;
+                    });
+                  },
+                ),
+                RangeSlider(
+                  max: 100,
+                  min: 0,
+                  divisions: 10,
+                  values: _rangeValues,
+                  onChanged: (RangeValues value) {
+                    setState(() {
+                      _rangeValues = value;
+                    });
+                  },
+                ),
+                CupertinoSlider(
+                  value: _currentSliderValue2,
+                  max: 100,
+                  divisions: 10,
+                  onChanged: (double value) {
+                    setState(() {
+                      _currentSliderValue2 = value;
+                    });
+                  },
+                ),
+              ],
+            ),
           ),
         ));
   }

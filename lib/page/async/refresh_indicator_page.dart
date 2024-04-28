@@ -15,40 +15,53 @@ class _RefreshIndicatorPageState extends State<RefreshIndicatorPage> {
   int _value = 0;
   @override
   void initState() {
-    _future = Future<String>.delayed(const Duration(seconds: 1),(){
-      _data = List.generate(12, (index) => '項目$index');
-      return 'Data Loaded';
-    },);
+    _future = Future<String>.delayed(
+      const Duration(seconds: 1),
+      () {
+        _data = List.generate(12, (index) => '項目$index');
+        return 'Data Loaded';
+      },
+    );
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: RefreshIndicator(
-        onRefresh: ()async{
-          await Future.delayed(const Duration(seconds: 1));
-          setState(() {
-            _value += 12;
-            _data = List.generate(12, (index) => '項目${index+_value}');
-          });
-
-        },
-        child: FutureBuilder(
-          future: _future,
-          builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-            if(snapshot.hasData){
-                return ListView(children: _data!.map((e) => ListTile(title: Text(e),)).toList(),);
-            }else if(snapshot.hasError){
-              return const Center(child: Text('読み込み失敗…'),);
-            }else{
-                return const Center(child: CircularProgressIndicator(),);
-            }
-          },
-
-        )
+      body: SafeArea(
+        child: RefreshIndicator(
+            onRefresh: () async {
+              await Future.delayed(const Duration(seconds: 1));
+              setState(() {
+                _value += 12;
+                _data = List.generate(12, (index) => '項目${index + _value}');
+              });
+            },
+            child: FutureBuilder(
+              future: _future,
+              builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                if (snapshot.hasData) {
+                  return ListView(
+                    children: _data!
+                        .map((e) => ListTile(
+                              title: Text(e),
+                            ))
+                        .toList(),
+                  );
+                } else if (snapshot.hasError) {
+                  return const Center(
+                    child: Text('読み込み失敗…'),
+                  );
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              },
+            )),
       ),
     );
   }

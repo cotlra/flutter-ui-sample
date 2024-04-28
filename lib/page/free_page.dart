@@ -16,7 +16,14 @@ class _FreePageState extends State<FreePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: const Placeholder(),
+      body: const SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [],
+          ),
+        ),
+      ),
     );
   }
 }

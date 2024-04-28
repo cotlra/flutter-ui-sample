@@ -16,8 +16,10 @@ class _FlutterLogoPageState extends State<FlutterLogoPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: const Center(
-        child: FlutterLogo(),
+      body: const SafeArea(
+        child: Center(
+          child: FlutterLogo(),
+        ),
       ),
     );
   }

@@ -16,12 +16,12 @@ class _PageState extends State<Page> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: const Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-
-          ],
+      body: const SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [],
+          ),
         ),
       ),
     );

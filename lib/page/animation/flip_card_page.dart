@@ -21,21 +21,23 @@ class _FlipCardPageState extends State<FlipCardPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Container(
-          constraints:
-              BoxConstraints.tight(const Size.square(StyleConsts.value208)),
-          child: GestureDetector(
-            onTap: () {
-              setState(() {
-                _showFrontSide = !_showFrontSide;
-              });
-            },
-            child: Flip(
-              isFront: _showFrontSide,
-              front: _frontCard(),
-              back: _rearCard(),
-              rotateX: false,
+      body: SafeArea(
+        child: Center(
+          child: Container(
+            constraints:
+                BoxConstraints.tight(const Size.square(StyleConsts.value208)),
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  _showFrontSide = !_showFrontSide;
+                });
+              },
+              child: Flip(
+                isFront: _showFrontSide,
+                front: _frontCard(),
+                back: _rearCard(),
+                rotateX: false,
+              ),
             ),
           ),
         ),

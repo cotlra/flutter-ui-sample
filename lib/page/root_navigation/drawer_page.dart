@@ -21,24 +21,26 @@ class _DrawerPageState extends State<DrawerPage> {
       ),
       drawer: _createDrawer(),
       endDrawer: _createDrawer(),
-      body: Center(
-          child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Text('ここに選択したメニューが表示されます。'),
-          Text(
-            _menuName,
-            style: Theme.of(context).textTheme.headlineSmall,
-          ),
-          StyleConsts.sizedBoxH16,
-          ElevatedButton(
-            child: const Text('前のページへ戻る'),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ],
-      )),
+      body: SafeArea(
+        child: Center(
+            child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text('ここに選択したメニューが表示されます。'),
+            Text(
+              _menuName,
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
+            StyleConsts.sizedBoxH16,
+            ElevatedButton(
+              child: const Text('前のページへ戻る'),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        )),
+      ),
     );
   }
 

@@ -18,8 +18,10 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: const Text('デモ'),
       ),
-      body: ListView(
-        children: _createListTiles(),
+      body: SafeArea(
+        child: ListView(
+          children: _createListTiles(),
+        ),
       ),
     );
   }

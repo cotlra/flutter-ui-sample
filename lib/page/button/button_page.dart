@@ -19,66 +19,68 @@ class _ButtonPageState extends State<ButtonPage> {
         appBar: AppBar(
           title: Text(widget.title),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              SwitchListTile(
-                  title: const Text('非活性'),
-                  value: _isDisabled,
-                  onChanged: (newValue) {
-                    setState(() {
-                      _isDisabled = newValue;
-                    });
-                  }),
-              const Divider(),
-              ElevatedButton(
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SwitchListTile(
+                    title: const Text('非活性'),
+                    value: _isDisabled,
+                    onChanged: (newValue) {
+                      setState(() {
+                        _isDisabled = newValue;
+                      });
+                    }),
+                const Divider(),
+                ElevatedButton(
+                    onPressed: _isDisabled ? null : () {},
+                    child: const Text('Elevated Button')),
+                FilledButton(
+                    onPressed: _isDisabled ? null : () {},
+                    child: const Text('Filled Button')),
+                FilledButton.tonal(
+                    onPressed: _isDisabled ? null : () {},
+                    child: const Text('Filled Button')),
+                OutlinedButton(
+                    onPressed: _isDisabled ? null : () {},
+                    child: const Text('Outlined Button')),
+                TextButton(
+                    onPressed: _isDisabled ? null : () {},
+                    child: const Text('Text Button')),
+                CupertinoButton(
+                    onPressed: _isDisabled ? null : () {},
+                    child: const Text('Cupertino Button')),
+                CupertinoButton.filled(
+                    onPressed: _isDisabled ? null : () {},
+                    child: const Text('Cupertino Button')),
+                const Divider(),
+                ElevatedButton.icon(
                   onPressed: _isDisabled ? null : () {},
-                  child: const Text('Elevated Button')),
-              FilledButton(
+                  label: const Text('Elevated Button'),
+                  icon: const Icon(Icons.favorite_border),
+                ),
+                FilledButton.icon(
                   onPressed: _isDisabled ? null : () {},
-                  child: const Text('Filled Button')),
-              FilledButton.tonal(
+                  label: const Text('Filled Button'),
+                  icon: const Icon(Icons.favorite_border),
+                ),
+                FilledButton.tonalIcon(
                   onPressed: _isDisabled ? null : () {},
-                  child: const Text('Filled Button')),
-              OutlinedButton(
+                  label: const Text('Filled Button'),
+                  icon: const Icon(Icons.favorite_border),
+                ),
+                OutlinedButton.icon(
                   onPressed: _isDisabled ? null : () {},
-                  child: const Text('Outlined Button')),
-              TextButton(
+                  label: const Text('Outlined Button'),
+                  icon: const Icon(Icons.favorite_border),
+                ),
+                TextButton.icon(
                   onPressed: _isDisabled ? null : () {},
-                  child: const Text('Text Button')),
-              CupertinoButton(
-                  onPressed: _isDisabled ? null : () {},
-                  child: const Text('Cupertino Button')),
-              CupertinoButton.filled(
-                  onPressed: _isDisabled ? null : () {},
-                  child: const Text('Cupertino Button')),
-              const Divider(),
-              ElevatedButton.icon(
-                onPressed: _isDisabled ? null : () {},
-                label: const Text('Elevated Button'),
-                icon: const Icon(Icons.favorite_border),
-              ),
-              FilledButton.icon(
-                onPressed: _isDisabled ? null : () {},
-                label: const Text('Filled Button'),
-                icon: const Icon(Icons.favorite_border),
-              ),
-              FilledButton.tonalIcon(
-                onPressed: _isDisabled ? null : () {},
-                label: const Text('Filled Button'),
-                icon: const Icon(Icons.favorite_border),
-              ),
-              OutlinedButton.icon(
-                onPressed: _isDisabled ? null : () {},
-                label: const Text('Outlined Button'),
-                icon: const Icon(Icons.favorite_border),
-              ),
-              TextButton.icon(
-                onPressed: _isDisabled ? null : () {},
-                label: const Text('Text Button'),
-                icon: const Icon(Icons.favorite_border),
-              ),
-            ],
+                  label: const Text('Text Button'),
+                  icon: const Icon(Icons.favorite_border),
+                ),
+              ],
+            ),
           ),
         ));
   }

@@ -20,13 +20,15 @@ class _ListViewBuilderPageState extends State<ListViewBuilderPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: ListView.builder(
-        itemCount: _list.length,
-        itemBuilder: (BuildContext context, int index) {
-          return ListTile(
-            title: Text(_list[index]),
-          );
-        },
+      body: SafeArea(
+        child: ListView.builder(
+          itemCount: _list.length,
+          itemBuilder: (BuildContext context, int index) {
+            return ListTile(
+              title: Text(_list[index]),
+            );
+          },
+        ),
       ),
     );
   }

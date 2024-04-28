@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:ui_sample/page/free_page.dart';
 import 'package:ui_sample/page/object/container_page.dart';
 import 'package:ui_sample/page/other/sliver_page.dart';
 import 'package:ui_sample/page/scroll/scrollbar_page.dart';
 import 'package:ui_sample/page/theme/color_theme_page.dart';
 import 'package:ui_sample/page/theme/text_theme_page.dart';
+import 'package:ui_sample/page/transform_page.dart';
 
 import '../page/animation/blink_page.dart';
 import '../page/animation/flip_card_page.dart';
@@ -16,17 +18,17 @@ import '../page/button/floating_action_button_page.dart';
 import '../page/button/icon_button_page.dart';
 import '../page/button/segmented_button_page.dart';
 import '../page/button/toggle_buttons_page.dart';
-import '../page/free_page.dart';
 import '../page/list/list_tile_page.dart';
 import '../page/list/list_view_builder_page.dart';
 import '../page/list/list_view_page.dart';
 import '../page/list/reorderable_list_view_page.dart';
 import '../page/object/flutter_logo_page.dart';
 import '../page/object/placeholder_page.dart';
+import '../page/other/canvas_page.dart';
 import '../page/other/data_table_page.dart';
 import '../page/other/draggable_page.dart';
 import '../page/other/input_page.dart';
-import '../page/other/navigator.dart';
+import '../page/other/navigator_page.dart';
 import '../page/other/stepper_page.dart';
 import '../page/pop_up/dialog_page.dart';
 import '../page/pop_up/menu_anchor_page.dart';
@@ -289,6 +291,16 @@ class PageList {
       pageName: 'Sliver',
       pageRoute: '/sliver',
       page: const SliverPage(title: 'Sliver'),
+    ),
+    PageInfo(
+      pageName: 'Canvas',
+      pageRoute: '/canvas',
+      page: const CanvasPage(title: 'Canvas'),
+    ),
+    PageInfo(
+      pageName: 'Transform',
+      pageRoute: '/transform',
+      page: const TransformPage(title: 'Transform'),
     ),
     PageInfo(
       pageName: 'お試しページ',

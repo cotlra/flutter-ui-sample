@@ -15,26 +15,27 @@ class _IndicatorPageState extends State<IndicatorPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: const Column(
-        children: [
-          LinearProgressIndicator(),
-          Expanded(
-            child: Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CircularProgressIndicator(),
-                  StyleConsts.sizedBoxH16,
-                  CupertinoActivityIndicator(),
-                ],
+        appBar: AppBar(
+          title: Text(widget.title),
+        ),
+        body: const SafeArea(
+          child: Column(
+            children: [
+              LinearProgressIndicator(),
+              Expanded(
+                child: Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      CircularProgressIndicator(),
+                      StyleConsts.sizedBoxH16,
+                      CupertinoActivityIndicator(),
+                    ],
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
-        ],
-      )
-    );
+        ));
   }
 }

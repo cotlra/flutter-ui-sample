@@ -22,35 +22,37 @@ class _PageViewPageState extends State<PageViewPage> {
         appBar: AppBar(
           title: Text(widget.title),
         ),
-        body: PageView(
-          controller: _controller,
-          children: [
-            Container(
-              color: Theme.of(context).colorScheme.primaryContainer,
-              child: const Center(
-                child: Text('Page 1'),
-              ),
-            ),
-            Container(
-              color: Theme.of(context).colorScheme.tertiaryContainer,
-              child: const Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text('左右にスクロールできます。'),
-                    StyleConsts.sizedBoxH16,
-                    Text('Page 2'),
-                  ],
+        body: SafeArea(
+          child: PageView(
+            controller: _controller,
+            children: [
+              Container(
+                color: Theme.of(context).colorScheme.primaryContainer,
+                child: const Center(
+                  child: Text('Page 1'),
                 ),
               ),
-            ),
-            Container(
-              color: Theme.of(context).colorScheme.secondaryContainer,
-              child: const Center(
-                child: Text('Page 3'),
+              Container(
+                color: Theme.of(context).colorScheme.tertiaryContainer,
+                child: const Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text('左右にスクロールできます。'),
+                      StyleConsts.sizedBoxH16,
+                      Text('Page 2'),
+                    ],
+                  ),
+                ),
               ),
-            ),
-          ],
+              Container(
+                color: Theme.of(context).colorScheme.secondaryContainer,
+                child: const Center(
+                  child: Text('Page 3'),
+                ),
+              ),
+            ],
+          ),
         ));
   }
 }

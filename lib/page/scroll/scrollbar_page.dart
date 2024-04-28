@@ -16,14 +16,16 @@ class _ScrollbarPageState extends State<ScrollbarPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Scrollbar(
-        child: ListView.builder(
-          itemCount: 30,
-          itemBuilder: (BuildContext context, int index) {
-            return ListTile(
-              title: Text('アイテム $index'),
-            );
-          },
+      body: SafeArea(
+        child: Scrollbar(
+          child: ListView.builder(
+            itemCount: 30,
+            itemBuilder: (BuildContext context, int index) {
+              return ListTile(
+                title: Text('アイテム $index'),
+              );
+            },
+          ),
         ),
       ),
     );

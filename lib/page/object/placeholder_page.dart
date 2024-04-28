@@ -16,7 +16,9 @@ class _PlaceholderPageState extends State<PlaceholderPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: const Placeholder(),
+      body: const SafeArea(
+        child: Placeholder(),
+      ),
     );
   }
 }

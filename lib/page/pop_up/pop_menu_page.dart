@@ -45,18 +45,20 @@ class _PopMenuPageState extends State<PopMenuPage> {
           ),
         ],
       ),
-      body: Center(
-          child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Text('ここに選択したメニューが表示されます。'),
-          Text(
-            _menuName,
-            style: Theme.of(context).textTheme.headlineSmall,
-          ),
-          StyleConsts.sizedBoxH16,
-        ],
-      )),
+      body: SafeArea(
+        child: Center(
+            child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text('ここに選択したメニューが表示されます。'),
+            Text(
+              _menuName,
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
+            StyleConsts.sizedBoxH16,
+          ],
+        )),
+      ),
     );
   }
 }

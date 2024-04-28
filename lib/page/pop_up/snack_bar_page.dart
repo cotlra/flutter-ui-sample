@@ -15,20 +15,22 @@ class _SnackBarPageState extends State<SnackBarPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: ElevatedButton(
-          child: const Text('Snack Barを表示する'),
-          onPressed: (){
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
+      body: SafeArea(
+        child: Center(
+          child: ElevatedButton(
+            child: const Text('Snack Barを表示する'),
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
                   content: const Text('表示しました'),
-                action: SnackBarAction(
-                  label: '閉じる',
-                  onPressed: (){},
+                  action: SnackBarAction(
+                    label: '閉じる',
+                    onPressed: () {},
+                  ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );

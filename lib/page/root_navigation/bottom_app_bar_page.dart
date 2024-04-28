@@ -17,12 +17,23 @@ class _BottomAppBarPageState extends State<BottomAppBarPage> {
         title: Text(widget.title),
       ),
       bottomNavigationBar: BottomAppBar(
-        child: Row(
-          children: [
-            IconButton(onPressed: (){}, icon: const Icon(Icons.add),),
-            IconButton(onPressed: (){}, icon: const Icon(Icons.edit_outlined),),
-            IconButton(onPressed: (){}, icon: const Icon(Icons.delete_outline),),
-          ],
+        child: SafeArea(
+          child: Row(
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.add),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.edit_outlined),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.delete_outline),
+              ),
+            ],
+          ),
         ),
       ),
       body: const SizedBox.shrink(),
