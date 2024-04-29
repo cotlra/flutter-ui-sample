@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:ui_sample/page/free_page.dart';
 import 'package:ui_sample/page/object/container_page.dart';
 import 'package:ui_sample/page/other/sliver_page.dart';
+import 'package:ui_sample/page/other/transform_page.dart';
+import 'package:ui_sample/page/pop_up/bottom_sheet.dart';
 import 'package:ui_sample/page/scroll/scrollbar_page.dart';
 import 'package:ui_sample/page/theme/color_theme_page.dart';
 import 'package:ui_sample/page/theme/text_theme_page.dart';
-import 'package:ui_sample/page/transform_page.dart';
 
 import '../page/animation/blink_page.dart';
 import '../page/animation/flip_card_page.dart';
@@ -38,7 +39,6 @@ import '../page/pop_up/snack_bar_page.dart';
 import '../page/pop_up/tooltip_page.dart';
 import '../page/root_navigation/bottom_app_bar_page.dart';
 import '../page/root_navigation/bottom_navigation_bar_page.dart';
-import '../page/root_navigation/cupertino_tab_bar_page.dart';
 import '../page/root_navigation/drawer_page.dart';
 import '../page/root_navigation/navigation_rail_page.dart';
 import '../page/root_navigation/tab_bar_page.dart';
@@ -72,13 +72,13 @@ class PageList {
         title: 'Bottom Navigation',
       ),
     ),
-    PageInfo(
-      pageName: 'Cupertino Tab Bar',
-      pageRoute: '/cupertinoTabBar',
-      page: const CupertinoTabBarPage(
-        title: 'Cupertino Tab Bar',
-      ),
-    ),
+    // PageInfo(
+    //   pageName: 'Cupertino Tab Bar',
+    //   pageRoute: '/cupertinoTabBar',
+    //   page: const CupertinoTabBarPage(
+    //     title: 'Cupertino Tab Bar',
+    //   ),
+    // ),
     PageInfo(
       pageName: 'Bottom App Bar',
       pageRoute: '/bottomAppBar',
@@ -125,6 +125,11 @@ class PageList {
       pageName: 'Tooltip',
       pageRoute: '/tooltip',
       page: const TooltipPage(title: 'Tooltip'),
+    ),
+    PageInfo(
+      pageName: 'Bottom Sheet',
+      pageRoute: '/bottomSheet',
+      page: const BottomSheetPage(title: 'Bottom Sheet'),
     ),
   ];
   final objectList = [
