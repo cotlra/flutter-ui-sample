@@ -93,7 +93,7 @@ class _InputPageState extends State<InputPage> {
                             _radioValue = newValue;
                           });
                         }),
-                    Text('Sunny'),
+                    const Text('Sunny'),
                     StyleConsts.sizedBoxW32,
                     Radio<String>(
                         value: 'cloudy',
@@ -103,7 +103,7 @@ class _InputPageState extends State<InputPage> {
                             _radioValue = newValue;
                           });
                         }),
-                    Text('Cloudy'),
+                    const Text('Cloudy'),
                     StyleConsts.sizedBoxW32,
                     Radio<String>(
                         value: 'rainy',
@@ -113,7 +113,7 @@ class _InputPageState extends State<InputPage> {
                             _radioValue = newValue;
                           });
                         }),
-                    Text('Rainy'),
+                    const Text('Rainy'),
                   ],
                 ),
                 DropdownMenu(
