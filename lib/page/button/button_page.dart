@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ButtonPage extends StatefulWidget {
@@ -47,12 +46,6 @@ class _ButtonPageState extends State<ButtonPage> {
                 TextButton(
                     onPressed: _isDisabled ? null : () {},
                     child: const Text('Text Button')),
-                CupertinoButton(
-                    onPressed: _isDisabled ? null : () {},
-                    child: const Text('Cupertino Button')),
-                CupertinoButton.filled(
-                    onPressed: _isDisabled ? null : () {},
-                    child: const Text('Cupertino Button')),
                 const Divider(),
                 ElevatedButton.icon(
                   onPressed: _isDisabled ? null : () {},

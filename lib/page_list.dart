@@ -1,50 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:ui_sample/page/animation/animated_container_page.dart';
 import 'package:ui_sample/page/free_page.dart';
 import 'package:ui_sample/page/object/container_page.dart';
+import 'package:ui_sample/page/other/absorb_painter_page.dart';
 import 'package:ui_sample/page/other/sliver_page.dart';
 import 'package:ui_sample/page/other/transform_page.dart';
 import 'package:ui_sample/page/pop_up/bottom_sheet.dart';
+import 'package:ui_sample/page/pop_up/material_banner_page.dart';
 import 'package:ui_sample/page/scroll/scrollbar_page.dart';
 import 'package:ui_sample/page/theme/color_theme_page.dart';
 import 'package:ui_sample/page/theme/text_theme_page.dart';
 
-import '../page/animation/blink_page.dart';
-import '../page/animation/flip_card_page.dart';
-import '../page/async/future_builder_page.dart';
-import '../page/async/indicator_page.dart';
-import '../page/async/refresh_indicator_page.dart';
-import '../page/async/stream_builder_page.dart';
-import '../page/button/button_page.dart';
-import '../page/button/floating_action_button_page.dart';
-import '../page/button/icon_button_page.dart';
-import '../page/button/segmented_button_page.dart';
-import '../page/button/toggle_buttons_page.dart';
-import '../page/list/list_tile_page.dart';
-import '../page/list/list_view_builder_page.dart';
-import '../page/list/list_view_page.dart';
-import '../page/list/reorderable_list_view_page.dart';
-import '../page/object/flutter_logo_page.dart';
-import '../page/object/placeholder_page.dart';
-import '../page/other/canvas_page.dart';
-import '../page/other/data_table_page.dart';
-import '../page/other/draggable_page.dart';
-import '../page/other/input_page.dart';
-import '../page/other/navigator_page.dart';
-import '../page/other/stepper_page.dart';
-import '../page/pop_up/dialog_page.dart';
-import '../page/pop_up/menu_anchor_page.dart';
-import '../page/pop_up/picker_page.dart';
-import '../page/pop_up/pop_menu_page.dart';
-import '../page/pop_up/snack_bar_page.dart';
-import '../page/pop_up/tooltip_page.dart';
-import '../page/root_navigation/bottom_app_bar_page.dart';
-import '../page/root_navigation/bottom_navigation_bar_page.dart';
-import '../page/root_navigation/drawer_page.dart';
-import '../page/root_navigation/navigation_rail_page.dart';
-import '../page/root_navigation/tab_bar_page.dart';
-import '../page/scroll/page_view_page.dart';
-import '../page/scroll/single_child_scroll_view_page.dart';
-import '../page/scroll/tab_page_selector.dart';
+import 'page/animation/blink_page.dart';
+import 'page/animation/flip_card_page.dart';
+import 'page/async/future_builder_page.dart';
+import 'page/async/indicator_page.dart';
+import 'page/async/refresh_indicator_page.dart';
+import 'page/async/stream_builder_page.dart';
+import 'page/button/button_page.dart';
+import 'page/button/floating_action_button_page.dart';
+import 'page/button/icon_button_page.dart';
+import 'page/button/segmented_button_page.dart';
+import 'page/button/toggle_buttons_page.dart';
+import 'page/list/list_tile_page.dart';
+import 'page/list/list_view_builder_page.dart';
+import 'page/list/list_view_page.dart';
+import 'page/list/reorderable_list_view_page.dart';
+import 'page/object/flutter_logo_page.dart';
+import 'page/object/placeholder_page.dart';
+import 'page/other/canvas_page.dart';
+import 'page/other/data_table_page.dart';
+import 'page/other/draggable_page.dart';
+import 'page/other/input_page.dart';
+import 'page/other/navigator_page.dart';
+import 'page/other/stepper_page.dart';
+import 'page/pop_up/dialog_page.dart';
+import 'page/pop_up/menu_anchor_page.dart';
+import 'page/pop_up/picker_page.dart';
+import 'page/pop_up/pop_menu_page.dart';
+import 'page/pop_up/snack_bar_page.dart';
+import 'page/pop_up/tooltip_page.dart';
+import 'page/root_navigation/bottom_app_bar_page.dart';
+import 'page/root_navigation/bottom_navigation_bar_page.dart';
+import 'page/root_navigation/drawer_page.dart';
+import 'page/root_navigation/navigation_rail_page.dart';
+import 'page/root_navigation/tab_bar_page.dart';
+import 'page/scroll/page_view_page.dart';
+import 'page/scroll/single_child_scroll_view_page.dart';
+import 'page/scroll/tab_page_selector.dart';
 
 class PageInfo {
   final String pageName;
@@ -130,6 +133,11 @@ class PageList {
       pageName: 'Bottom Sheet',
       pageRoute: '/bottomSheet',
       page: const BottomSheetPage(title: 'Bottom Sheet'),
+    ),
+    PageInfo(
+      pageName: 'Material Banner',
+      pageRoute: '/materialBanner',
+      page: const MaterialBannerPage(title: 'Material Banner'),
     ),
   ];
   final objectList = [
@@ -253,6 +261,11 @@ class PageList {
       pageRoute: '/flipCard',
       page: const FlipCardPage(title: 'カードの回転'),
     ),
+    PageInfo(
+      pageName: 'Animated Container',
+      pageRoute: '/animatedContainer',
+      page: const AnimatedContainerPage(title: 'Animated Container'),
+    ),
   ];
   final themeList = [
     PageInfo(
@@ -306,6 +319,11 @@ class PageList {
       pageName: 'Transform',
       pageRoute: '/transform',
       page: const TransformPage(title: 'Transform'),
+    ),
+    PageInfo(
+      pageName: 'Absorb Painter',
+      pageRoute: '/absorbPainter',
+      page: const AbsorbPainterPage(title: 'Absorb Painter'),
     ),
     PageInfo(
       pageName: 'お試しページ',

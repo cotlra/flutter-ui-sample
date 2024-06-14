@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ui_sample/page/other/navigator_page.dart';
 
-import 'data/page_info.dart';
-import 'page/my_home_page.dart';
+import 'page/home_page.dart';
+import 'page_list.dart';
 
 void main() {
   // debugRepaintRainbowEnabled = true;
@@ -12,12 +12,11 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     final PageList pageList = PageList();
     final routeMap = pageList.getRootMap();
-    routeMap['/'] = (context) => MyHomePage(
+    routeMap['/'] = (context) => HomePage(
           pageList: pageList,
         );
     routeMap['/navigatorChild'] = (context) =>

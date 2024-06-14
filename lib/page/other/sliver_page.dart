@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_sample/const/style_const.dart';
 
 class SliverPage extends StatefulWidget {
   const SliverPage({super.key, required this.title});
@@ -22,11 +23,18 @@ class _SliverPageState extends State<SliverPage> {
             title: Text(widget.title),
             floating: true,
           ),
+          SliverToBoxAdapter(
+            child: Container(
+              padding: StyleConsts.padding16,
+              color: Theme.of(context).colorScheme.primaryContainer,
+              child: const Text('Sliver To Box Adapter'),
+            ),
+          ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 return ListTile(
-                  title: Text(list[index]),
+                  title: Text('Sliver List ${list[index]}'),
                 );
               },
               childCount: list.length,
@@ -37,7 +45,7 @@ class _SliverPageState extends State<SliverPage> {
               (BuildContext context, int index) {
                 return Card(
                   child: Center(
-                    child: Text(list[index]),
+                    child: Text('Sliver Grid\n${list[index]}'),
                   ),
                 );
               },

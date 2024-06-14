@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-import '../data/page_info.dart';
+import '../page_list.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.pageList});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key, required this.pageList});
 
   final PageList pageList;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

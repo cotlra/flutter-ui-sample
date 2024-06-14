@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../const/style_const.dart';
@@ -62,31 +61,6 @@ class _DialogPageState extends State<DialogPage> {
               },
             ),
             ElevatedButton(
-              child: const Text('Cupertino Alert Dialog'),
-              onPressed: () async {
-                String? result = await showCupertinoDialog<String>(
-                    context: context,
-                    builder: (context) {
-                      return CupertinoAlertDialog(
-                        title: const Text('タイトル'),
-                        content: const Text('これはCupertino Alert Dialogです。'),
-                        actions: [
-                          CupertinoDialogAction(
-                              onPressed: () {
-                                Navigator.pop(context, 'Cancel');
-                              },
-                              child: const Text('Cancel')),
-                          CupertinoDialogAction(
-                              onPressed: () {
-                                Navigator.pop(context, 'OK');
-                              },
-                              child: const Text('OK')),
-                        ],
-                      );
-                    });
-              },
-            ),
-            ElevatedButton(
               child: const Text('Simple Dialog'),
               onPressed: () {
                 showDialog(
@@ -116,42 +90,6 @@ class _DialogPageState extends State<DialogPage> {
                         padding: StyleConsts.padding32,
                         child: Text('これはDialogです。'),
                       ),
-                    );
-                  },
-                );
-              },
-            ),
-            ElevatedButton(
-              child: const Text('Cupertino Action Sheet'),
-              onPressed: () async {
-                String? action = await showCupertinoModalPopup<String>(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return CupertinoActionSheet(
-                      title: const Text('タイトル'),
-                      message: const Text('メッセージ'),
-                      actions: [
-                        CupertinoActionSheetAction(
-                            onPressed: () {
-                              Navigator.pop<String>(context, 'action1');
-                            },
-                            child: const Text('アクション1')),
-                        CupertinoActionSheetAction(
-                            onPressed: () {
-                              Navigator.pop<String>(context, 'action2');
-                            },
-                            child: const Text('アクション2')),
-                        CupertinoActionSheetAction(
-                            onPressed: () {
-                              Navigator.pop<String>(context, 'action3');
-                            },
-                            child: const Text('アクション3')),
-                      ],
-                      cancelButton: CupertinoActionSheetAction(
-                          onPressed: () {
-                            Navigator.pop<String>(context, 'cancel');
-                          },
-                          child: const Text('キャンセル')),
                     );
                   },
                 );

@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../const/style_const.dart';
 
 class SegmentedButtonPage extends StatefulWidget {
   const SegmentedButtonPage({super.key, required this.title});
@@ -72,60 +69,6 @@ class _SegmentedButtonPageState extends State<SegmentedButtonPage> {
                                 // _selectedValue = newSelection.first;
                               });
                             },
-                    ),
-                    StyleConsts.sizedBoxH16,
-                    CupertinoSegmentedControl<String>(
-                      groupValue: _selectedValue2,
-                      onValueChanged: (String value) {
-                        setState(() {
-                          _selectedValue2 = value;
-                        });
-                      },
-                      children: const {
-                        'Day': Padding(
-                          padding: StyleConsts.paddingX16,
-                          child: Text('Day'),
-                        ),
-                        'Week': Padding(
-                          padding: StyleConsts.paddingX16,
-                          child: Text('Week'),
-                        ),
-                        'Month': Padding(
-                          padding: StyleConsts.paddingX16,
-                          child: Text('Month'),
-                        ),
-                        'Year': Padding(
-                          padding: StyleConsts.paddingX16,
-                          child: Text('Year'),
-                        ),
-                      },
-                    ),
-                    StyleConsts.sizedBoxH16,
-                    CupertinoSlidingSegmentedControl<String>(
-                      groupValue: _selectedValue3,
-                      onValueChanged: (String? value) {
-                        setState(() {
-                          _selectedValue3 = value;
-                        });
-                      },
-                      children: const {
-                        'Day': Padding(
-                          padding: StyleConsts.paddingX16,
-                          child: Text('Day'),
-                        ),
-                        'Week': Padding(
-                          padding: StyleConsts.paddingX16,
-                          child: Text('Week'),
-                        ),
-                        'Month': Padding(
-                          padding: StyleConsts.paddingX16,
-                          child: Text('Month'),
-                        ),
-                        'Year': Padding(
-                          padding: StyleConsts.paddingX16,
-                          child: Text('Year'),
-                        ),
-                      },
                     ),
                   ],
                 ),
