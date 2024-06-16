@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../components/flip.dart';
+import '../../common/base_frame.dart';
 
 class FlipCardPage extends StatefulWidget {
   const FlipCardPage({super.key, required this.title});
@@ -16,30 +17,26 @@ class FlipCardPage extends StatefulWidget {
 class _FlipCardPageState extends State<FlipCardPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: SafeArea(
-        child: Center(
-          child: Container(
-            constraints: BoxConstraints.tight(const Size.square(208)),
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  _showFrontSide = !_showFrontSide;
-                });
-              },
-              child: Flip(
-                isFront: _showFrontSide,
-                front: _frontCard(),
-                back: _rearCard(),
-                rotateX: false,
-              ),
+    return BaseFrame(
+      title: widget.title,
+      children: [
+        Container(
+          constraints: BoxConstraints.tight(const Size.square(208)),
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                _showFrontSide = !_showFrontSide;
+              });
+            },
+            child: Flip(
+              isFront: _showFrontSide,
+              front: _frontCard(),
+              back: _rearCard(),
+              rotateX: false,
             ),
           ),
         ),
-      ),
+      ],
     );
   }
 

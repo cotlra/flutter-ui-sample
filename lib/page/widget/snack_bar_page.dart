@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../common/base_frame.dart';
+
 class SnackBarPage extends StatefulWidget {
   const SnackBarPage({super.key, required this.title});
   final String title;
@@ -11,12 +13,10 @@ class SnackBarPage extends StatefulWidget {
 class _SnackBarPageState extends State<SnackBarPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: ElevatedButton(
+    return BaseFrame(
+      title: widget.title,
+      children: [
+        ElevatedButton(
           child: const Text('Show SnackBar'),
           onPressed: () {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -30,7 +30,7 @@ class _SnackBarPageState extends State<SnackBarPage> {
             );
           },
         ),
-      ),
+      ],
     );
   }
 }

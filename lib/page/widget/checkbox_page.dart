@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../common/base_frame.dart';
+
 class CheckboxPage extends StatefulWidget {
   const CheckboxPage({super.key, required this.title});
 
@@ -14,12 +16,10 @@ class _CheckboxPageState extends State<CheckboxPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Checkbox(
+    return BaseFrame(
+      title: widget.title,
+      children: [
+        Checkbox(
           value: _value,
           onChanged: (newValue) {
             setState(() {
@@ -27,7 +27,7 @@ class _CheckboxPageState extends State<CheckboxPage> {
             });
           },
         ),
-      ),
+      ],
     );
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../common/base_frame.dart';
+
 class LicensePagePage extends StatefulWidget {
   const LicensePagePage({super.key, required this.title});
 
@@ -12,18 +14,16 @@ class LicensePagePage extends StatefulWidget {
 class _LicensePagePageState extends State<LicensePagePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: ElevatedButton(
+    return BaseFrame(
+      title: widget.title,
+      children: [
+        ElevatedButton(
           child: const Text('Show LicensePage'),
           onPressed: () {
             showLicensePage(context: context);
           },
         ),
-      ),
+      ],
     );
   }
 }

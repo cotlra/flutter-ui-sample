@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../common/base_frame.dart';
+
 class FreePage extends StatefulWidget {
   const FreePage({super.key, required this.title});
 
@@ -12,18 +14,9 @@ class FreePage extends StatefulWidget {
 class _FreePageState extends State<FreePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: const SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [],
-          ),
-        ),
-      ),
+    return BaseFrame(
+      title: widget.title,
+      children: [],
     );
   }
 }

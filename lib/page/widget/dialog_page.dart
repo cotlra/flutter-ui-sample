@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../common/base_frame.dart';
+
 class DialogPage extends StatefulWidget {
   const DialogPage({super.key, required this.title});
 
@@ -12,12 +14,10 @@ class DialogPage extends StatefulWidget {
 class _DialogPageState extends State<DialogPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: ElevatedButton(
+    return BaseFrame(
+      title: widget.title,
+      children: [
+        ElevatedButton(
           child: const Text('Show Dialog'),
           onPressed: () {
             showDialog(
@@ -33,7 +33,7 @@ class _DialogPageState extends State<DialogPage> {
             );
           },
         ),
-      ),
+      ],
     );
   }
 }

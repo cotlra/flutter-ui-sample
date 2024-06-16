@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../common/base_frame.dart';
+
 class SwitchPage extends StatefulWidget {
   const SwitchPage({super.key, required this.title});
 
@@ -14,12 +16,10 @@ class _SwitchPageState extends State<SwitchPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Switch(
+    return BaseFrame(
+      title: widget.title,
+      children: [
+        Switch(
           value: _value,
           onChanged: (newValue) {
             setState(() {
@@ -27,7 +27,7 @@ class _SwitchPageState extends State<SwitchPage> {
             });
           },
         ),
-      ),
+      ],
     );
   }
 }

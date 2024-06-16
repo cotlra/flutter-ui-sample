@@ -47,6 +47,7 @@ import 'page/widget/radio_page.dart';
 import 'page/widget/range_slider_page.dart';
 import 'page/widget/refresh_indicator_page.dart';
 import 'page/widget/reorderable_list_view_page.dart';
+import 'page/widget/safe_area_page.dart';
 import 'page/widget/scrollbar_page.dart';
 import 'page/widget/segmented_button_page.dart';
 import 'page/widget/simple_dialog_page.dart';
@@ -339,6 +340,7 @@ class PageList {
     PageInfo(
       pageName: 'AnimatedContainer',
       page: const AnimatedContainerPage(title: 'AnimatedContainer'),
+      tags: [PageTag.animation],
     ),
     PageInfo(
       pageName: 'DataTable',
@@ -450,8 +452,8 @@ class PageList {
       page: const RangeSliderPage(title: 'RangeSlider'),
     ),
     PageInfo(
-      pageName: 'RadioPage',
-      page: const RadioPage(title: 'RadioPage'),
+      pageName: 'Radio',
+      page: const RadioPage(title: 'Radio'),
     ),
     PageInfo(
       pageName: 'TextField',
@@ -462,6 +464,10 @@ class PageList {
       pageName: 'DropdownMenu',
       page: const DropdownMenuPage(title: 'DropdownMenu'),
       subKeywords: ['DropdownMenuEntry'],
+    ),
+    PageInfo(
+      pageName: 'SafeArea',
+      page: const SafeAreaPage(title: 'SafeArea'),
     ),
   ];
 
@@ -490,6 +496,7 @@ class PageList {
 }
 
 enum PageTag {
+  animation,
   theme,
   navigation,
 }

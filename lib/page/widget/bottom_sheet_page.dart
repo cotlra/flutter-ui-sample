@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../common/base_frame.dart';
+
 class BottomSheetPage extends StatefulWidget {
   const BottomSheetPage({super.key, required this.title});
 
@@ -12,13 +14,10 @@ class BottomSheetPage extends StatefulWidget {
 class _BottomSheetPageState extends State<BottomSheetPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: SafeArea(
-        child: Center(
-            child: ElevatedButton(
+    return BaseFrame(
+      title: widget.title,
+      children: [
+        ElevatedButton(
           child: const Text('Show BottomSheet'),
           onPressed: () {
             showModalBottomSheet(
@@ -47,8 +46,8 @@ class _BottomSheetPageState extends State<BottomSheetPage> {
               },
             );
           },
-        )),
-      ),
+        ),
+      ],
     );
   }
 }

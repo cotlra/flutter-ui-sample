@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../common/base_frame.dart';
+
 class RadioPage extends StatefulWidget {
   const RadioPage({super.key, required this.title});
 
@@ -14,46 +16,41 @@ class _RadioPageState extends State<RadioPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+    return BaseFrame(title: widget.title, children: [
+      Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Radio<String>(
+              value: 'sunny',
+              groupValue: _value,
+              onChanged: (newValue) {
+                setState(() {
+                  _value = newValue;
+                });
+              }),
+          const Text('Sunny'),
+          const SizedBox(width: 32),
+          Radio<String>(
+              value: 'cloudy',
+              groupValue: _value,
+              onChanged: (newValue) {
+                setState(() {
+                  _value = newValue;
+                });
+              }),
+          const Text('Cloudy'),
+          const SizedBox(width: 32),
+          Radio<String>(
+              value: 'rainy',
+              groupValue: _value,
+              onChanged: (newValue) {
+                setState(() {
+                  _value = newValue;
+                });
+              }),
+          const Text('Rainy'),
+        ],
       ),
-      body: Center(
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Radio<String>(
-                value: 'sunny',
-                groupValue: _value,
-                onChanged: (newValue) {
-                  setState(() {
-                    _value = newValue;
-                  });
-                }),
-            const Text('Sunny'),
-            const SizedBox(width: 32),
-            Radio<String>(
-                value: 'cloudy',
-                groupValue: _value,
-                onChanged: (newValue) {
-                  setState(() {
-                    _value = newValue;
-                  });
-                }),
-            const Text('Cloudy'),
-            const SizedBox(width: 32),
-            Radio<String>(
-                value: 'rainy',
-                groupValue: _value,
-                onChanged: (newValue) {
-                  setState(() {
-                    _value = newValue;
-                  });
-                }),
-            const Text('Rainy'),
-          ],
-        ),
-      ),
-    );
+    ]);
   }
 }

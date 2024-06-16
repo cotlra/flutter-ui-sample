@@ -33,35 +33,36 @@ class _RefreshIndicatorPageState extends State<RefreshIndicatorPage> {
       ),
       body: SafeArea(
         child: RefreshIndicator(
-            onRefresh: () async {
-              await Future.delayed(const Duration(seconds: 1));
-              setState(() {
-                _value += 12;
-                _data = List.generate(12, (index) => 'Item ${index + _value}');
-              });
+          onRefresh: () async {
+            await Future.delayed(const Duration(seconds: 1));
+            setState(() {
+              _value += 12;
+              _data = List.generate(12, (index) => 'Item ${index + _value}');
+            });
+          },
+          child: FutureBuilder(
+            future: _future,
+            builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+              if (snapshot.hasData) {
+                return ListView(
+                  children: _data!
+                      .map((e) => ListTile(
+                            title: Text(e),
+                          ))
+                      .toList(),
+                );
+              } else if (snapshot.hasError) {
+                return const Center(
+                  child: Text('Failed…'),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
             },
-            child: FutureBuilder(
-              future: _future,
-              builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-                if (snapshot.hasData) {
-                  return ListView(
-                    children: _data!
-                        .map((e) => ListTile(
-                              title: Text(e),
-                            ))
-                        .toList(),
-                  );
-                } else if (snapshot.hasError) {
-                  return const Center(
-                    child: Text('Failed…'),
-                  );
-                } else {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }
-              },
-            )),
+          ),
+        ),
       ),
     );
   }

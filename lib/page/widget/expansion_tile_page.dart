@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../common/base_frame.dart';
+
 class ExpansionTilePage extends StatefulWidget {
   const ExpansionTilePage({super.key, required this.title});
 
@@ -12,12 +14,10 @@ class ExpansionTilePage extends StatefulWidget {
 class _ExpansionTilePageState extends State<ExpansionTilePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: const Center(
-        child: ExpansionTile(
+    return BaseFrame(
+      title: widget.title,
+      children: const [
+        ExpansionTile(
           title: Text("ExpansionTile"),
           children: [
             ListTile(
@@ -31,7 +31,7 @@ class _ExpansionTilePageState extends State<ExpansionTilePage> {
             ),
           ],
         ),
-      ),
+      ],
     );
   }
 }

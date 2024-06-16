@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../common/base_frame.dart';
+
 class ListTilePage extends StatefulWidget {
   const ListTilePage({super.key, required this.title});
 
@@ -12,12 +14,10 @@ class ListTilePage extends StatefulWidget {
 class _ListTilePageState extends State<ListTilePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: const Center(
-        child: ListTile(
+    return BaseFrame(
+      title: widget.title,
+      children: [
+        ListTile(
           title: Text('ListTile'),
           subtitle: Text('This is ListTile.'),
           leading: Icon(
@@ -25,7 +25,7 @@ class _ListTilePageState extends State<ListTilePage> {
           ),
           trailing: Icon(Icons.favorite),
         ),
-      ),
+      ],
     );
   }
 }

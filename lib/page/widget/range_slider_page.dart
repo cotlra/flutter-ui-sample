@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../common/base_frame.dart';
+
 class RangeSliderPage extends StatefulWidget {
   const RangeSliderPage({super.key, required this.title});
 
@@ -14,12 +16,10 @@ class _RangeSliderPageState extends State<RangeSliderPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: RangeSlider(
+    return BaseFrame(
+      title: widget.title,
+      children: [
+        RangeSlider(
           max: 100,
           min: 0,
           divisions: 10,
@@ -30,7 +30,7 @@ class _RangeSliderPageState extends State<RangeSliderPage> {
             });
           },
         ),
-      ),
+      ],
     );
   }
 }

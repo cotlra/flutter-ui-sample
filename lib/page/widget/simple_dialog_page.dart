@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../common/base_frame.dart';
+
 class SimpleDialogPage extends StatefulWidget {
   const SimpleDialogPage({super.key, required this.title});
 
@@ -12,12 +14,10 @@ class SimpleDialogPage extends StatefulWidget {
 class _SimpleDialogPageState extends State<SimpleDialogPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: ElevatedButton(
+    return BaseFrame(
+      title: widget.title,
+      children: [
+        ElevatedButton(
           child: const Text('Show SimpleDialog'),
           onPressed: () {
             showDialog(
@@ -37,7 +37,7 @@ class _SimpleDialogPageState extends State<SimpleDialogPage> {
             );
           },
         ),
-      ),
+      ],
     );
   }
 }

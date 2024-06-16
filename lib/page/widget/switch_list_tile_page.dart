@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../common/base_frame.dart';
+
 class SwitchListTilePage extends StatefulWidget {
   const SwitchListTilePage({super.key, required this.title});
 
@@ -14,20 +16,19 @@ class _SwitchListTilePageState extends State<SwitchListTilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: SwitchListTile(
-            title: const Text('SwitchListTile'),
-            value: _value,
-            onChanged: (newValue) {
-              setState(() {
-                _value = newValue;
-              });
-            }),
-      ),
+    return BaseFrame(
+      title: widget.title,
+      children: [
+        SwitchListTile(
+          title: const Text('SwitchListTile'),
+          value: _value,
+          onChanged: (newValue) {
+            setState(() {
+              _value = newValue;
+            });
+          },
+        ),
+      ],
     );
   }
 }

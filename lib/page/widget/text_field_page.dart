@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../common/base_frame.dart';
+
 class TextFieldPage extends StatefulWidget {
   const TextFieldPage({super.key, required this.title});
 
@@ -15,40 +17,26 @@ class _TextFieldPageState extends State<TextFieldPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: SafeArea(
-        child: Center(
-          child: SizedBox(
-            width: double.infinity,
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: 208,
-                    child: TextField(
-                      controller: _controller1,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  SizedBox(
-                    width: 208,
-                    child: TextField(
-                      controller: _controller2,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+    return BaseFrame(
+      title: widget.title,
+      children: [
+        SizedBox(
+          width: 208,
+          child: TextField(
+            controller: _controller1,
+          ),
+        ),
+        const SizedBox(height: 16),
+        SizedBox(
+          width: 208,
+          child: TextField(
+            controller: _controller2,
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
             ),
           ),
         ),
-      ),
+      ],
     );
   }
 }

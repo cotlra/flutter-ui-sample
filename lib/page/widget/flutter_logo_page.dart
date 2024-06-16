@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../common/base_frame.dart';
+
 class FlutterLogoPage extends StatefulWidget {
   const FlutterLogoPage({super.key, required this.title});
 
@@ -12,13 +14,11 @@ class FlutterLogoPage extends StatefulWidget {
 class _FlutterLogoPageState extends State<FlutterLogoPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: const Center(
-        child: FlutterLogo(),
-      ),
+    return BaseFrame(
+      title: widget.title,
+      children: const [
+        FlutterLogo(),
+      ],
     );
   }
 }

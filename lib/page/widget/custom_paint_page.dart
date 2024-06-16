@@ -3,6 +3,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+import '../../common/base_frame.dart';
+
 class CustomPaintPage extends StatefulWidget {
   const CustomPaintPage({super.key, required this.title});
 
@@ -16,112 +18,107 @@ class _CustomPaintPageState extends State<CustomPaintPage> {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: SafeArea(
-        child: SizedBox(
-          width: double.infinity,
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(vertical: 24),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                _canvas(
-                  child: CustomPaint(
-                    painter: RectPainter(
-                      color: theme.primaryColor,
-                    ),
+    return BaseFrame(
+      title: widget.title,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              _canvas(
+                child: CustomPaint(
+                  painter: RectPainter(
+                    color: theme.primaryColor,
                   ),
                 ),
-                _canvas(
-                  child: CustomPaint(
-                    painter: CirclePainter(
-                      color: theme.primaryColor,
-                    ),
+              ),
+              _canvas(
+                child: CustomPaint(
+                  painter: CirclePainter(
+                    color: theme.primaryColor,
                   ),
                 ),
-                _canvas(
-                  child: CustomPaint(
-                    painter: PathCombinePainter(
-                      color: theme.primaryColor,
-                      operation: PathOperation.union,
-                    ),
+              ),
+              _canvas(
+                child: CustomPaint(
+                  painter: PathCombinePainter(
+                    color: theme.primaryColor,
+                    operation: PathOperation.union,
                   ),
                 ),
-                _canvas(
-                  child: CustomPaint(
-                    painter: PathCombinePainter(
-                      color: theme.primaryColor,
-                      operation: PathOperation.intersect,
-                    ),
+              ),
+              _canvas(
+                child: CustomPaint(
+                  painter: PathCombinePainter(
+                    color: theme.primaryColor,
+                    operation: PathOperation.intersect,
                   ),
                 ),
-                _canvas(
-                  child: CustomPaint(
-                    painter: PathCombinePainter(
-                      color: theme.primaryColor,
-                      operation: PathOperation.xor,
-                    ),
+              ),
+              _canvas(
+                child: CustomPaint(
+                  painter: PathCombinePainter(
+                    color: theme.primaryColor,
+                    operation: PathOperation.xor,
                   ),
                 ),
-                _canvas(
-                  child: CustomPaint(
-                    painter: PathCombinePainter(
-                      color: theme.primaryColor,
-                      operation: PathOperation.difference,
-                    ),
+              ),
+              _canvas(
+                child: CustomPaint(
+                  painter: PathCombinePainter(
+                    color: theme.primaryColor,
+                    operation: PathOperation.difference,
                   ),
                 ),
-                _canvas(
-                  child: CustomPaint(
-                    painter: PathCombinePainter(
-                      color: theme.primaryColor,
-                      operation: PathOperation.reverseDifference,
-                    ),
+              ),
+              _canvas(
+                child: CustomPaint(
+                  painter: PathCombinePainter(
+                    color: theme.primaryColor,
+                    operation: PathOperation.reverseDifference,
                   ),
                 ),
-                _canvas(
-                  child: CustomPaint(
-                    painter: LinePainter(
-                      color: theme.primaryColor,
-                    ),
+              ),
+              _canvas(
+                child: CustomPaint(
+                  painter: LinePainter(
+                    color: theme.primaryColor,
                   ),
                 ),
-                _canvas(
-                  child: CustomPaint(
-                    painter: PathPainter(
-                      color: theme.primaryColor,
-                    ),
+              ),
+              _canvas(
+                child: CustomPaint(
+                  painter: PathPainter(
+                    color: theme.primaryColor,
                   ),
                 ),
-                _canvas(
-                  child: CustomPaint(
-                    painter: MyTextPainter(
-                      color: theme.primaryColor,
-                    ),
+              ),
+              _canvas(
+                child: CustomPaint(
+                  painter: MyTextPainter(
+                    color: theme.primaryColor,
                   ),
                 ),
-                _canvas(
-                  child: CustomPaint(
-                    painter: PointPainter(
-                      color: theme.primaryColor,
-                    ),
+              ),
+              _canvas(
+                child: CustomPaint(
+                  painter: PointPainter(
+                    color: theme.primaryColor,
                   ),
                 ),
-                _canvas(
-                  child: CustomPaint(
-                    painter: RotatePainter(
-                      color: theme.primaryColor,
-                    ),
+              ),
+              _canvas(
+                child: CustomPaint(
+                  painter: RotatePainter(
+                    color: theme.primaryColor,
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
-      ),
+      ],
     );
   }
 

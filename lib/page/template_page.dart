@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../common/base_frame.dart';
+
 class Page extends StatefulWidget {
   const Page({super.key, required this.title});
 
@@ -12,18 +14,9 @@ class Page extends StatefulWidget {
 class _PageState extends State<Page> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: const SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [],
-          ),
-        ),
-      ),
+    return BaseFrame(
+      title: widget.title,
+      children: [],
     );
   }
 }

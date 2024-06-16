@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../common/base_frame.dart';
+
 class SliderPage extends StatefulWidget {
   const SliderPage({super.key, required this.title});
 
@@ -14,12 +16,10 @@ class _SliderPageState extends State<SliderPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Slider(
+    return BaseFrame(
+      title: widget.title,
+      children: [
+        Slider(
           value: _value,
           max: 100,
           divisions: 10,
@@ -30,7 +30,7 @@ class _SliderPageState extends State<SliderPage> {
             });
           },
         ),
-      ),
+      ],
     );
   }
 }

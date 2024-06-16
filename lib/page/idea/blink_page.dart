@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../common/base_frame.dart';
 import '../../components/blink.dart';
 
 class BlinkPage extends StatefulWidget {
@@ -13,18 +14,14 @@ class BlinkPage extends StatefulWidget {
 class _BlinkPageState extends State<BlinkPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: const SafeArea(
-        child: Center(
-          child: Blink(
-            duration: Duration(seconds: 1),
-            child: Text('Blink'),
-          ),
+    return BaseFrame(
+      title: widget.title,
+      children: const [
+        Blink(
+          duration: Duration(seconds: 1),
+          child: Text('Blink'),
         ),
-      ),
+      ],
     );
   }
 }

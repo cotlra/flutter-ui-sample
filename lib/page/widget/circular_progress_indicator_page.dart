@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../common/base_frame.dart';
+
 class CircularProgressIndicatorPage extends StatefulWidget {
   const CircularProgressIndicatorPage({super.key, required this.title});
 
@@ -14,13 +16,11 @@ class _CircularProgressIndicatorPageState
     extends State<CircularProgressIndicatorPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: const Center(
-        child: CircularProgressIndicator(),
-      ),
+    return BaseFrame(
+      title: widget.title,
+      children: const [
+        CircularProgressIndicator(),
+      ],
     );
   }
 }

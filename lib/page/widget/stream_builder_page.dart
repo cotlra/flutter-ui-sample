@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../common/base_frame.dart';
+
 class StreamBuilderPage extends StatefulWidget {
   const StreamBuilderPage({super.key, required this.title});
   final String title;
@@ -21,23 +23,19 @@ class _StreamBuilderPageState extends State<StreamBuilderPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: SafeArea(
-        child: Center(
-          child: StreamBuilder<String>(
-            stream: _stream,
-            builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-              return Text(
-                snapshot.data ?? 'Error',
-                style: Theme.of(context).textTheme.displaySmall,
-              );
-            },
-          ),
+    return BaseFrame(
+      title: widget.title,
+      children: [
+        StreamBuilder<String>(
+          stream: _stream,
+          builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+            return Text(
+              snapshot.data ?? 'Error',
+              style: Theme.of(context).textTheme.displaySmall,
+            );
+          },
         ),
-      ),
+      ],
     );
   }
 

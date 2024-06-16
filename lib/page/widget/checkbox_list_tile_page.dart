@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../common/base_frame.dart';
+
 class CheckboxListTilePage extends StatefulWidget {
   const CheckboxListTilePage({super.key, required this.title});
 
@@ -14,20 +16,19 @@ class _CheckboxListTilePageState extends State<CheckboxListTilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: CheckboxListTile(
-            title: const Text('CheckboxListTile'),
-            value: _value,
-            onChanged: (newValue) {
-              setState(() {
-                _value = newValue;
-              });
-            }),
-      ),
+    return BaseFrame(
+      title: widget.title,
+      children: [
+        CheckboxListTile(
+          title: const Text('CheckboxListTile'),
+          value: _value,
+          onChanged: (newValue) {
+            setState(() {
+              _value = newValue;
+            });
+          },
+        ),
+      ],
     );
   }
 }

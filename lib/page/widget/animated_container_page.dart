@@ -2,6 +2,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import '../../common/base_frame.dart';
+
 class AnimatedContainerPage extends StatefulWidget {
   const AnimatedContainerPage({super.key, required this.title});
 
@@ -37,13 +39,10 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: SafeArea(
-        child: Center(
-            child: AnimatedContainer(
+    return BaseFrame(
+      title: widget.title,
+      children: [
+        AnimatedContainer(
           padding: const EdgeInsets.all(16),
           duration: const Duration(milliseconds: 500),
           curve: Curves.easeInOut,
@@ -56,8 +55,8 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
               textAlign: TextAlign.center,
             ),
           ),
-        )),
-      ),
+        ),
+      ],
     );
   }
 }
