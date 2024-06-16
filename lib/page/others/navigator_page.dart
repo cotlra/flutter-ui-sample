@@ -27,7 +27,7 @@ class _NavigatorPageState extends State<NavigatorPage> {
                       MaterialPageRoute(
                         builder: (context) {
                           return const NavigatorChildPage(
-                              title: 'Navigator Child（push）');
+                              title: 'Navigator Child (push)');
                         },
                       ),
                     );
@@ -41,7 +41,7 @@ class _NavigatorPageState extends State<NavigatorPage> {
                   //  '/': (context) => const MyHomePage(title: '…'),
                   //  '/navigatorChild': (context) => const NavigatorChildPage(title: '…'),
                   // }
-                  Navigator.of(context).pushNamed('/navigatorChild');
+                  Navigator.of(context).pushNamed('/NavigatorChild');
                 },
                 child: const Text('pushNamed'),
               ),

@@ -183,7 +183,7 @@ class _ColorThemePageState extends State<ColorThemePage> {
     return Container(
       color: backgroungColor,
       alignment: Alignment.centerLeft,
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       child: Text(
         title,
         style: TextStyle(color: textColor),

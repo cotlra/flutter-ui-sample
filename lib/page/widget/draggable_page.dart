@@ -10,7 +10,7 @@ class DraggablePage extends StatefulWidget {
 }
 
 class _DraggablePageState extends State<DraggablePage> {
-  Color? draggedColor = null;
+  Color? draggedColor;
   @override
   Widget build(BuildContext context) {
     var themeColor = Theme.of(context).colorScheme;
@@ -29,7 +29,7 @@ class _DraggablePageState extends State<DraggablePage> {
                   child: DragTarget<Color>(
                     builder: (BuildContext context, List<Color?> candidateData,
                         List<dynamic> rejectedData) {
-                      return Container(
+                      return ColoredBox(
                         color: draggedColor ?? themeColor.primaryContainer,
                         child: Center(
                           child: Text(

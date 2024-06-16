@@ -27,7 +27,7 @@ class _BottomSheetPageState extends State<BottomSheetPage> {
                 return BottomSheet(
                   builder: (BuildContext context) {
                     return Padding(
-                      padding: EdgeInsets.all(32),
+                      padding: const EdgeInsets.all(32),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [

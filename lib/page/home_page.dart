@@ -89,7 +89,16 @@ class _HomePageState extends State<HomePage> {
     subKeywords.sort((a, b) => a.compareTo(b));
     return ListTile(
       title: Text(page.pageName),
-      subtitle: page.subKeywords.isEmpty ? null : Text(subKeywords.join(', ')),
+      subtitle: page.subKeywords.isEmpty
+          ? null
+          : Tooltip(
+              message: subKeywords.join(', '),
+              child: Text(
+                subKeywords.join(', '),
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+              ),
+            ),
       onTap: () {
         Navigator.pushNamed(context, page.pageRoute);
       },

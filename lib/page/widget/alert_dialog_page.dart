@@ -17,33 +17,38 @@ class _AlertDialogPageState extends State<AlertDialogPage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: ElevatedButton(
-          child: const Text('Show AlertDialog'),
-          onPressed: () async {
-            String? result = await showDialog<String>(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  title: const Text('AlertDialog'),
-                  content: const Text('This is AlertDialog.'),
-                  actions: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context, 'Cancel');
-                      },
-                      child: const Text('Cancel'),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context, 'OK');
-                      },
-                      child: const Text('OK'),
-                    ),
-                  ],
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ElevatedButton(
+              child: const Text('Show AlertDialog'),
+              onPressed: () async {
+                String? result = await showDialog<String>(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: const Text('AlertDialog'),
+                      content: const Text('This is AlertDialog.'),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context, 'Cancel');
+                          },
+                          child: const Text('Cancel'),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context, 'OK');
+                          },
+                          child: const Text('OK'),
+                        ),
+                      ],
+                    );
+                  },
                 );
               },
-            );
-          },
+            ),
+          ],
         ),
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ui_sample/page/others/navigator_page.dart';
 
 import 'page/home_page.dart';
+import 'page/others/navigator_page.dart';
 import 'page_list.dart';
 
 void main() {
@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
     routeMap['/'] = (context) => HomePage(
           pageList: pageList,
         );
-    routeMap['/navigatorChild'] = (context) =>
-        const NavigatorChildPage(title: 'NavigatorChild（pushNamed）');
+    routeMap['/NavigatorChild'] = (context) =>
+        const NavigatorChildPage(title: 'NavigatorChild (pushNamed)');
 
     return MaterialApp(
       title: 'UI Sample',
