@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ui_sample/page/widget/about_dialog_page.dart';
+import 'package:ui_sample/page/widget/alert_dialog_page.dart';
+import 'package:ui_sample/page/widget/license_page_page.dart';
+import 'package:ui_sample/page/widget/simple_dialog_page.dart';
 import 'package:ui_sample/page/widget/sliver_grid_page.dart';
 import 'package:ui_sample/page/widget/sliver_list_page.dart';
 import 'package:ui_sample/page/widget/sliver_to_box_adapter_page.dart';
@@ -18,6 +22,7 @@ import 'page/widget/circular_progress_indicator_page.dart';
 import 'page/widget/container_page.dart';
 import 'page/widget/custom_paint_page.dart';
 import 'page/widget/data_table_page.dart';
+import 'page/widget/dialog_page.dart';
 import 'page/widget/draggable_page.dart';
 import 'page/widget/drawer_page.dart';
 import 'page/widget/elevated_button_page.dart';
@@ -183,11 +188,31 @@ class PageList {
       page: const SnackBarPage(title: 'SnackBar'),
       subKeywords: ['ScaffoldMessenger', 'SnackBarAction'],
     ),
-    // PageInfo(
-    //   pageName: 'Dialog',
-    //   pageRoute: '/dialog',
-    //   page: const DialogPage(title: 'Dialog'),
-    // ),
+    PageInfo(
+      pageName: 'Dialog',
+      pageRoute: '/dialog',
+      page: const DialogPage(title: 'Dialog'),
+    ),
+    PageInfo(
+      pageName: 'SimpleDialog',
+      pageRoute: '/simpleDialog',
+      page: const SimpleDialogPage(title: 'SimpleDialog'),
+    ),
+    PageInfo(
+      pageName: 'LicensePage',
+      pageRoute: '/licensePage',
+      page: const LicensePagePage(title: 'LicensePage'),
+    ),
+    PageInfo(
+      pageName: 'AlertDialog',
+      pageRoute: '/alertDialog',
+      page: const AlertDialogPage(title: 'AlertDialog'),
+    ),
+    PageInfo(
+      pageName: 'AboutDialog',
+      pageRoute: '/aboutDialog',
+      page: const AboutDialogPage(title: 'AboutDialog'),
+    ),
     // PageInfo(
     //   pageName: 'Picker',
     //   pageRoute: '/picker',
@@ -368,11 +393,6 @@ class PageList {
       page: const DraggablePage(title: 'Draggable'),
       subKeywords: ['DragTarget'],
     ),
-    // PageInfo(
-    //   pageName: 'Sliver',
-    //   pageRoute: '/sliver',
-    //   page: const SliverPage(title: 'Sliver'),
-    // ),
     PageInfo(
       pageName: 'CustomPaint',
       pageRoute: '/customPaint',

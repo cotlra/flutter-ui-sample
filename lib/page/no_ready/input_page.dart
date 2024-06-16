@@ -15,10 +15,8 @@ class _InputPageState extends State<InputPage> {
   bool? _isChecked1 = false;
   bool? _isChecked2 = false;
   bool _isSwitched1 = false;
-  bool _isSwitched2 = false;
   String? _currentPullDownValue;
   double _currentSliderValue1 = 0;
-  double _currentSliderValue2 = 0;
   RangeValues _rangeValues = const RangeValues(0, 10);
   String? _radioValue = 'sunny';
 
@@ -46,23 +44,11 @@ class _InputPageState extends State<InputPage> {
                   ),
                 ),
                 StyleConsts.sizedBoxH16,
-                const SizedBox(
-                  width: StyleConsts.value208,
-                  child: CupertinoTextField(),
-                ),
                 Switch(
                   value: _isSwitched1,
                   onChanged: (newValue) {
                     setState(() {
                       _isSwitched1 = newValue;
-                    });
-                  },
-                ),
-                CupertinoSwitch(
-                  value: _isSwitched2,
-                  onChanged: (newValue) {
-                    setState(() {
-                      _isSwitched2 = newValue;
                     });
                   },
                 ),
@@ -158,16 +144,6 @@ class _InputPageState extends State<InputPage> {
                   onChanged: (RangeValues value) {
                     setState(() {
                       _rangeValues = value;
-                    });
-                  },
-                ),
-                CupertinoSlider(
-                  value: _currentSliderValue2,
-                  max: 100,
-                  divisions: 10,
-                  onChanged: (double value) {
-                    setState(() {
-                      _currentSliderValue2 = value;
                     });
                   },
                 ),
