@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ui_sample/const/style_const.dart';
 
 class TextThemePage extends StatefulWidget {
   const TextThemePage({super.key, required this.title});
@@ -13,86 +12,88 @@ class TextThemePage extends StatefulWidget {
 class _TextThemePageState extends State<TextThemePage> {
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: SafeArea(
         child: ListView(
+          padding: const EdgeInsets.all(16),
           children: [
             Text(
               'Display Large',
-              style: Theme.of(context).textTheme.displayLarge,
+              style: textTheme.displayLarge,
             ),
-            StyleConsts.sizedBoxH16,
+            const SizedBox(height: 16),
             Text(
               'Display Medium',
-              style: Theme.of(context).textTheme.displayMedium,
+              style: textTheme.displayMedium,
             ),
-            StyleConsts.sizedBoxH16,
+            const SizedBox(height: 16),
             Text(
               'Display Small',
-              style: Theme.of(context).textTheme.displaySmall,
+              style: textTheme.displaySmall,
             ),
-            StyleConsts.sizedBoxH32,
+            const SizedBox(height: 32),
             Text(
               'Headline Large',
-              style: Theme.of(context).textTheme.headlineLarge,
+              style: textTheme.headlineLarge,
             ),
-            StyleConsts.sizedBoxH16,
+            const SizedBox(height: 16),
             Text(
               'Headline Medium',
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: textTheme.headlineMedium,
             ),
-            StyleConsts.sizedBoxH16,
+            const SizedBox(height: 16),
             Text(
               'Headline Small',
-              style: Theme.of(context).textTheme.headlineSmall,
+              style: textTheme.headlineSmall,
             ),
-            StyleConsts.sizedBoxH32,
+            const SizedBox(height: 32),
             Text(
               'Title Large',
-              style: Theme.of(context).textTheme.titleLarge,
+              style: textTheme.titleLarge,
             ),
-            StyleConsts.sizedBoxH16,
+            const SizedBox(height: 16),
             Text(
               'Title Medium',
-              style: Theme.of(context).textTheme.titleMedium,
+              style: textTheme.titleMedium,
             ),
-            StyleConsts.sizedBoxH16,
+            const SizedBox(height: 16),
             Text(
               'Title Small',
-              style: Theme.of(context).textTheme.titleSmall,
+              style: textTheme.titleSmall,
             ),
-            StyleConsts.sizedBoxH32,
+            const SizedBox(height: 32),
             Text(
               'Label Large',
-              style: Theme.of(context).textTheme.labelLarge,
+              style: textTheme.labelLarge,
             ),
-            StyleConsts.sizedBoxH16,
+            const SizedBox(height: 16),
             Text(
               'Label Medium',
-              style: Theme.of(context).textTheme.labelMedium,
+              style: textTheme.labelMedium,
             ),
-            StyleConsts.sizedBoxH16,
+            const SizedBox(height: 16),
             Text(
               'Label Small',
-              style: Theme.of(context).textTheme.labelSmall,
+              style: textTheme.labelSmall,
             ),
-            StyleConsts.sizedBoxH32,
+            const SizedBox(height: 32),
             Text(
               'Body Large',
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: textTheme.bodyLarge,
             ),
-            StyleConsts.sizedBoxH16,
+            const SizedBox(height: 16),
             Text(
               'Body Medium',
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: textTheme.bodyMedium,
             ),
-            StyleConsts.sizedBoxH16,
+            const SizedBox(height: 16),
             Text(
               'Body Small',
-              style: Theme.of(context).textTheme.bodySmall,
+              style: textTheme.bodySmall,
             ),
           ],
         ),

@@ -1,128 +1,209 @@
 import 'package:flutter/material.dart';
-import 'package:ui_sample/page/animation/animated_container_page.dart';
-import 'package:ui_sample/page/free_page.dart';
-import 'package:ui_sample/page/object/container_page.dart';
-import 'package:ui_sample/page/other/absorb_painter_page.dart';
-import 'package:ui_sample/page/other/sliver_page.dart';
-import 'package:ui_sample/page/other/transform_page.dart';
-import 'package:ui_sample/page/pop_up/bottom_sheet.dart';
-import 'package:ui_sample/page/pop_up/material_banner_page.dart';
-import 'package:ui_sample/page/scroll/scrollbar_page.dart';
-import 'package:ui_sample/page/theme/color_theme_page.dart';
-import 'package:ui_sample/page/theme/text_theme_page.dart';
+import 'package:ui_sample/page/widget/sliver_grid_page.dart';
+import 'package:ui_sample/page/widget/sliver_list_page.dart';
+import 'package:ui_sample/page/widget/sliver_to_box_adapter_page.dart';
 
-import 'page/animation/blink_page.dart';
-import 'page/animation/flip_card_page.dart';
-import 'page/async/future_builder_page.dart';
-import 'page/async/indicator_page.dart';
-import 'page/async/refresh_indicator_page.dart';
-import 'page/async/stream_builder_page.dart';
-import 'page/button/button_page.dart';
-import 'page/button/floating_action_button_page.dart';
-import 'page/button/icon_button_page.dart';
-import 'page/button/segmented_button_page.dart';
-import 'page/button/toggle_buttons_page.dart';
-import 'page/list/list_tile_page.dart';
-import 'page/list/list_view_builder_page.dart';
-import 'page/list/list_view_page.dart';
-import 'page/list/reorderable_list_view_page.dart';
-import 'page/object/flutter_logo_page.dart';
-import 'page/object/placeholder_page.dart';
-import 'page/other/canvas_page.dart';
-import 'page/other/data_table_page.dart';
-import 'page/other/draggable_page.dart';
-import 'page/other/input_page.dart';
-import 'page/other/navigator_page.dart';
-import 'page/other/stepper_page.dart';
-import 'page/pop_up/dialog_page.dart';
-import 'page/pop_up/menu_anchor_page.dart';
-import 'page/pop_up/picker_page.dart';
-import 'page/pop_up/pop_menu_page.dart';
-import 'page/pop_up/snack_bar_page.dart';
-import 'page/pop_up/tooltip_page.dart';
-import 'page/root_navigation/bottom_app_bar_page.dart';
-import 'page/root_navigation/bottom_navigation_bar_page.dart';
-import 'page/root_navigation/drawer_page.dart';
-import 'page/root_navigation/navigation_rail_page.dart';
-import 'page/root_navigation/tab_bar_page.dart';
-import 'page/scroll/page_view_page.dart';
-import 'page/scroll/single_child_scroll_view_page.dart';
-import 'page/scroll/tab_page_selector.dart';
+import 'page/free_page.dart';
+import 'page/idea/blink_page.dart';
+import 'page/idea/flip_card_page.dart';
+import 'page/others/navigator_page.dart';
+import 'page/theme/color_theme_page.dart';
+import 'page/theme/text_theme_page.dart';
+import 'page/widget/absorb_painter_page.dart';
+import 'page/widget/animated_container_page.dart';
+import 'page/widget/bottom_app_bar_page.dart';
+import 'page/widget/bottom_navigation_bar_page.dart';
+import 'page/widget/bottom_sheet_page.dart';
+import 'page/widget/circular_progress_indicator_page.dart';
+import 'page/widget/container_page.dart';
+import 'page/widget/custom_paint_page.dart';
+import 'page/widget/data_table_page.dart';
+import 'page/widget/draggable_page.dart';
+import 'page/widget/drawer_page.dart';
+import 'page/widget/elevated_button_page.dart';
+import 'page/widget/filled_button_page.dart';
+import 'page/widget/floating_action_button_page.dart';
+import 'page/widget/flutter_logo_page.dart';
+import 'page/widget/future_builder_page.dart';
+import 'page/widget/icon_button_page.dart';
+import 'page/widget/linear_progress_indicatior_page.dart';
+import 'page/widget/list_view_page.dart';
+import 'page/widget/material_banner_page.dart';
+import 'page/widget/menu_anchor_page.dart';
+import 'page/widget/navigation_rail_page.dart';
+import 'page/widget/outlined_button_page.dart';
+import 'page/widget/page_view_page.dart';
+import 'page/widget/placeholder_page.dart';
+import 'page/widget/pop_menu_page.dart';
+import 'page/widget/refresh_indicator_page.dart';
+import 'page/widget/reorderable_list_view_page.dart';
+import 'page/widget/scrollbar_page.dart';
+import 'page/widget/segmented_button_page.dart';
+import 'page/widget/single_child_scroll_view_page.dart';
+import 'page/widget/sliver_fill_remaining_page.dart';
+import 'page/widget/snack_bar_page.dart';
+import 'page/widget/stepper_page.dart';
+import 'page/widget/stream_builder_page.dart';
+import 'page/widget/tab_bar_page.dart';
+import 'page/widget/tab_page_selector.dart';
+import 'page/widget/text_button_page.dart';
+import 'page/widget/toggle_buttons_page.dart';
+import 'page/widget/tooltip_page.dart';
+import 'page/widget/transform_page.dart';
 
 class PageInfo {
   final String pageName;
   final String pageRoute;
   final StatefulWidget page;
+  final List<PageTag> tags;
+  final List<String> subKeywords;
 
   PageInfo({
     required this.pageName,
     required this.pageRoute,
     required this.page,
+    this.tags = const [],
+    this.subKeywords = const [],
   });
+
+  bool isMatch(List<PageTag> searchTags, List<String> searchWords) {
+    bool isMatch = true;
+    for (final tag in searchTags) {
+      isMatch = tags.contains(tag) && isMatch;
+    }
+
+    var words = [pageName, ...subKeywords];
+    for (final searchWord in searchWords) {
+      isMatch = words.any((word) =>
+              word.toLowerCase().contains(searchWord.toLowerCase())) &&
+          isMatch;
+    }
+    return isMatch;
+  }
+
+  PageInfo copyWith({
+    String? pageName,
+    String? pageRoute,
+    StatefulWidget? page,
+    List<PageTag>? tags,
+    List<String>? subKeywords,
+  }) {
+    return PageInfo(
+      pageName: pageName ?? this.pageName,
+      pageRoute: pageRoute ?? this.pageRoute,
+      page: page ?? this.page,
+      tags: tags ?? this.tags,
+      subKeywords: subKeywords ?? this.subKeywords,
+    );
+  }
 }
 
 class PageList {
-  final rootNavigationList = [
+  final othersList = [
     PageInfo(
-      pageName: 'Tab Bar',
+      pageName: 'Navigator',
+      pageRoute: '/navigator',
+      page: const NavigatorPage(title: 'Navigator'),
+    ),
+  ];
+
+  final themeList = [
+    PageInfo(
+      pageName: 'Text',
+      pageRoute: '/textTheme',
+      page: const TextThemePage(title: 'Text Theme'),
+      tags: [PageTag.theme],
+    ),
+    PageInfo(
+      pageName: 'Color',
+      pageRoute: '/colorTheme',
+      page: const ColorThemePage(title: 'Color Theme'),
+      tags: [PageTag.theme],
+    ),
+  ];
+
+  final ideaList = [
+    PageInfo(
+      pageName: 'Blink',
+      pageRoute: '/blink',
+      page: const BlinkPage(title: 'Blink'),
+    ),
+    PageInfo(
+      pageName: 'Flip Card',
+      pageRoute: '/flipCard',
+      page: const FlipCardPage(title: 'Flip Card'),
+    ),
+    PageInfo(
+      pageName: 'Free Page',
+      pageRoute: '/free',
+      page: const FreePage(title: 'Free Page'),
+    ),
+  ];
+
+  final widgetList = [
+    PageInfo(
+      pageName: 'TabBar',
       pageRoute: '/tabBar',
-      page: const TabBarPage(title: 'Tab Bar'),
+      page: const TabBarPage(title: 'TabBar'),
+      tags: [PageTag.navigation],
+      subKeywords: ['DefaultTabController', 'TabBarView'],
     ),
     PageInfo(
-      pageName: 'Bottom Navigation',
-      pageRoute: '/bottomNavigation',
+      pageName: 'BottomNavigationBar',
+      pageRoute: '/bottomNavigationBar',
       page: const BottomNavigationBarPage(
-        title: 'Bottom Navigation',
+        title: 'BottomNavigationBar',
       ),
+      tags: [PageTag.navigation],
+      subKeywords: ['BottomNavigationBarItem'],
     ),
-    // PageInfo(
-    //   pageName: 'Cupertino Tab Bar',
-    //   pageRoute: '/cupertinoTabBar',
-    //   page: const CupertinoTabBarPage(
-    //     title: 'Cupertino Tab Bar',
-    //   ),
-    // ),
     PageInfo(
-      pageName: 'Bottom App Bar',
+      pageName: 'BottomAppBar',
       pageRoute: '/bottomAppBar',
-      page: const BottomAppBarPage(title: 'Bottom App Bar'),
+      page: const BottomAppBarPage(title: 'BottomAppBar'),
+      tags: [PageTag.navigation],
     ),
     PageInfo(
-      pageName: 'Navigation Rail',
+      pageName: 'NavigationRail',
       pageRoute: '/navigationRail',
-      page: const NavigationRailPage(title: 'Navigation Rail'),
+      page: const NavigationRailPage(title: 'NavigationRail'),
+      tags: [PageTag.navigation],
+      subKeywords: ['NavigationRailDestination'],
     ),
     PageInfo(
       pageName: 'Drawer',
       pageRoute: '/drawer',
       page: const DrawerPage(title: 'Drawer'),
+      tags: [PageTag.navigation],
+      subKeywords: ['DrawerHeader'],
     ),
-  ];
-  final popUpList = [
     PageInfo(
-      pageName: 'Snack Bar',
+      pageName: 'SnackBar',
       pageRoute: '/snackBar',
-      page: const SnackBarPage(title: 'Snack Bar'),
+      page: const SnackBarPage(title: 'SnackBar'),
+      subKeywords: ['ScaffoldMessenger', 'SnackBarAction'],
+    ),
+    // PageInfo(
+    //   pageName: 'Dialog',
+    //   pageRoute: '/dialog',
+    //   page: const DialogPage(title: 'Dialog'),
+    // ),
+    // PageInfo(
+    //   pageName: 'Picker',
+    //   pageRoute: '/picker',
+    //   page: const PickerPage(title: 'Picker'),
+    // ),
+    PageInfo(
+      pageName: 'PopMenuButton',
+      pageRoute: '/popMenubutton',
+      page: const PopMenuButtonPage(title: 'PopMenuButton'),
+      subKeywords: ['PopupMenuItem'],
     ),
     PageInfo(
-      pageName: 'Dialog',
-      pageRoute: '/dialog',
-      page: const DialogPage(title: 'Dialog'),
-    ),
-    PageInfo(
-      pageName: 'Picker',
-      pageRoute: '/picker',
-      page: const PickerPage(title: 'Picker'),
-    ),
-    PageInfo(
-      pageName: 'Pop Menu',
-      pageRoute: '/popMenu',
-      page: const PopMenuPage(title: 'Pop Menu'),
-    ),
-    PageInfo(
-      pageName: 'Menu Anchor',
+      pageName: 'MenuAnchor',
       pageRoute: '/menuAnchor',
-      page: const MenuAnchorPage(title: 'Menu Anchor'),
+      page: const MenuAnchorPage(title: 'MenuAnchor'),
+      subKeywords: ['MenuItemButton', 'SubmenuButton'],
     ),
     PageInfo(
       pageName: 'Tooltip',
@@ -130,17 +211,16 @@ class PageList {
       page: const TooltipPage(title: 'Tooltip'),
     ),
     PageInfo(
-      pageName: 'Bottom Sheet',
+      pageName: 'BottomSheet',
       pageRoute: '/bottomSheet',
-      page: const BottomSheetPage(title: 'Bottom Sheet'),
+      page: const BottomSheetPage(title: 'BottomSheet'),
     ),
     PageInfo(
-      pageName: 'Material Banner',
+      pageName: 'MaterialBanner',
       pageRoute: '/materialBanner',
-      page: const MaterialBannerPage(title: 'Material Banner'),
+      page: const MaterialBannerPage(title: 'MaterialBanner'),
+      subKeywords: ['ScaffoldMessenger'],
     ),
-  ];
-  final objectList = [
     PageInfo(
       pageName: 'Container',
       pageRoute: '/container',
@@ -152,65 +232,71 @@ class PageList {
       page: const PlaceholderPage(title: 'Placeholder'),
     ),
     PageInfo(
-      pageName: 'Flutter Logo',
+      pageName: 'FlutterLogo',
       pageRoute: '/flutterLogo',
-      page: const FlutterLogoPage(title: 'Flutter Logo'),
-    ),
-  ];
-  final buttonList = [
-    PageInfo(
-      pageName: 'Button',
-      pageRoute: '/button',
-      page: const ButtonPage(title: 'Button'),
+      page: const FlutterLogoPage(title: 'FlutterLogo'),
     ),
     PageInfo(
-      pageName: 'Floating Action Button',
+      pageName: 'ElevatedButton',
+      pageRoute: '/elevatedButton',
+      page: const ElevatedButtonPage(title: 'ElevatedButton'),
+    ),
+    PageInfo(
+      pageName: 'FilledButton',
+      pageRoute: '/filledButton',
+      page: const FilledButtonPage(title: 'FilledButton'),
+    ),
+    PageInfo(
+      pageName: 'TextButton',
+      pageRoute: '/textButton',
+      page: const TextButtonPage(title: 'TextButton'),
+    ),
+    PageInfo(
+      pageName: 'OutlinedButton',
+      pageRoute: '/outlinedButton',
+      page: const OutlinedButtonPage(title: 'OutlinedButton'),
+    ),
+    PageInfo(
+      pageName: 'FloatingActionButton',
       pageRoute: '/floatingActionButton',
-      page: const FloatingActionButtonPage(title: 'Floating Action Button'),
+      page: const FloatingActionButtonPage(title: 'FloatingActionButton'),
     ),
     PageInfo(
-      pageName: 'Icon Button',
+      pageName: 'IconButton',
       pageRoute: '/iconButton',
-      page: const IconButtonPage(title: 'Icon Button'),
+      page: const IconButtonPage(title: 'IconButton'),
     ),
     PageInfo(
-      pageName: 'Segmented Button',
+      pageName: 'SegmentedButton',
       pageRoute: '/segmentedButton',
-      page: const SegmentedButtonPage(title: 'Segmented Button'),
+      page: const SegmentedButtonPage(title: 'SegmentedButton'),
+      subKeywords: ['ButtonSegment'],
     ),
     PageInfo(
-      pageName: 'Toggle Buttons',
+      pageName: 'ToggleButtons',
       pageRoute: '/toggleButtons',
-      page: const ToggleButtonsPage(title: 'Toggle Buttons'),
+      page: const ToggleButtonsPage(title: 'ToggleButtons'),
     ),
-  ];
-  final listList = [
+    // PageInfo(
+    //   pageName: 'List Tile',
+    //   pageRoute: '/listTile',
+    //   page: const ListTilePage(title: 'List Tile'),
+    // ),
     PageInfo(
-      pageName: 'List Tile',
-      pageRoute: '/listTile',
-      page: const ListTilePage(title: 'List Tile'),
-    ),
-    PageInfo(
-      pageName: 'List View',
+      pageName: 'ListView',
       pageRoute: '/listView',
-      page: const ListViewPage(title: 'List View'),
+      page: const ListViewPage(title: 'ListView'),
     ),
     PageInfo(
-      pageName: 'List View（Builder）',
-      pageRoute: '/listViewBuilder',
-      page: const ListViewBuilderPage(title: 'List View（Builder）'),
-    ),
-    PageInfo(
-      pageName: 'Reorderable List View',
+      pageName: 'ReorderableListView',
       pageRoute: '/reorderableListViewPage',
-      page: const ReorderableListViewPage(title: 'Reorderable List View'),
+      page: const ReorderableListViewPage(title: 'ReorderableListView'),
+      subKeywords: ['ReorderableDragStartListener'],
     ),
-  ];
-  final scrollList = [
     PageInfo(
-      pageName: 'Single Child Scroll View',
+      pageName: 'SingleChildScrollView',
       pageRoute: '/singleChildScrollView',
-      page: const SingleChildScrollViewPage(title: 'Single Child Scroll View'),
+      page: const SingleChildScrollViewPage(title: 'SingleChildScrollView'),
     ),
     PageInfo(
       pageName: 'Scrollbar',
@@ -218,145 +304,167 @@ class PageList {
       page: const ScrollbarPage(title: 'Scrollbar'),
     ),
     PageInfo(
-      pageName: 'Page View',
+      pageName: 'PageView',
       pageRoute: '/pageView',
-      page: const PageViewPage(title: 'Page View'),
+      page: const PageViewPage(title: 'PageView'),
+      subKeywords: ['PageController'],
     ),
     PageInfo(
-      pageName: 'Tab Page Selector',
+      pageName: 'TabPageSelector',
       pageRoute: '/tabPageSelector',
-      page: const TabPageSelectorPage(title: 'Tab Page Selector'),
-    ),
-  ];
-  final asyncList = [
-    PageInfo(
-      pageName: 'Indicator',
-      pageRoute: '/indicator',
-      page: const IndicatorPage(title: 'Indicator'),
+      page: const TabPageSelectorPage(title: 'TabPageSelector'),
+      subKeywords: ['TabController'],
     ),
     PageInfo(
-      pageName: 'Stream Builder',
+      pageName: 'LinearProgressIndicator',
+      pageRoute: '/linearProgressIndicator',
+      page: const LinearProgressIndicatorPage(title: 'LinearProgressIndicator'),
+    ),
+    PageInfo(
+      pageName: 'CircularProgressIndicator',
+      pageRoute: '/circularProgressIndicator',
+      page: const CircularProgressIndicatorPage(
+          title: 'CircularProgressIndicator'),
+    ),
+    PageInfo(
+      pageName: 'StreamBuilder',
       pageRoute: '/streamBuilder',
-      page: const StreamBuilderPage(title: 'Stream Builder'),
+      page: const StreamBuilderPage(title: 'StreamBuilder'),
     ),
     PageInfo(
-      pageName: 'Future Builder',
+      pageName: 'FutureBuilder',
       pageRoute: '/futureBuilder',
-      page: const FutureBuilderPage(title: 'Refresh Indicator'),
+      page: const FutureBuilderPage(title: 'FutureBuilder'),
     ),
     PageInfo(
-      pageName: 'Refresh Indicator',
+      pageName: 'RefreshIndicator',
       pageRoute: '/refreshIndicator',
-      page: const RefreshIndicatorPage(title: 'Refresh Indicator'),
-    ),
-  ];
-  final animationList = [
-    PageInfo(
-      pageName: '点滅',
-      pageRoute: '/blink',
-      page: const BlinkPage(title: '点滅'),
+      page: const RefreshIndicatorPage(title: 'RefreshIndicator'),
     ),
     PageInfo(
-      pageName: 'カードの回転',
-      pageRoute: '/flipCard',
-      page: const FlipCardPage(title: 'カードの回転'),
-    ),
-    PageInfo(
-      pageName: 'Animated Container',
+      pageName: 'AnimatedContainer',
       pageRoute: '/animatedContainer',
-      page: const AnimatedContainerPage(title: 'Animated Container'),
-    ),
-  ];
-  final themeList = [
-    PageInfo(
-      pageName: 'Text Theme',
-      pageRoute: '/textTheme',
-      page: const TextThemePage(title: 'Text Theme'),
+      page: const AnimatedContainerPage(title: 'AnimatedContainer'),
     ),
     PageInfo(
-      pageName: 'Color Theme',
-      pageRoute: '/colorTheme',
-      page: const ColorThemePage(title: 'Color Theme'),
-    ),
-  ];
-  final otherList = [
-    PageInfo(
-      pageName: 'Data Table',
+      pageName: 'DataTable',
       pageRoute: '/dataTable',
-      page: const DataTablePage(title: 'Data Table'),
+      page: const DataTablePage(title: 'DataTable'),
     ),
     PageInfo(
       pageName: 'Stepper',
       pageRoute: '/stepper',
       page: const StepperPage(title: 'Stepper'),
+      subKeywords: ['Step'],
     ),
-    PageInfo(
-      pageName: 'Input',
-      pageRoute: '/input',
-      page: const InputPage(title: 'Input'),
-    ),
+    // PageInfo(
+    //   pageName: 'Input',
+    //   pageRoute: '/input',
+    //   page: const InputPage(title: 'Input'),
+    // ),
     PageInfo(
       pageName: 'Draggable',
       pageRoute: '/draggable',
       page: const DraggablePage(title: 'Draggable'),
+      subKeywords: ['DragTarget'],
     ),
+    // PageInfo(
+    //   pageName: 'Sliver',
+    //   pageRoute: '/sliver',
+    //   page: const SliverPage(title: 'Sliver'),
+    // ),
     PageInfo(
-      pageName: 'Navigator（画面遷移）',
-      pageRoute: '/navigator',
-      page: const NavigatorPage(title: 'Navigator（画面遷移）'),
-    ),
-    PageInfo(
-      pageName: 'Sliver',
-      pageRoute: '/sliver',
-      page: const SliverPage(title: 'Sliver'),
-    ),
-    PageInfo(
-      pageName: 'Canvas',
-      pageRoute: '/canvas',
-      page: const CanvasPage(title: 'Canvas'),
+      pageName: 'CustomPaint',
+      pageRoute: '/customPaint',
+      page: const CustomPaintPage(title: 'CustomPaint'),
+      subKeywords: [
+        'CustomPainter',
+        'Paint',
+        'Offset',
+        'Size',
+        'Canvas',
+        'Rect',
+        'Path',
+        'TextPainter',
+      ],
     ),
     PageInfo(
       pageName: 'Transform',
       pageRoute: '/transform',
       page: const TransformPage(title: 'Transform'),
+      subKeywords: ['Matrix4'],
     ),
     PageInfo(
-      pageName: 'Absorb Painter',
+      pageName: 'AbsorbPainter',
       pageRoute: '/absorbPainter',
-      page: const AbsorbPainterPage(title: 'Absorb Painter'),
+      page: const AbsorbPainterPage(title: 'AbsorbPainter'),
     ),
     PageInfo(
-      pageName: 'お試しページ',
-      pageRoute: '/free',
-      page: const FreePage(title: 'お試しページ'),
+      pageName: 'SliverList',
+      pageRoute: '/sliverList',
+      page: const SliverListPage(title: 'SliverList'),
+      subKeywords: [
+        'SliverAppBar',
+        'CustomScrollView',
+        'SliverChildBuilderDelegate'
+      ],
+    ),
+    PageInfo(
+      pageName: 'SliverGrid',
+      pageRoute: '/sliverGrid',
+      page: const SliverGridPage(title: 'SliverGrid'),
+      subKeywords: [
+        'SliverAppBar',
+        'CustomScrollView',
+        'SliverChildBuilderDelegate',
+        'SliverGridDelegateWithFixedCrossAxisCount',
+      ],
+    ),
+    PageInfo(
+      pageName: 'SliverToBoxAdapter',
+      pageRoute: '/sliverToBoxAdapter',
+      page: const SliverToBoxAdapterPage(title: 'SliverToBoxAdapter'),
+      subKeywords: [
+        'SliverAppBar',
+        'CustomScrollView',
+      ],
+    ),
+    PageInfo(
+      pageName: 'SliverFillRemaining',
+      pageRoute: '/sliverFillRemaining',
+      page: const SliverFillRemainingPage(title: 'SliverFillRemaining'),
+      subKeywords: [
+        'SliverAppBar',
+        'CustomScrollView',
+      ],
     ),
   ];
 
-  late Map<String, List<PageInfo>> allMap;
+  List<PageInfo> get allList =>
+      [...widgetList, ...themeList, ...ideaList, ...othersList];
 
   PageList() {
-    allMap = {
-      'ルートナビゲーション': rootNavigationList,
-      'ポップアップ': popUpList,
-      '物体': objectList,
-      'ボタン': buttonList,
-      'リスト': listList,
-      'スクロール': scrollList,
-      '同期': asyncList,
-      'アニメーション': animationList,
-      'テーマ': themeList,
-      'その他': otherList,
-    };
+    widgetList.sort((a, b) {
+      return a.pageName.compareTo(b.pageName);
+    });
+    themeList.sort((a, b) {
+      return a.pageName.compareTo(b.pageName);
+    });
+    ideaList.sort((a, b) {
+      return a.pageName.compareTo(b.pageName);
+    });
+    othersList.sort((a, b) {
+      return a.pageName.compareTo(b.pageName);
+    });
   }
 
   Map<String, Widget Function(BuildContext)> getRootMap() {
-    Map<String, Widget Function(BuildContext)> map = {};
-    for (var element in allMap.values) {
-      map.addAll(Map.fromIterables(
-          element.map<String>((e) => e.pageRoute),
-          element
-              .map<Widget Function(BuildContext)>((e) => (context) => e.page)));
-    }
-    return map;
+    return Map.fromIterables(allList.map<String>((e) => e.pageRoute),
+        allList.map<Widget Function(BuildContext)>((e) => (context) => e.page));
   }
+}
+
+enum PageTag {
+  theme,
+  navigation,
 }
