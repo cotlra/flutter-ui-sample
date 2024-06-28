@@ -20,24 +20,26 @@ class _MaterialBannerPageState extends State<MaterialBannerPage> {
       title: widget.title,
       children: [
         ElevatedButton(
+          onPressed: showMaterialBanner,
           child: const Text('Show MaterialBanner'),
-          onPressed: () {
-            ScaffoldMessenger.of(context).showMaterialBanner(
-              MaterialBanner(
-                content: const Text('This is MaterialBanner.'),
-                actions: [
-                  TextButton(
-                    child: const Text('Close'),
-                    onPressed: () {
-                      _scaffoldMessenger?.hideCurrentMaterialBanner();
-                    },
-                  ),
-                ],
-              ),
-            );
-          },
         ),
       ],
+    );
+  }
+
+  void showMaterialBanner() {
+    ScaffoldMessenger.of(context).showMaterialBanner(
+      MaterialBanner(
+        content: const Text('This is MaterialBanner.'),
+        actions: [
+          TextButton(
+            child: const Text('Close'),
+            onPressed: () {
+              _scaffoldMessenger?.hideCurrentMaterialBanner();
+            },
+          ),
+        ],
+      ),
     );
   }
 

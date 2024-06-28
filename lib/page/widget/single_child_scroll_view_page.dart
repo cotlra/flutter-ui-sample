@@ -23,43 +23,17 @@ class _SingleChildScrollViewPageState extends State<SingleChildScrollViewPage> {
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  color: Theme.of(context).primaryColor,
-                  height: 208,
+              children: List.generate(20, (index) {
+                final colorSheme = Theme.of(context).colorScheme;
+                final color = index % 2 == 0
+                    ? colorSheme.primary
+                    : colorSheme.primaryContainer;
+                return Container(
                   width: 208,
-                ),
-                Container(
-                  color: Theme.of(context).colorScheme.primaryContainer,
                   height: 208,
-                  width: 208,
-                ),
-                Container(
-                  color: Theme.of(context).primaryColor,
-                  height: 208,
-                  width: 208,
-                ),
-                Container(
-                  color: Theme.of(context).colorScheme.primaryContainer,
-                  height: 208,
-                  width: 208,
-                ),
-                Container(
-                  color: Theme.of(context).primaryColor,
-                  height: 208,
-                  width: 208,
-                ),
-                Container(
-                  color: Theme.of(context).colorScheme.primaryContainer,
-                  height: 208,
-                  width: 208,
-                ),
-                Container(
-                  color: Theme.of(context).primaryColor,
-                  height: 208,
-                  width: 208,
-                ),
-              ],
+                  color: color,
+                );
+              }),
             ),
           ),
         ),

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../page_list.dart';
+import '../page_info/page_category.dart';
+import '../page_info/page_info.dart';
+import '../page_info/page_list.dart';
+import '../page_info/page_tag.dart';
+import '../util/converters.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.pageList});
@@ -12,6 +16,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final _searchController = SearchController();
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -21,6 +26,7 @@ class _HomePageState extends State<HomePage> {
           title: const Text('UI Collection'),
           actions: [
             SearchAnchor(
+              searchController: _searchController,
               builder: (BuildContext context, SearchController controller) {
                 return IconButton(
                   onPressed: () {
@@ -32,55 +38,58 @@ class _HomePageState extends State<HomePage> {
               suggestionsBuilder:
                   (BuildContext context, SearchController controller) {
                 if (controller.text.isEmpty) {
-                  return [const SizedBox.shrink()];
+                  return [_tags()];
                 } else {
-                  final searchWords = controller.text.split(' ');
-                  final tags = <PageTag>[]; // TODO: Categoryの整備
-                  final keywords = searchWords
-                      .where((element) => !element.startsWith('tags:'))
-                      .toList();
-
-                  return widget.pageList.allList
-                      .where((element) => element.isMatch(tags, keywords))
+                  final candidates = widget.pageList
+                      .searchWords(controller.text)
                       .map((e) => _pageListTile(e));
+
+                  return [_tags(), ...candidates];
                 }
               },
             ),
           ],
-          bottom: const TabBar(
-            tabs: [
-              Tab(
-                child: Text('Widget'),
-              ),
-              Tab(
-                child: Text('Theme'),
-              ),
-              Tab(
-                child: Text('Idea'),
-              ),
-              Tab(
-                child: Text('Others'),
-              ),
-            ],
+          bottom: TabBar(
+            tabs: PageCategory.values
+                .map(
+                  (e) => Tab(
+                    child:
+                        Text(Converters.convertCamelCaseToPascalCase(e.name)),
+                  ),
+                )
+                .toList(),
           ),
         ),
         body: SafeArea(
           child: TabBarView(
-            children: [
-              _pageListView(widget.pageList.widgetList),
-              _pageListView(widget.pageList.themeList),
-              _pageListView(widget.pageList.ideaList),
-              _pageListView(widget.pageList.othersList),
-              // _createPageListView(widget.pageList.othersList),
-            ],
+            children: PageCategory.values
+                .map((category) => _pageListView(widget.pageList.allList
+                    .where((e) => e.category == category)
+                    .toList()))
+                .toList(),
           ),
         ),
-        // body: SafeArea(
-        //   child: ListView(
-        //     children: _createListTiles(),
-        //   ),
-        // ),
       ),
+    );
+  }
+
+  Widget _tags() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Wrap(
+          spacing: 8,
+          children: PageTag.values.where((e) => e != PageTag.error).map((e) {
+            var pascalCaseName =
+                Converters.convertCamelCaseToPascalCase(e.name);
+            return ActionChip(
+              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+              label: Text(pascalCaseName),
+              onPressed: () {
+                _searchController.text =
+                    '${_searchController.text} ${PageConsts.tagPrefix}$pascalCaseName';
+              },
+            );
+          }).toList()),
     );
   }
 

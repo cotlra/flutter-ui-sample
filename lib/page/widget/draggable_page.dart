@@ -23,29 +23,26 @@ class _DraggablePageState extends State<DraggablePage> {
           children: [
             Expanded(
               child: Center(
-                child: SizedBox(
-                  width: 128,
-                  height: 128,
-                  child: DragTarget<Color>(
-                    builder: (BuildContext context, List<Color?> candidateData,
-                        List<dynamic> rejectedData) {
-                      return ColoredBox(
-                        color: draggedColor ?? themeColor.primaryContainer,
-                        child: Center(
-                          child: Text(
-                            'Drag Target',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium
-                                ?.copyWith(color: themeColor.background),
-                          ),
-                        ),
-                      );
-                    },
-                    onAcceptWithDetails: (DragTargetDetails<Color> details) {
-                      draggedColor = details.data;
-                    },
-                  ),
+                child: DragTarget<Color>(
+                  builder: (BuildContext context, List<Color?> candidateData,
+                      List<dynamic> rejectedData) {
+                    return Container(
+                      width: 128,
+                      height: 128,
+                      color: draggedColor ?? themeColor.primaryContainer,
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Drag Target',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: themeColor.background),
+                      ),
+                    );
+                  },
+                  onAcceptWithDetails: (DragTargetDetails<Color> details) {
+                    draggedColor = details.data;
+                  },
                 ),
               ),
             ),
@@ -73,42 +70,39 @@ class _DraggablePageState extends State<DraggablePage> {
           shape: BoxShape.circle,
           color: backgroundColor,
         ),
-        child: Center(
-          child: Text(
-            'Draggable',
-            style: Theme.of(context)
-                .textTheme
-                .bodyMedium
-                ?.copyWith(color: textColor),
-          ),
+        alignment: Alignment.center,
+        child: Text(
+          'Draggable',
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium
+              ?.copyWith(color: textColor),
         ),
       ),
       childWhenDragging: Container(
         width: 72,
         height: 72,
         color: backgroundColor.withAlpha(0x55),
-        child: Center(
-          child: Text(
-            'Draggable',
-            style: Theme.of(context)
-                .textTheme
-                .bodyMedium
-                ?.copyWith(color: textColor),
-          ),
+        alignment: Alignment.center,
+        child: Text(
+          'Draggable',
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium
+              ?.copyWith(color: textColor),
         ),
       ),
       child: Container(
         width: 72,
         height: 72,
         color: backgroundColor,
-        child: Center(
-          child: Text(
-            'Draggable',
-            style: Theme.of(context)
-                .textTheme
-                .bodyMedium
-                ?.copyWith(color: textColor),
-          ),
+        alignment: Alignment.center,
+        child: Text(
+          'Draggable',
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium
+              ?.copyWith(color: textColor),
         ),
       ),
     );

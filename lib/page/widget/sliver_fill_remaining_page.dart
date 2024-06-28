@@ -21,9 +21,12 @@ class _SliverFillRemainingPageState extends State<SliverFillRemainingPage> {
               title: Text(widget.title),
               floating: true,
             ),
-            const SliverFillRemaining(
-              child: Center(
-                child: Text('SliverFillRemaining'),
+            SliverFillRemaining(
+              child: ColoredBox(
+                color: Theme.of(context).colorScheme.primaryContainer,
+                child: const Center(
+                  child: Text('SliverFillRemaining'),
+                ),
               ),
             ),
           ],

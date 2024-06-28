@@ -16,7 +16,7 @@ class _ListTilePageState extends State<ListTilePage> {
   Widget build(BuildContext context) {
     return BaseFrame(
       title: widget.title,
-      children: [
+      children: const [
         ListTile(
           title: Text('ListTile'),
           subtitle: Text('This is ListTile.'),

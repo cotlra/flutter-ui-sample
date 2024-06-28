@@ -10,8 +10,6 @@ class SliverToBoxAdapterPage extends StatefulWidget {
 }
 
 class _SliverToBoxAdapterPageState extends State<SliverToBoxAdapterPage> {
-  final _list = List.generate(50, (index) => 'Item ${index + 1}');
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,14 +20,15 @@ class _SliverToBoxAdapterPageState extends State<SliverToBoxAdapterPage> {
               title: Text(widget.title),
               floating: true,
             ),
-            for (var item in _list)
-              SliverToBoxAdapter(
+            ...List.generate(50, (index) {
+              return SliverToBoxAdapter(
                 child: Container(
                   height: 50,
                   color: Theme.of(context).colorScheme.primaryContainer,
-                  child: Text(item),
+                  child: Text('Item ${index + 1}'),
                 ),
-              ),
+              );
+            }),
           ],
         ),
       ),

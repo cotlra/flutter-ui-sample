@@ -14,28 +14,10 @@ class AnimatedContainerPage extends StatefulWidget {
 }
 
 class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
-  Color _color = const Color(0xff000000);
   final math.Random _random = math.Random();
+  Color _color = const Color(0xff000000);
   double _width = 150;
   double _height = 50;
-
-  @override
-  void initState() {
-    _color = Color(_random.nextInt(0xffffff) + 0xff000000);
-    Future(() async {
-      while (true) {
-        if (mounted) {
-          setState(() {
-            _color = Color(_random.nextInt(0xffffff) + 0xff000000);
-            _width = _random.nextInt(250) + 100;
-            _height = _random.nextInt(250) + 50;
-          });
-        }
-        await Future.delayed(const Duration(seconds: 2));
-      }
-    });
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +37,17 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
               textAlign: TextAlign.center,
             ),
           ),
+        ),
+        const SizedBox(height: 32),
+        ElevatedButton(
+          onPressed: () {
+            setState(() {
+              _color = Color(_random.nextInt(0xffffff) + 0xff000000);
+              _width = _random.nextInt(250) + 100;
+              _height = _random.nextInt(250) + 50;
+            });
+          },
+          child: const Text('Change Color & Size'),
         ),
       ],
     );

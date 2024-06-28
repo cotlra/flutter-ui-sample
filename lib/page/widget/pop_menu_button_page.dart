@@ -29,6 +29,7 @@ class _PopMenuButtonPageState extends State<PopMenuButtonPage> {
                   value: 'Menu 2',
                   child: Text('Menu 2'),
                 ),
+                const PopupMenuDivider(),
                 const PopupMenuItem(
                   value: 'Menu 3',
                   child: Text('Menu 3'),

@@ -16,7 +16,7 @@ class _FreePageState extends State<FreePage> {
   Widget build(BuildContext context) {
     return BaseFrame(
       title: widget.title,
-      children: [],
+      children: const [],
     );
   }
 }

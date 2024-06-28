@@ -18,19 +18,21 @@ class _SnackBarPageState extends State<SnackBarPage> {
       children: [
         ElevatedButton(
           child: const Text('Show SnackBar'),
-          onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: const Text('This is SnackBar.'),
-                action: SnackBarAction(
-                  label: 'Close',
-                  onPressed: () {},
-                ),
-              ),
-            );
-          },
+          onPressed: showSnackBar,
         ),
       ],
+    );
+  }
+
+  void showSnackBar() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: const Text('This is SnackBar.'),
+        action: SnackBarAction(
+          label: 'Close',
+          onPressed: () {},
+        ),
+      ),
     );
   }
 }

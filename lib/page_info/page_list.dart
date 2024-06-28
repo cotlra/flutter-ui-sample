@@ -1,158 +1,124 @@
 import 'package:flutter/material.dart';
 
-import 'page/free_page.dart';
-import 'page/idea/blink_page.dart';
-import 'page/idea/flip_card_page.dart';
-import 'page/others/navigator_page.dart';
-import 'page/theme/color_theme_page.dart';
-import 'page/theme/text_theme_page.dart';
-import 'page/widget/about_dialog_page.dart';
-import 'page/widget/absorb_painter_page.dart';
-import 'page/widget/alert_dialog_page.dart';
-import 'page/widget/animated_container_page.dart';
-import 'page/widget/bottom_app_bar_page.dart';
-import 'page/widget/bottom_navigation_bar_page.dart';
-import 'page/widget/bottom_sheet_page.dart';
-import 'page/widget/checkbox_list_tile_page.dart';
-import 'page/widget/checkbox_page.dart';
-import 'page/widget/circular_progress_indicator_page.dart';
-import 'page/widget/container_page.dart';
-import 'page/widget/custom_paint_page.dart';
-import 'page/widget/data_table_page.dart';
-import 'page/widget/date_picker_page.dart';
-import 'page/widget/date_range_picker_page.dart';
-import 'page/widget/dialog_page.dart';
-import 'page/widget/draggable_page.dart';
-import 'page/widget/drawer_page.dart';
-import 'page/widget/dropdown_menu_page.dart';
-import 'page/widget/elevated_button_page.dart';
-import 'page/widget/expansion_tile_page.dart';
-import 'page/widget/filled_button_page.dart';
-import 'page/widget/floating_action_button_page.dart';
-import 'page/widget/flutter_logo_page.dart';
-import 'page/widget/future_builder_page.dart';
-import 'page/widget/icon_button_page.dart';
-import 'page/widget/license_page_page.dart';
-import 'page/widget/linear_progress_indicatior_page.dart';
-import 'page/widget/list_tile_page.dart';
-import 'page/widget/list_view_page.dart';
-import 'page/widget/material_banner_page.dart';
-import 'page/widget/menu_anchor_page.dart';
-import 'page/widget/navigation_rail_page.dart';
-import 'page/widget/outlined_button_page.dart';
-import 'page/widget/page_view_page.dart';
-import 'page/widget/placeholder_page.dart';
-import 'page/widget/pop_menu_page.dart';
-import 'page/widget/radio_page.dart';
-import 'page/widget/range_slider_page.dart';
-import 'page/widget/refresh_indicator_page.dart';
-import 'page/widget/reorderable_list_view_page.dart';
-import 'page/widget/safe_area_page.dart';
-import 'page/widget/scrollbar_page.dart';
-import 'page/widget/segmented_button_page.dart';
-import 'page/widget/simple_dialog_page.dart';
-import 'page/widget/single_child_scroll_view_page.dart';
-import 'page/widget/slider_page.dart';
-import 'page/widget/sliver_fill_remaining_page.dart';
-import 'page/widget/sliver_grid_page.dart';
-import 'page/widget/sliver_list_page.dart';
-import 'page/widget/sliver_to_box_adapter_page.dart';
-import 'page/widget/snack_bar_page.dart';
-import 'page/widget/stepper_page.dart';
-import 'page/widget/stream_builder_page.dart';
-import 'page/widget/switch_list_tile_page.dart';
-import 'page/widget/switch_page.dart';
-import 'page/widget/tab_bar_page.dart';
-import 'page/widget/tab_page_selector.dart';
-import 'page/widget/text_button_page.dart';
-import 'page/widget/text_field_page.dart';
-import 'page/widget/time_picker_page.dart';
-import 'page/widget/toggle_buttons_page.dart';
-import 'page/widget/tooltip_page.dart';
-import 'page/widget/transform_page.dart';
-
-class PageInfo {
-  final String pageName;
-  final StatefulWidget page;
-  final List<PageTag> tags;
-  final List<String> subKeywords;
-
-  PageInfo({
-    required this.pageName,
-    required this.page,
-    this.tags = const [],
-    this.subKeywords = const [],
-  });
-
-  String get pageRoute => '/${pageName.replaceAll(' ', '_')}';
-
-  bool isMatch(List<PageTag> searchTags, List<String> searchWords) {
-    bool isMatch = true;
-    for (final tag in searchTags) {
-      isMatch = tags.contains(tag) && isMatch;
-    }
-
-    var words = [pageName, ...subKeywords];
-    for (final searchWord in searchWords) {
-      isMatch = words.any((word) =>
-              word.toLowerCase().contains(searchWord.toLowerCase())) &&
-          isMatch;
-    }
-    return isMatch;
-  }
-
-  PageInfo copyWith({
-    String? pageName,
-    StatefulWidget? page,
-    List<PageTag>? tags,
-    List<String>? subKeywords,
-  }) {
-    return PageInfo(
-      pageName: pageName ?? this.pageName,
-      page: page ?? this.page,
-      tags: tags ?? this.tags,
-      subKeywords: subKeywords ?? this.subKeywords,
-    );
-  }
-}
+import '../page/free_page.dart';
+import '../page/idea/flip_card_page.dart';
+import '../page/others/navigator_page.dart';
+import '../page/theme/color_theme_page.dart';
+import '../page/theme/text_theme_page.dart';
+import '../page/widget/about_dialog_page.dart';
+import '../page/widget/absorb_painter_page.dart';
+import '../page/widget/alert_dialog_page.dart';
+import '../page/widget/animated_container_page.dart';
+import '../page/widget/animated_cross_fade_page.dart';
+import '../page/widget/bottom_app_bar_page.dart';
+import '../page/widget/bottom_navigation_bar_page.dart';
+import '../page/widget/bottom_sheet_page.dart';
+import '../page/widget/checkbox_list_tile_page.dart';
+import '../page/widget/checkbox_page.dart';
+import '../page/widget/circle_avatar_page.dart';
+import '../page/widget/circular_progress_indicator_page.dart';
+import '../page/widget/container_page.dart';
+import '../page/widget/custom_paint_page.dart';
+import '../page/widget/data_table_page.dart';
+import '../page/widget/date_picker_page.dart';
+import '../page/widget/date_range_picker_page.dart';
+import '../page/widget/dialog_page.dart';
+import '../page/widget/divider_page.dart';
+import '../page/widget/draggable_page.dart';
+import '../page/widget/drawer_page.dart';
+import '../page/widget/dropdown_menu_page.dart';
+import '../page/widget/elevated_button_page.dart';
+import '../page/widget/expanded_page.dart';
+import '../page/widget/expansion_tile_page.dart';
+import '../page/widget/fade_transition_page.dart';
+import '../page/widget/filled_button_page.dart';
+import '../page/widget/floating_action_button_page.dart';
+import '../page/widget/flutter_logo_page.dart';
+import '../page/widget/future_builder_page.dart';
+import '../page/widget/grid_view_page.dart';
+import '../page/widget/hero_page.dart';
+import '../page/widget/icon_button_page.dart';
+import '../page/widget/license_page_page.dart';
+import '../page/widget/linear_progress_indicatior_page.dart';
+import '../page/widget/list_tile_page.dart';
+import '../page/widget/list_view_page.dart';
+import '../page/widget/material_banner_page.dart';
+import '../page/widget/menu_anchor_page.dart';
+import '../page/widget/navigation_rail_page.dart';
+import '../page/widget/opacity_page.dart';
+import '../page/widget/outlined_button_page.dart';
+import '../page/widget/page_view_page.dart';
+import '../page/widget/placeholder_page.dart';
+import '../page/widget/pop_menu_button_page.dart';
+import '../page/widget/radio_page.dart';
+import '../page/widget/range_slider_page.dart';
+import '../page/widget/refresh_indicator_page.dart';
+import '../page/widget/reorderable_list_view_page.dart';
+import '../page/widget/safe_area_page.dart';
+import '../page/widget/scrollbar_page.dart';
+import '../page/widget/segmented_button_page.dart';
+import '../page/widget/simple_dialog_page.dart';
+import '../page/widget/single_child_scroll_view_page.dart';
+import '../page/widget/slider_page.dart';
+import '../page/widget/sliver_fill_remaining_page.dart';
+import '../page/widget/sliver_grid_page.dart';
+import '../page/widget/sliver_list_page.dart';
+import '../page/widget/sliver_to_box_adapter_page.dart';
+import '../page/widget/snack_bar_page.dart';
+import '../page/widget/stepper_page.dart';
+import '../page/widget/stream_builder_page.dart';
+import '../page/widget/switch_list_tile_page.dart';
+import '../page/widget/switch_page.dart';
+import '../page/widget/tab_bar_page.dart';
+import '../page/widget/tab_page_selector.dart';
+import '../page/widget/text_button_page.dart';
+import '../page/widget/text_field_page.dart';
+import '../page/widget/time_picker_page.dart';
+import '../page/widget/toggle_buttons_page.dart';
+import '../page/widget/tooltip_page.dart';
+import '../page/widget/transform_page.dart';
+import '../page/widget/vertical_divider_page.dart';
+import '../page/widget/wrap_page.dart';
+import 'child_page_info.dart';
+import 'page_category.dart';
+import 'page_info.dart';
+import 'page_tag.dart';
 
 class PageList {
-  final othersList = [
+  final allList = [
     PageInfo(
       pageName: 'Navigator',
       page: const NavigatorPage(title: 'Navigator'),
+      category: PageCategory.others,
+      childPages: [
+        ChildPageInfo(
+          pageName: 'Navigator Child',
+          page: const NavigatorChildPage(title: 'NavigatorChild (pushNamed)'),
+        ),
+      ],
     ),
-  ];
-
-  final themeList = [
     PageInfo(
       pageName: 'Text',
       page: const TextThemePage(title: 'Text Theme'),
+      category: PageCategory.theme,
       tags: [PageTag.theme],
     ),
     PageInfo(
       pageName: 'Color',
       page: const ColorThemePage(title: 'Color Theme'),
+      category: PageCategory.theme,
       tags: [PageTag.theme],
-    ),
-  ];
-
-  final ideaList = [
-    PageInfo(
-      pageName: 'Blink',
-      page: const BlinkPage(title: 'Blink'),
     ),
     PageInfo(
       pageName: 'Flip Card',
       page: const FlipCardPage(title: 'Flip Card'),
+      category: PageCategory.idea,
     ),
     PageInfo(
       pageName: 'Free Page',
       page: const FreePage(title: 'Free Page'),
+      category: PageCategory.idea,
     ),
-  ];
-
-  final widgetList = [
     PageInfo(
       pageName: 'TabBar',
       page: const TabBarPage(title: 'TabBar'),
@@ -220,7 +186,7 @@ class PageList {
     PageInfo(
       pageName: 'PopMenuButton',
       page: const PopMenuButtonPage(title: 'PopMenuButton'),
-      subKeywords: ['PopupMenuItem'],
+      subKeywords: ['PopupMenuItem', 'PopupMenuDivider'],
     ),
     PageInfo(
       pageName: 'MenuAnchor',
@@ -351,11 +317,6 @@ class PageList {
       page: const StepperPage(title: 'Stepper'),
       subKeywords: ['Step'],
     ),
-    // PageInfo(
-    //   pageName: 'Input',
-    //   pageRoute: '/input',
-    //   page: const InputPage(title: 'Input'),
-    // ),
     PageInfo(
       pageName: 'Draggable',
       page: const DraggablePage(title: 'Draggable'),
@@ -469,34 +430,112 @@ class PageList {
       pageName: 'SafeArea',
       page: const SafeAreaPage(title: 'SafeArea'),
     ),
+    PageInfo(
+      pageName: 'Wrap',
+      page: const WrapPage(title: 'Wrap'),
+      tags: [PageTag.layout],
+    ),
+    PageInfo(
+      pageName: 'Expanded',
+      page: const ExpandedPage(title: 'Expanded'),
+      tags: [PageTag.layout],
+    ),
+    PageInfo(
+      pageName: 'Opacity',
+      page: const OpacityPage(title: 'Opacity'),
+    ),
+    PageInfo(
+      pageName: 'FadeTransition',
+      page: const FadeTransitionPage(title: 'FadeTransition'),
+      subKeywords: ["AnimationController", "Tween"],
+      tags: [PageTag.animation],
+    ),
+    PageInfo(
+      pageName: 'Hero',
+      page: const HeroPage(title: 'Hero'),
+      childPages: [
+        ChildPageInfo(
+          pageName: 'HeroChild',
+          page: const HeroChildPage(
+            title: 'Hero (Child)',
+          ),
+        )
+      ],
+    ),
+    PageInfo(
+      pageName: 'CircleAvatar',
+      page: const CircleAvatarPage(title: 'CircleAvatar'),
+    ),
+    PageInfo(
+      pageName: 'GridView',
+      page: const GridViewPage(title: 'GridView'),
+    ),
+    PageInfo(
+      pageName: 'AnimatedCrossFade',
+      page: const AnimatedCrossFadePage(title: 'AnimatedCrossFade'),
+      tags: [PageTag.animation],
+    ),
+    PageInfo(
+      pageName: 'Divider',
+      page: const DividerPage(title: 'Divider'),
+    ),
+    PageInfo(
+      pageName: 'VerticalDivider',
+      page: const VerticalDividerPage(title: 'VerticalDivider'),
+    ),
   ];
 
-  List<PageInfo> get allList =>
-      [...widgetList, ...themeList, ...ideaList, ...othersList];
-
   PageList() {
-    widgetList.sort((a, b) {
-      return a.pageName.compareTo(b.pageName);
-    });
-    themeList.sort((a, b) {
-      return a.pageName.compareTo(b.pageName);
-    });
-    ideaList.sort((a, b) {
-      return a.pageName.compareTo(b.pageName);
-    });
-    othersList.sort((a, b) {
+    allList.sort((a, b) {
       return a.pageName.compareTo(b.pageName);
     });
   }
 
   Map<String, Widget Function(BuildContext)> getRootMap() {
-    return Map.fromIterables(allList.map<String>((e) => e.pageRoute),
-        allList.map<Widget Function(BuildContext)>((e) => (context) => e.page));
+    final pageRoutes = <String, Widget Function(BuildContext)>{};
+    for (var page in allList) {
+      pageRoutes[page.pageRoute] = (context) => page.page;
+      for (var childPage in page.childPages) {
+        pageRoutes[childPage.pageRoute] = (context) => childPage.page;
+      }
+    }
+    return pageRoutes;
+  }
+
+  Iterable<PageInfo> searchWords(String words,
+      {String tagPrefix = PageConsts.tagPrefix}) {
+    final list = words.trim().split(' ');
+
+    if (list.isEmpty) {
+      return const Iterable.empty();
+    }
+
+    final wordList = list.where((e) => !e.startsWith(tagPrefix)).toList();
+
+    final allTagNameList = PageTag.values.map((e) => e.name);
+    final tagTextList = list
+        .where((e) => e.startsWith(tagPrefix))
+        .map((e) => e.toLowerCase().substring(tagPrefix.length, e.length));
+
+    late List<PageTag> tagList;
+    if (tagTextList.every((e) => allTagNameList.contains(e))) {
+      tagList = tagTextList
+          .where((e) => allTagNameList.contains(e))
+          .map<PageTag>((e) => PageTag.values.byName(e))
+          .toList();
+    } else {
+      tagList = [PageTag.error];
+    }
+
+    return _filter(wordList, tagList);
+  }
+
+  Iterable<PageInfo> _filter(List<String> words, List<PageTag> tags) {
+    return allList.where(
+        (element) => element.isMatchWords(words) && element.isMatchTags(tags));
   }
 }
 
-enum PageTag {
-  animation,
-  theme,
-  navigation,
+class PageConsts {
+  static const tagPrefix = '::';
 }
