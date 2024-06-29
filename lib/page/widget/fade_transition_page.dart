@@ -34,9 +34,7 @@ class _FadeTransitionPageState extends State<FadeTransitionPage>
       children: [
         FadeTransition(
           opacity: _animation,
-          child: const FlutterLogo(
-            size: 240,
-          ),
+          child: const Text('Fade Transition'),
         ),
       ],
     );

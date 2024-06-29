@@ -18,17 +18,15 @@ class _OpacityPageState extends State<OpacityPage> {
       title: widget.title,
       children: List.generate(6, (index) {
         final double opacity = index * 0.2;
-        return Padding(
-          padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
-          child: Opacity(
-            opacity: opacity,
-            child: Container(
-              width: 80,
-              height: 80,
-              color: Theme.of(context).colorScheme.primaryContainer,
-              alignment: Alignment.center,
-              child: Text('${(opacity * 100).round()}%'),
-            ),
+        return Opacity(
+          opacity: opacity,
+          child: Container(
+            margin: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+            width: 80,
+            height: 80,
+            color: Theme.of(context).colorScheme.primaryContainer,
+            alignment: Alignment.center,
+            child: Text('${(opacity * 100).round()}%'),
           ),
         );
       }),

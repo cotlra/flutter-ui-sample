@@ -16,7 +16,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final _searchController = SearchController();
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -26,7 +25,6 @@ class _HomePageState extends State<HomePage> {
           title: const Text('UI Collection'),
           actions: [
             SearchAnchor(
-              searchController: _searchController,
               builder: (BuildContext context, SearchController controller) {
                 return IconButton(
                   onPressed: () {
@@ -38,13 +36,13 @@ class _HomePageState extends State<HomePage> {
               suggestionsBuilder:
                   (BuildContext context, SearchController controller) {
                 if (controller.text.isEmpty) {
-                  return [_tags()];
+                  return [_tags(controller)];
                 } else {
                   final candidates = widget.pageList
                       .searchWords(controller.text)
                       .map((e) => _pageListTile(e));
 
-                  return [_tags(), ...candidates];
+                  return [_tags(controller), ...candidates];
                 }
               },
             ),
@@ -73,7 +71,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _tags() {
+  Widget _tags(SearchController controller) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Wrap(
@@ -85,8 +83,8 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
               label: Text(pascalCaseName),
               onPressed: () {
-                _searchController.text =
-                    '${_searchController.text} ${PageConsts.tagPrefix}$pascalCaseName';
+                controller.text =
+                    '${controller.text} ${PageConsts.tagPrefix}$pascalCaseName';
               },
             );
           }).toList()),

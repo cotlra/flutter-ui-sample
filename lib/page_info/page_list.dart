@@ -10,6 +10,7 @@ import '../page/widget/absorb_painter_page.dart';
 import '../page/widget/alert_dialog_page.dart';
 import '../page/widget/animated_container_page.dart';
 import '../page/widget/animated_cross_fade_page.dart';
+import '../page/widget/backdrop_filter_page.dart';
 import '../page/widget/bottom_app_bar_page.dart';
 import '../page/widget/bottom_navigation_bar_page.dart';
 import '../page/widget/bottom_sheet_page.dart';
@@ -17,6 +18,10 @@ import '../page/widget/checkbox_list_tile_page.dart';
 import '../page/widget/checkbox_page.dart';
 import '../page/widget/circle_avatar_page.dart';
 import '../page/widget/circular_progress_indicator_page.dart';
+import '../page/widget/clip_oval_page.dart';
+import '../page/widget/clip_path_page.dart';
+import '../page/widget/clip_r_rect_page.dart';
+import '../page/widget/column_page.dart';
 import '../page/widget/container_page.dart';
 import '../page/widget/custom_paint_page.dart';
 import '../page/widget/data_table_page.dart';
@@ -32,12 +37,15 @@ import '../page/widget/expanded_page.dart';
 import '../page/widget/expansion_tile_page.dart';
 import '../page/widget/fade_transition_page.dart';
 import '../page/widget/filled_button_page.dart';
+import '../page/widget/fitted_box_page.dart';
 import '../page/widget/floating_action_button_page.dart';
 import '../page/widget/flutter_logo_page.dart';
 import '../page/widget/future_builder_page.dart';
 import '../page/widget/grid_view_page.dart';
 import '../page/widget/hero_page.dart';
 import '../page/widget/icon_button_page.dart';
+import '../page/widget/image_filtered_page.dart';
+import '../page/widget/image_page.dart';
 import '../page/widget/license_page_page.dart';
 import '../page/widget/linear_progress_indicatior_page.dart';
 import '../page/widget/list_tile_page.dart';
@@ -54,9 +62,16 @@ import '../page/widget/radio_page.dart';
 import '../page/widget/range_slider_page.dart';
 import '../page/widget/refresh_indicator_page.dart';
 import '../page/widget/reorderable_list_view_page.dart';
+import '../page/widget/rich_text_page.dart';
+import '../page/widget/rotated_box_page.dart';
+import '../page/widget/row_page.dart';
 import '../page/widget/safe_area_page.dart';
 import '../page/widget/scrollbar_page.dart';
+import '../page/widget/search_anchor_page.dart';
+import '../page/widget/search_bar_page.dart';
 import '../page/widget/segmented_button_page.dart';
+import '../page/widget/selectable_text_page.dart';
+import '../page/widget/shader_mask_page.dart';
 import '../page/widget/simple_dialog_page.dart';
 import '../page/widget/single_child_scroll_view_page.dart';
 import '../page/widget/slider_page.dart';
@@ -73,6 +88,7 @@ import '../page/widget/tab_bar_page.dart';
 import '../page/widget/tab_page_selector.dart';
 import '../page/widget/text_button_page.dart';
 import '../page/widget/text_field_page.dart';
+import '../page/widget/text_page.dart';
 import '../page/widget/time_picker_page.dart';
 import '../page/widget/toggle_buttons_page.dart';
 import '../page/widget/tooltip_page.dart';
@@ -483,6 +499,79 @@ class PageList {
       pageName: 'VerticalDivider',
       page: const VerticalDividerPage(title: 'VerticalDivider'),
     ),
+    PageInfo(
+      pageName: 'SearchAnchor',
+      page: const SearchAnchorPage(title: 'SearchAnchor'),
+    ),
+    PageInfo(
+      pageName: 'SearchBar',
+      page: const SearchBarPage(title: 'SearchBar'),
+    ),
+    PageInfo(
+      pageName: 'SelectableText',
+      page: const SelectableTextPage(title: 'SelectableText'),
+    ),
+    PageInfo(
+      pageName: 'Text',
+      page: const TextPage(title: 'Text'),
+    ),
+    PageInfo(
+      pageName: 'RichText',
+      page: const RichTextPage(title: 'RichText'),
+      subKeywords: ['TextSpan'],
+    ),
+    PageInfo(
+      pageName: 'ClipRRect',
+      page: const ClipRRectPage(title: 'ClipRRect'),
+    ),
+    PageInfo(
+      pageName: 'ClipOval',
+      page: const ClipOvalPage(title: 'ClipOval'),
+    ),
+    PageInfo(
+      pageName: 'ClipPath',
+      page: const ClipPathPage(title: 'ClipPath'),
+    ),
+    PageInfo(
+      pageName: 'ClipPath',
+      page: const ClipPathPage(title: 'ClipPath'),
+    ),
+    PageInfo(
+      pageName: 'Column',
+      page: const ColumnPage(title: 'Column'),
+    ),
+    PageInfo(
+      pageName: 'Row',
+      page: const RowPage(title: 'Row'),
+    ),
+    PageInfo(
+      pageName: 'ImageFiltered',
+      page: const ImageFilteredPage(title: 'ImageFiltered'),
+    ),
+    PageInfo(
+      pageName: 'BackdropFilter',
+      page: const BackdropFilterPage(title: 'BackdropFilter'),
+    ),
+    PageInfo(
+      pageName: 'ShaderMask',
+      page: const ShaderMaskPage(title: 'ShaderMask'),
+    ),
+    PageInfo(
+      pageName: 'RotatedBox',
+      page: const RotatedBoxPage(title: 'RotatedBox'),
+    ),
+    PageInfo(
+      pageName: 'Image',
+      page: const ImagePage(title: 'Image'),
+    ),
+    PageInfo(
+      pageName: 'FittedBox',
+      page: const FittedBoxPage(title: 'FittedBox'),
+    ),
+    // PageInfo(
+    //   pageName: 'ClipRect',
+    //   page: const ClipRectPage(title: 'ClipRect'),
+    // ),
   ];
 
   PageList() {

@@ -10,6 +10,7 @@ class ScrollbarPage extends StatefulWidget {
 }
 
 class _ScrollbarPageState extends State<ScrollbarPage> {
+  final _controller = ScrollController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +20,9 @@ class _ScrollbarPageState extends State<ScrollbarPage> {
       body: SafeArea(
         child: Scrollbar(
           thumbVisibility: true,
+          controller: _controller,
           child: ListView.builder(
+            controller: _controller,
             itemCount: 30,
             itemBuilder: (BuildContext context, int index) {
               return ListTile(
