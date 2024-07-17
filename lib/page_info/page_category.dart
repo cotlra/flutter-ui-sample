@@ -1,6 +1,6 @@
 enum PageCategory {
   widget,
-  idea,
+  library,
   theme,
   others,
 }

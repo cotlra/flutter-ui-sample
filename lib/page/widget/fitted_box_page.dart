@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../common/base_frame.dart';
-
 class FittedBoxPage extends StatefulWidget {
   const FittedBoxPage({super.key, required this.title});
 
@@ -14,18 +12,22 @@ class FittedBoxPage extends StatefulWidget {
 class _FittedBoxPageState extends State<FittedBoxPage> {
   @override
   Widget build(BuildContext context) {
-    return BaseFrame(
-      title: widget.title,
-      children: [
-        SizedBox(
-          height: 128,
-          width: 240,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: const Center(
+        child: FractionallySizedBox(
+          widthFactor: 0.5,
+          heightFactor: 0.5,
           child: FittedBox(
-            fit: BoxFit.fill,
-            child: Image.asset('assets/images/image_small.jpg'),
+            child: Text(
+              'Fitted Box',
+              style: TextStyle(fontSize: 1000),
+            ),
           ),
         ),
-      ],
+      ),
     );
   }
 }

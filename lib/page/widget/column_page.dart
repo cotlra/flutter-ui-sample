@@ -13,29 +13,30 @@ class _ColumnPageState extends State<ColumnPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: SafeArea(
-          child: SizedBox(
-            width: double.infinity,
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(20, (index) {
-                  final colorScheme = Theme.of(context).colorScheme;
-                  final color = index % 2 == 0
-                      ? colorScheme.primary
-                      : colorScheme.primaryContainer;
-                  return Container(
-                    width: 128,
-                    height: 128,
-                    color: color,
-                  );
-                }),
-              ),
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: SafeArea(
+        child: SizedBox(
+          width: double.infinity,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(20, (index) {
+                final colorScheme = Theme.of(context).colorScheme;
+                final color = index % 2 == 0
+                    ? colorScheme.primary
+                    : colorScheme.primaryContainer;
+                return Container(
+                  width: 128,
+                  height: 128,
+                  color: color,
+                );
+              }),
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

@@ -18,7 +18,8 @@ class _ColorFilteredPageState extends State<ColorFilteredPage> {
       title: widget.title,
       children: [
         ColorFiltered(
-          colorFilter: ColorFilter.mode(Colors.blue, BlendMode.overlay),
+          colorFilter: const ColorFilter.mode(Colors.blue, BlendMode.overlay),
+          child: Image.asset('assets/images/image_small.jpg'),
         ),
       ],
     );

@@ -45,7 +45,6 @@ class _SearchAnchorPageState extends State<SearchAnchorPage> {
             return _list
                 .where((e) => e.contains(controller.text))
                 .map((e) => ListTile(title: Text(e)));
-            ;
           },
         ),
       ],

@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 
 import '../page/free_page.dart';
-import '../page/idea/flip_card_page.dart';
+import '../page/library/fade_scale_transition_page.dart';
+import '../page/library/fade_through_transition_page.dart';
+import '../page/library/shared_axis_transition_pge.dart';
+import '../page/others/color_slider_page.dart';
+import '../page/others/custom_calender_page.dart';
+import '../page/others/flip_card_page.dart';
 import '../page/others/navigator_page.dart';
 import '../page/theme/color_theme_page.dart';
 import '../page/theme/text_theme_page.dart';
 import '../page/widget/about_dialog_page.dart';
 import '../page/widget/absorb_painter_page.dart';
 import '../page/widget/alert_dialog_page.dart';
+import '../page/widget/align_page.dart';
 import '../page/widget/animated_container_page.dart';
 import '../page/widget/animated_cross_fade_page.dart';
 import '../page/widget/backdrop_filter_page.dart';
@@ -21,15 +27,20 @@ import '../page/widget/circular_progress_indicator_page.dart';
 import '../page/widget/clip_oval_page.dart';
 import '../page/widget/clip_path_page.dart';
 import '../page/widget/clip_r_rect_page.dart';
+import '../page/widget/color_filtered_page.dart';
+import '../page/widget/colored_box_page.dart';
 import '../page/widget/column_page.dart';
 import '../page/widget/container_page.dart';
 import '../page/widget/custom_paint_page.dart';
 import '../page/widget/data_table_page.dart';
 import '../page/widget/date_picker_page.dart';
 import '../page/widget/date_range_picker_page.dart';
+import '../page/widget/decorated_box_page.dart';
 import '../page/widget/dialog_page.dart';
+import '../page/widget/dismissible_page.dart';
 import '../page/widget/divider_page.dart';
 import '../page/widget/draggable_page.dart';
+import '../page/widget/draggable_scrollable_sheet_page.dart';
 import '../page/widget/drawer_page.dart';
 import '../page/widget/dropdown_menu_page.dart';
 import '../page/widget/elevated_button_page.dart';
@@ -40,24 +51,36 @@ import '../page/widget/filled_button_page.dart';
 import '../page/widget/fitted_box_page.dart';
 import '../page/widget/floating_action_button_page.dart';
 import '../page/widget/flutter_logo_page.dart';
+import '../page/widget/fractionally_sized_box_page.dart';
 import '../page/widget/future_builder_page.dart';
+import '../page/widget/grid_paper_page.dart';
+import '../page/widget/grid_tile_bar_page.dart';
+import '../page/widget/grid_tile_page.dart';
 import '../page/widget/grid_view_page.dart';
 import '../page/widget/hero_page.dart';
 import '../page/widget/icon_button_page.dart';
 import '../page/widget/image_filtered_page.dart';
 import '../page/widget/image_page.dart';
+import '../page/widget/inkwell_page.dart';
+import '../page/widget/interactive_viewer_page.dart';
 import '../page/widget/license_page_page.dart';
-import '../page/widget/linear_progress_indicatior_page.dart';
+import '../page/widget/linear_progress_indicator_page.dart';
 import '../page/widget/list_tile_page.dart';
 import '../page/widget/list_view_page.dart';
+import '../page/widget/list_wheel_scroll_view_page.dart';
 import '../page/widget/material_banner_page.dart';
+import '../page/widget/material_page.dart';
 import '../page/widget/menu_anchor_page.dart';
 import '../page/widget/navigation_rail_page.dart';
 import '../page/widget/opacity_page.dart';
 import '../page/widget/outlined_button_page.dart';
+import '../page/widget/padding_page.dart';
 import '../page/widget/page_view_page.dart';
+import '../page/widget/physical_model_page.dart';
+import '../page/widget/physical_shape_page.dart';
 import '../page/widget/placeholder_page.dart';
 import '../page/widget/pop_menu_button_page.dart';
+import '../page/widget/positioned_page.dart';
 import '../page/widget/radio_page.dart';
 import '../page/widget/range_slider_page.dart';
 import '../page/widget/refresh_indicator_page.dart';
@@ -66,6 +89,7 @@ import '../page/widget/rich_text_page.dart';
 import '../page/widget/rotated_box_page.dart';
 import '../page/widget/row_page.dart';
 import '../page/widget/safe_area_page.dart';
+import '../page/widget/scale_transition.dart';
 import '../page/widget/scrollbar_page.dart';
 import '../page/widget/search_anchor_page.dart';
 import '../page/widget/search_bar_page.dart';
@@ -74,12 +98,14 @@ import '../page/widget/selectable_text_page.dart';
 import '../page/widget/shader_mask_page.dart';
 import '../page/widget/simple_dialog_page.dart';
 import '../page/widget/single_child_scroll_view_page.dart';
+import '../page/widget/slide_transition_page.dart';
 import '../page/widget/slider_page.dart';
 import '../page/widget/sliver_fill_remaining_page.dart';
 import '../page/widget/sliver_grid_page.dart';
 import '../page/widget/sliver_list_page.dart';
 import '../page/widget/sliver_to_box_adapter_page.dart';
 import '../page/widget/snack_bar_page.dart';
+import '../page/widget/stack_page.dart';
 import '../page/widget/stepper_page.dart';
 import '../page/widget/stream_builder_page.dart';
 import '../page/widget/switch_list_tile_page.dart';
@@ -94,6 +120,7 @@ import '../page/widget/toggle_buttons_page.dart';
 import '../page/widget/tooltip_page.dart';
 import '../page/widget/transform_page.dart';
 import '../page/widget/vertical_divider_page.dart';
+import '../page/widget/visibility_page.dart';
 import '../page/widget/wrap_page.dart';
 import 'child_page_info.dart';
 import 'page_category.dart';
@@ -117,23 +144,27 @@ class PageList {
       pageName: 'Text',
       page: const TextThemePage(title: 'Text Theme'),
       category: PageCategory.theme,
-      tags: [PageTag.theme],
     ),
     PageInfo(
       pageName: 'Color',
       page: const ColorThemePage(title: 'Color Theme'),
       category: PageCategory.theme,
-      tags: [PageTag.theme],
     ),
     PageInfo(
       pageName: 'Flip Card',
       page: const FlipCardPage(title: 'Flip Card'),
-      category: PageCategory.idea,
+      category: PageCategory.others,
+      subKeywords: [
+        'AnimatedSwitcher',
+        'AnimatedBuilder',
+        'Transform',
+        'Matrix4',
+      ],
     ),
     PageInfo(
       pageName: 'Free Page',
       page: const FreePage(title: 'Free Page'),
-      category: PageCategory.idea,
+      category: PageCategory.others,
     ),
     PageInfo(
       pageName: 'TabBar',
@@ -305,7 +336,8 @@ class PageList {
     PageInfo(
       pageName: 'CircularProgressIndicator',
       page: const CircularProgressIndicatorPage(
-          title: 'CircularProgressIndicator'),
+        title: 'CircularProgressIndicator',
+      ),
     ),
     PageInfo(
       pageName: 'StreamBuilder',
@@ -449,12 +481,10 @@ class PageList {
     PageInfo(
       pageName: 'Wrap',
       page: const WrapPage(title: 'Wrap'),
-      tags: [PageTag.layout],
     ),
     PageInfo(
       pageName: 'Expanded',
       page: const ExpandedPage(title: 'Expanded'),
-      tags: [PageTag.layout],
     ),
     PageInfo(
       pageName: 'Opacity',
@@ -567,6 +597,164 @@ class PageList {
     PageInfo(
       pageName: 'FittedBox',
       page: const FittedBoxPage(title: 'FittedBox'),
+    ),
+    PageInfo(
+      pageName: 'Align',
+      page: const AlignPage(title: 'Align'),
+    ),
+    PageInfo(
+      pageName: 'Positioned',
+      page: const PositionedPage(title: 'Positioned'),
+    ),
+    PageInfo(
+      pageName: 'Stack',
+      page: const StackPage(title: 'Stack'),
+    ),
+    PageInfo(
+      pageName: 'ColoredBox',
+      page: const ColoredBoxPage(title: 'ColoredBox'),
+    ),
+    PageInfo(
+      pageName: 'DecoratedBox',
+      page: const DecoratedBoxPage(title: 'DecoratedBox'),
+    ),
+    PageInfo(
+      pageName: 'ColorFiltered',
+      page: const ColorFilteredPage(title: 'ColorFiltered'),
+    ),
+    PageInfo(
+      pageName: 'ListWheelScrollView',
+      page: const ListWheelScrollViewPage(title: 'ListWheelScrollView'),
+    ),
+    PageInfo(
+      pageName: 'Dismissible',
+      page: const DismissiblePage(title: 'Dismissible'),
+    ),
+    PageInfo(
+      pageName: 'InteractiveViewer',
+      page: const InteractiveViewerPage(title: 'InteractiveViewer'),
+    ),
+    PageInfo(
+      pageName: 'Padding',
+      page: const PaddingPage(title: 'Padding'),
+    ),
+    PageInfo(
+      pageName: 'GridPaper',
+      page: const GridPaperPage(title: 'GridPaper'),
+    ),
+    PageInfo(
+      pageName: 'Inkwell',
+      page: const InkwellPage(title: 'Inkwell'),
+      subKeywords: ['Ink'],
+    ),
+    PageInfo(
+      pageName: 'Visibility',
+      page: const VisibilityPage(title: 'Visibility'),
+    ),
+    PageInfo(
+      pageName: 'FractionallySizedBox',
+      page: const FractionallySizedBoxPage(title: 'FractionallySizedBox'),
+    ),
+    PageInfo(
+      pageName: 'GridTile',
+      page: const GridTilePage(title: 'GridTile'),
+    ),
+    PageInfo(
+      pageName: 'GridTileBar',
+      page: const GridTileBarPage(title: 'GridTileBar'),
+      subKeywords: ['GridTile'],
+    ),
+    PageInfo(
+      pageName: 'DraggableScrollableSheet',
+      page: const DraggableScrollableSheetPage(
+        title: 'DraggableScrollableSheet',
+      ),
+    ),
+    PageInfo(
+      pageName: 'PhysicalModel',
+      page: const PhysicalModelPage(
+        title: 'PhysicalModel',
+      ),
+    ),
+    PageInfo(
+      pageName: 'PhysicalShape',
+      page: const PhysicalShapePage(
+        title: 'PhysicalShape',
+      ),
+    ),
+    PageInfo(
+      pageName: 'Material',
+      page: const MaterialWidgetPage(
+        title: 'Material',
+      ),
+    ),
+    PageInfo(
+      pageName: 'SlideTransition',
+      page: const SlideTransitionPage(
+        title: 'SlideTransition',
+      ),
+      tags: [PageTag.animation],
+    ),
+    PageInfo(
+      pageName: 'ScaleTransition',
+      page: const ScaleTransitionPage(
+        title: 'ScaleTransition',
+      ),
+      tags: [PageTag.animation],
+    ),
+    PageInfo(
+      pageName: 'SharedAxisTransition',
+      page: const SharedAxisTransitionPage(
+        title: 'SharedAxisTransition',
+      ),
+      category: PageCategory.library,
+      tags: [PageTag.animation],
+      subKeywords: ['PageTransitionSwitcher'],
+    ),
+    PageInfo(
+      pageName: 'FadeThroughTransition',
+      page: const FadeThroughTransitionPage(
+        title: 'FadeThroughTransition',
+      ),
+      category: PageCategory.library,
+      tags: [PageTag.animation],
+      subKeywords: ['PageTransitionSwitcher'],
+    ),
+    PageInfo(
+      pageName: 'FadeScaleTransition',
+      page: const FadeScaleTransitionPage(
+        title: 'FadeScaleTransition',
+      ),
+      category: PageCategory.library,
+      tags: [PageTag.animation],
+      subKeywords: ['PageTransitionSwitcher'],
+    ),
+    PageInfo(
+      pageName: 'ColorSlider',
+      page: const ColorSliderPage(
+        title: 'ColorSlider',
+      ),
+      category: PageCategory.others,
+      subKeywords: [
+        'Slider',
+        'SliderTheme',
+        'SliderComponentShape',
+        'SliderTrackShape',
+      ],
+    ),
+    PageInfo(
+      pageName: 'CustomCalender',
+      page: const CustomCalenderPage(
+        title: 'CustomCalender',
+      ),
+      category: PageCategory.others,
+      subKeywords: [
+        'Material',
+        'Inkwell',
+        'Positioned',
+        'Stack',
+        'AspectRatio',
+      ],
     ),
     // PageInfo(
     //   pageName: 'ClipRect',
