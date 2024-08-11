@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
                 } else {
                   final candidates = widget.pageList
                       .searchWords(controller.text)
-                      .map((e) => _pageListTile(e));
+                      .map(_pageListTile);
 
                   return [_tags(controller), ...candidates];
                 }
@@ -61,9 +61,13 @@ class _HomePageState extends State<HomePage> {
         body: SafeArea(
           child: TabBarView(
             children: PageCategory.values
-                .map((category) => _pageListView(widget.pageList.allList
-                    .where((e) => e.category == category)
-                    .toList()))
+                .map(
+                  (category) => _pageListView(
+                    widget.pageList.allList
+                        .where((e) => e.category == category)
+                        .toList(),
+                  ),
+                )
                 .toList(),
           ),
         ),
@@ -73,27 +77,27 @@ class _HomePageState extends State<HomePage> {
 
   Widget _tags(SearchController controller) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8),
       child: Wrap(
-          spacing: 8,
-          children: PageTag.values.where((e) => e != PageTag.error).map((e) {
-            var pascalCaseName =
-                Converters.convertCamelCaseToPascalCase(e.name);
-            return ActionChip(
-              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
-              label: Text(pascalCaseName),
-              onPressed: () {
-                controller.text =
-                    '${controller.text} ${PageConsts.tagPrefix}$pascalCaseName';
-              },
-            );
-          }).toList()),
+        spacing: 8,
+        children: PageTag.values.where((e) => e != PageTag.error).map((e) {
+          final pascalCaseName =
+              Converters.convertCamelCaseToPascalCase(e.name);
+          return ActionChip(
+            padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+            label: Text(pascalCaseName),
+            onPressed: () {
+              controller.text =
+                  '${controller.text} ${PageConsts.tagPrefix}$pascalCaseName';
+            },
+          );
+        }).toList(),
+      ),
     );
   }
 
   ListTile _pageListTile(PageInfo page) {
-    final subKeywords = [...page.subKeywords];
-    subKeywords.sort((a, b) => a.compareTo(b));
+    final subKeywords = [...page.subKeywords]..sort((a, b) => a.compareTo(b));
     return ListTile(
       title: Text(page.pageName),
       subtitle: page.subKeywords.isEmpty

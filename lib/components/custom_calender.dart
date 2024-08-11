@@ -67,7 +67,7 @@ class _CustomCalenderState extends State<CustomCalender> {
           child: Row(
             children: [
               Padding(
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 child: _arrowButton(
                   isRight: false,
                   onTap: _onBackMonth,
@@ -86,7 +86,7 @@ class _CustomCalenderState extends State<CustomCalender> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 child: _arrowButton(
                   isRight: true,
                   onTap: _onForwardMonth,
@@ -106,7 +106,7 @@ class _CustomCalenderState extends State<CustomCalender> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Column(
             children: _daysNoWidget(),
           ),

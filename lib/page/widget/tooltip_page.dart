@@ -30,7 +30,7 @@ class _TooltipPageState extends State<TooltipPage> {
             height: 80,
             color: Theme.of(context).primaryColor,
           ),
-        )
+        ),
       ],
     );
   }

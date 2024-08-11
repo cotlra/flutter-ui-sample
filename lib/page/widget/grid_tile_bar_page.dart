@@ -38,7 +38,7 @@ class _GridTileBarPageState extends State<GridTileBarPage> {
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }

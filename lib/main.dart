@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final PageList pageList = PageList();
+    final pageList = PageList();
     final routeMap = pageList.getRootMap();
     routeMap['/'] = (context) => HomePage(
           pageList: pageList,

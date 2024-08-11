@@ -49,7 +49,7 @@ class _GridTilePageState extends State<GridTilePage> {
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }

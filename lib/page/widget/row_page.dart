@@ -34,7 +34,7 @@ class _RowPageState extends State<RowPage> {
             child: Row(
               children: List.generate(20, (index) {
                 final colorScheme = Theme.of(context).colorScheme;
-                final color = index % 2 == 0
+                final color = index.isEven
                     ? colorScheme.primary
                     : colorScheme.primaryContainer;
                 return Container(

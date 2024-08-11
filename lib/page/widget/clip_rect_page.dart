@@ -16,7 +16,7 @@ class _ClipRectPageState extends State<ClipRectPage> {
   Widget build(BuildContext context) {
     return BaseFrame(
       title: widget.title,
-      children: [
+      children: const [
         SizedBox(
           width: 240,
           height: 240,
@@ -25,7 +25,7 @@ class _ClipRectPageState extends State<ClipRectPage> {
               alignment: Alignment.topLeft,
               widthFactor: 0.5,
               heightFactor: 0.5,
-              child: Container(
+              child: ColoredBox(
                 color: Colors.blue,
                 child: Center(
                   child: Text('ClipRect 2'),

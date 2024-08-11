@@ -25,7 +25,7 @@ class _InkwellPageState extends State<InkwellPage> {
             width: 240,
             height: 240,
           ),
-        )
+        ),
       ],
     );
   }

@@ -40,7 +40,6 @@ class _AlignPageState extends State<AlignPage> {
                 child: Text('centerLeft'),
               ),
               Align(
-                alignment: Alignment.center,
                 child: Text('center'),
               ),
               Align(

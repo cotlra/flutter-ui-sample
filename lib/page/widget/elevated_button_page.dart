@@ -22,13 +22,14 @@ class _ElevatedButtonPageState extends State<ElevatedButtonPage> {
         child: Column(
           children: [
             SwitchListTile(
-                title: const Text('Enabled'),
-                value: _enabled,
-                onChanged: (newValue) {
-                  setState(() {
-                    _enabled = newValue;
-                  });
-                }),
+              title: const Text('Enabled'),
+              value: _enabled,
+              onChanged: (newValue) {
+                setState(() {
+                  _enabled = newValue;
+                });
+              },
+            ),
             const Divider(),
             Expanded(
               child: Center(

@@ -17,8 +17,8 @@ class _SnackBarPageState extends State<SnackBarPage> {
       title: widget.title,
       children: [
         ElevatedButton(
-          child: const Text('Show SnackBar'),
           onPressed: showSnackBar,
+          child: const Text('Show SnackBar'),
         ),
       ],
     );

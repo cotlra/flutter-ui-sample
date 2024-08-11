@@ -20,7 +20,7 @@ class _AlertDialogPageState extends State<AlertDialogPage> {
         ElevatedButton(
           child: const Text('Show AlertDialog'),
           onPressed: () async {
-            String? result = await showDialog<String>(
+            final result = await showDialog<String>(
               context: context,
               builder: (context) {
                 return AlertDialog(

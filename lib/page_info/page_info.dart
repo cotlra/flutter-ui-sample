@@ -5,13 +5,6 @@ import 'page_category.dart';
 import 'page_tag.dart';
 
 class PageInfo {
-  final String pageName;
-  final StatefulWidget page;
-  final PageCategory category;
-  final List<PageTag> tags;
-  final List<String> subKeywords;
-  final List<ChildPageInfo> childPages;
-
   PageInfo({
     required this.pageName,
     required this.page,
@@ -20,11 +13,17 @@ class PageInfo {
     this.subKeywords = const [],
     this.childPages = const [],
   });
+  final String pageName;
+  final StatefulWidget page;
+  final PageCategory category;
+  final List<PageTag> tags;
+  final List<String> subKeywords;
+  final List<ChildPageInfo> childPages;
 
   String get pageRoute => '/${pageName.replaceAll(' ', '')}';
 
   bool isMatchTags(List<PageTag> tags) {
-    bool isMatch = true;
+    var isMatch = true;
 
     for (final tag in tags) {
       isMatch = this.tags.contains(tag) && isMatch;
@@ -33,9 +32,9 @@ class PageInfo {
   }
 
   bool isMatchWords(List<String> words) {
-    bool isMatch = true;
+    var isMatch = true;
 
-    var names = [pageName, ...subKeywords];
+    final names = [pageName, ...subKeywords];
     for (final word in words) {
       isMatch = names
               .any((name) => name.toLowerCase().contains(word.toLowerCase())) &&

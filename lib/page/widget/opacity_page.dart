@@ -17,7 +17,7 @@ class _OpacityPageState extends State<OpacityPage> {
     return BaseFrame(
       title: widget.title,
       children: List.generate(6, (index) {
-        final double opacity = index * 0.2;
+        final opacity = index * 0.2;
         return Opacity(
           opacity: opacity,
           child: Container(

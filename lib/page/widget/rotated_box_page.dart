@@ -28,9 +28,11 @@ class _RotatedBoxPageState extends State<RotatedBoxPage> {
               ),
             ),
             Text(
-                'This is sample text.\nThis is sample text.\nThis is sample text.\nThis is sample text.\nThis is sample text.')
+              'This is sample text.\nThis is sample text.\nThis is sample text.'
+              '\nThis is sample text.\nThis is sample text.',
+            ),
           ],
-        )
+        ),
       ],
     );
   }

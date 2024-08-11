@@ -78,7 +78,7 @@ class _TransformPageState extends State<TransformPage> {
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -172,12 +172,15 @@ class _TransformPageState extends State<TransformPage> {
     );
   }
 
-  Widget _expansionSliders(
-      {required String title, required List<Widget> children}) {
-    List<Widget> columnChildren = [];
-    for (var child in children) {
-      columnChildren.add(child);
-      columnChildren.add(const SizedBox(height: 8));
+  Widget _expansionSliders({
+    required String title,
+    required List<Widget> children,
+  }) {
+    final columnChildren = <Widget>[];
+    for (final child in children) {
+      columnChildren
+        ..add(child)
+        ..add(const SizedBox(height: 8));
     }
     columnChildren.removeAt(children.length * 2 - 1);
 
@@ -190,53 +193,60 @@ class _TransformPageState extends State<TransformPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: columnChildren,
           ),
-        )
+        ),
       ],
     );
   }
 
-  Widget _scaleParamSlider(
-      {required String title,
-      required void Function(double) setCurrentValue,
-      required double currentValue}) {
+  Widget _scaleParamSlider({
+    required String title,
+    required void Function(double) setCurrentValue,
+    required double currentValue,
+  }) {
     return _paramSlider(
-        min: 0,
-        max: 2,
-        title: title,
-        setCurrentValue: setCurrentValue,
-        currentValue: currentValue);
+      min: 0,
+      max: 2,
+      title: title,
+      setCurrentValue: setCurrentValue,
+      currentValue: currentValue,
+    );
   }
 
-  Widget _rotateParamSlider(
-      {required String title,
-      required void Function(double) setCurrentValue,
-      required double currentValue}) {
+  Widget _rotateParamSlider({
+    required String title,
+    required void Function(double) setCurrentValue,
+    required double currentValue,
+  }) {
     return _paramSlider(
-        min: -pi,
-        max: pi,
-        title: title,
-        setCurrentValue: setCurrentValue,
-        currentValue: currentValue);
+      min: -pi,
+      max: pi,
+      title: title,
+      setCurrentValue: setCurrentValue,
+      currentValue: currentValue,
+    );
   }
 
-  Widget _translateParamSlider(
-      {required String title,
-      required void Function(double) setCurrentValue,
-      required double currentValue}) {
+  Widget _translateParamSlider({
+    required String title,
+    required void Function(double) setCurrentValue,
+    required double currentValue,
+  }) {
     return _paramSlider(
-        min: -100,
-        max: 100,
-        title: title,
-        setCurrentValue: setCurrentValue,
-        currentValue: currentValue);
+      min: -100,
+      max: 100,
+      title: title,
+      setCurrentValue: setCurrentValue,
+      currentValue: currentValue,
+    );
   }
 
-  Widget _paramSlider(
-      {required double min,
-      required double max,
-      required String title,
-      required void Function(double) setCurrentValue,
-      required double currentValue}) {
+  Widget _paramSlider({
+    required double min,
+    required double max,
+    required String title,
+    required void Function(double) setCurrentValue,
+    required double currentValue,
+  }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

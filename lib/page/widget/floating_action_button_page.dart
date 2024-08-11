@@ -21,21 +21,21 @@ class _FloatingActionButtonPageState extends State<FloatingActionButtonPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _enabled ? () {} : null,
-        heroTag: "hero1",
+        heroTag: 'hero1',
         child: const Icon(Icons.add),
       ),
       body: SafeArea(
         child: Column(
-          mainAxisSize: MainAxisSize.max,
           children: [
             SwitchListTile(
-                title: const Text('Enabled'),
-                value: _enabled,
-                onChanged: (newValue) {
-                  setState(() {
-                    _enabled = newValue;
-                  });
-                }),
+              title: const Text('Enabled'),
+              value: _enabled,
+              onChanged: (newValue) {
+                setState(() {
+                  _enabled = newValue;
+                });
+              },
+            ),
             const Divider(),
             Expanded(
               child: Center(
@@ -47,19 +47,19 @@ class _FloatingActionButtonPageState extends State<FloatingActionButtonPage> {
                       children: [
                         FloatingActionButton.small(
                           onPressed: _enabled ? () {} : null,
-                          heroTag: "hero2",
+                          heroTag: 'hero2',
                           child: const Icon(Icons.add),
                         ),
                         const SizedBox(width: 16),
                         FloatingActionButton(
                           onPressed: _enabled ? () {} : null,
-                          heroTag: "hero3",
+                          heroTag: 'hero3',
                           child: const Icon(Icons.add),
                         ),
                         const SizedBox(width: 16),
                         FloatingActionButton.large(
                           onPressed: _enabled ? () {} : null,
-                          heroTag: "hero4",
+                          heroTag: 'hero4',
                           child: const Icon(Icons.add),
                         ),
                       ],
@@ -67,7 +67,7 @@ class _FloatingActionButtonPageState extends State<FloatingActionButtonPage> {
                     const SizedBox(width: 16),
                     FloatingActionButton.extended(
                       onPressed: _enabled ? () {} : null,
-                      heroTag: "hero5",
+                      heroTag: 'hero5',
                       label: const Text('add'),
                       icon: const Icon(Icons.add),
                     ),

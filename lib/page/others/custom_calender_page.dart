@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ui_sample/components/custom_calender.dart';
 
 import '../../common/base_frame.dart';
+import '../../components/custom_calender.dart';
 
 class CustomCalenderPage extends StatefulWidget {
   const CustomCalenderPage({super.key, required this.title});
@@ -17,7 +17,7 @@ class _CustomCalenderPageState extends State<CustomCalenderPage> {
   Widget build(BuildContext context) {
     return BaseFrame(
       title: widget.title,
-      children: [
+      children: const [
         CustomCalender(),
       ],
     );

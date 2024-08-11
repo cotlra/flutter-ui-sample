@@ -37,33 +37,41 @@ class _DataTablePageState extends State<DataTablePage> {
               ),
             ],
             rows: const [
-              DataRow(cells: [
-                DataCell(Text('01')),
-                DataCell(Text('Crisps')),
-                DataCell(Text('3')),
-                DataCell(Text('200'))
-              ]),
-              DataRow(cells: [
-                DataCell(Text('02')),
-                DataCell(Text('Cookies')),
-                DataCell(Text('10')),
-                DataCell(Text('200'))
-              ]),
-              DataRow(cells: [
-                DataCell(Text('03')),
-                DataCell(Text('Candy')),
-                DataCell(Text('120')),
-                DataCell(Text('50'))
-              ]),
-              DataRow(cells: [
-                DataCell(Text('04')),
-                DataCell(Text('Chocolate')),
-                DataCell(Text('5')),
-                DataCell(Text('500'))
-              ]),
+              DataRow(
+                cells: [
+                  DataCell(Text('01')),
+                  DataCell(Text('Crisps')),
+                  DataCell(Text('3')),
+                  DataCell(Text('200')),
+                ],
+              ),
+              DataRow(
+                cells: [
+                  DataCell(Text('02')),
+                  DataCell(Text('Cookies')),
+                  DataCell(Text('10')),
+                  DataCell(Text('200')),
+                ],
+              ),
+              DataRow(
+                cells: [
+                  DataCell(Text('03')),
+                  DataCell(Text('Candy')),
+                  DataCell(Text('120')),
+                  DataCell(Text('50')),
+                ],
+              ),
+              DataRow(
+                cells: [
+                  DataCell(Text('04')),
+                  DataCell(Text('Chocolate')),
+                  DataCell(Text('5')),
+                  DataCell(Text('500')),
+                ],
+              ),
             ],
           ),
-        )
+        ),
       ],
     );
   }

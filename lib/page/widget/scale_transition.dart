@@ -13,13 +13,14 @@ class ScaleTransitionPage extends StatefulWidget {
 
 class _ScaleTransitionPageState extends State<ScaleTransitionPage>
     with TickerProviderStateMixin {
-  late final AnimationController _animationController =
-      AnimationController(vsync: this, duration: Duration(milliseconds: 500))
-        ..addStatusListener((status) {
-          if (status == AnimationStatus.completed) {
-            _animationController.reverse();
-          }
-        });
+  late final AnimationController _animationController = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 500),
+  )..addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        _animationController.reverse();
+      }
+    });
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,7 @@ class _ScaleTransitionPageState extends State<ScaleTransitionPage>
             onPressed: () {
               _animationController.forward();
             },
-            child: Text('Scale Transition'),
+            child: const Text('Scale Transition'),
           ),
         ),
       ],

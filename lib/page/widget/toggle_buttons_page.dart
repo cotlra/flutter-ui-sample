@@ -21,16 +21,16 @@ class _ToggleButtonsPageState extends State<ToggleButtonsPage> {
       ),
       body: SafeArea(
         child: Column(
-          mainAxisSize: MainAxisSize.max,
           children: [
             SwitchListTile(
-                title: const Text('Enabled'),
-                value: enabled,
-                onChanged: (newValue) {
-                  setState(() {
-                    enabled = newValue;
-                  });
-                }),
+              title: const Text('Enabled'),
+              value: enabled,
+              onChanged: (newValue) {
+                setState(() {
+                  enabled = newValue;
+                });
+              },
+            ),
             const Divider(),
             Expanded(
               child: Center(

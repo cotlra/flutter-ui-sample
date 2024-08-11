@@ -28,7 +28,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
             final date = await showDatePicker(
               context: context,
               initialDate: DateTime.now(),
-              firstDate: DateTime(1980, 1, 1),
+              firstDate: DateTime(1980),
               lastDate: DateTime(2050, 12, 31),
             );
             setState(() {

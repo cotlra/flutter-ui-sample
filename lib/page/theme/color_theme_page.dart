@@ -22,152 +22,152 @@ class _ColorThemePageState extends State<ColorThemePage> {
           children: [
             _colorContainer(
               title: 'Primary',
-              backgroungColor: colorScheme.primary,
+              backgroundColor: colorScheme.primary,
               textColor: colorScheme.onPrimary,
             ),
             _colorContainer(
               title: 'On Primary',
-              backgroungColor: colorScheme.onPrimary,
+              backgroundColor: colorScheme.onPrimary,
               textColor: colorScheme.primary,
             ),
             _colorContainer(
               title: 'Primary Container',
-              backgroungColor: colorScheme.primaryContainer,
+              backgroundColor: colorScheme.primaryContainer,
               textColor: colorScheme.onPrimaryContainer,
             ),
             _colorContainer(
               title: 'On Primary Container',
-              backgroungColor: colorScheme.onPrimaryContainer,
+              backgroundColor: colorScheme.onPrimaryContainer,
               textColor: colorScheme.primaryContainer,
             ),
             _colorContainer(
               title: 'Secondary',
-              backgroungColor: colorScheme.secondary,
+              backgroundColor: colorScheme.secondary,
               textColor: colorScheme.onSecondary,
             ),
             _colorContainer(
               title: 'On Secondary',
-              backgroungColor: colorScheme.onSecondary,
+              backgroundColor: colorScheme.onSecondary,
               textColor: colorScheme.secondary,
             ),
             _colorContainer(
               title: 'Secondary Container',
-              backgroungColor: colorScheme.secondaryContainer,
+              backgroundColor: colorScheme.secondaryContainer,
               textColor: colorScheme.onSecondaryContainer,
             ),
             _colorContainer(
               title: 'On Secondary Container',
-              backgroungColor: colorScheme.onSecondaryContainer,
+              backgroundColor: colorScheme.onSecondaryContainer,
               textColor: colorScheme.secondaryContainer,
             ),
             _colorContainer(
               title: 'Tertiary',
-              backgroungColor: colorScheme.tertiary,
+              backgroundColor: colorScheme.tertiary,
               textColor: colorScheme.onTertiary,
             ),
             _colorContainer(
               title: 'On Tertiary',
-              backgroungColor: colorScheme.onTertiary,
+              backgroundColor: colorScheme.onTertiary,
               textColor: colorScheme.tertiary,
             ),
             _colorContainer(
               title: 'Tertiary Container',
-              backgroungColor: colorScheme.tertiaryContainer,
+              backgroundColor: colorScheme.tertiaryContainer,
               textColor: colorScheme.onTertiaryContainer,
             ),
             _colorContainer(
               title: 'On Tertiary Container',
-              backgroungColor: colorScheme.onTertiaryContainer,
+              backgroundColor: colorScheme.onTertiaryContainer,
               textColor: colorScheme.tertiaryContainer,
             ),
             _colorContainer(
               title: 'Error',
-              backgroungColor: colorScheme.error,
+              backgroundColor: colorScheme.error,
               textColor: colorScheme.onError,
             ),
             _colorContainer(
               title: 'On Error',
-              backgroungColor: colorScheme.onError,
+              backgroundColor: colorScheme.onError,
               textColor: colorScheme.error,
             ),
             _colorContainer(
               title: 'Error Container',
-              backgroungColor: colorScheme.errorContainer,
+              backgroundColor: colorScheme.errorContainer,
               textColor: colorScheme.onErrorContainer,
             ),
             _colorContainer(
               title: 'On Error Container',
-              backgroungColor: colorScheme.onErrorContainer,
+              backgroundColor: colorScheme.onErrorContainer,
               textColor: colorScheme.errorContainer,
             ),
             _colorContainer(
               title: 'Surface',
-              backgroungColor: colorScheme.surface,
+              backgroundColor: colorScheme.surface,
               textColor: colorScheme.onSurface,
             ),
             _colorContainer(
               title: 'On Surface',
-              backgroungColor: colorScheme.onSurface,
+              backgroundColor: colorScheme.onSurface,
               textColor: colorScheme.surface,
             ),
             _colorContainer(
               title: 'Surface Variant',
-              backgroungColor: colorScheme.surfaceVariant,
+              backgroundColor: colorScheme.surfaceVariant,
               textColor: colorScheme.onSurfaceVariant,
             ),
             _colorContainer(
               title: 'On Surface Variant',
-              backgroungColor: colorScheme.onSurfaceVariant,
+              backgroundColor: colorScheme.onSurfaceVariant,
               textColor: colorScheme.surfaceVariant,
             ),
             _colorContainer(
               title: 'Surface Tint',
-              backgroungColor: colorScheme.surfaceTint,
+              backgroundColor: colorScheme.surfaceTint,
               textColor: colorScheme.onInverseSurface,
             ),
             _colorContainer(
               title: 'Outline',
-              backgroungColor: colorScheme.outline,
+              backgroundColor: colorScheme.outline,
               textColor: colorScheme.onInverseSurface,
             ),
             _colorContainer(
               title: 'Outline Variant',
-              backgroungColor: colorScheme.outlineVariant,
+              backgroundColor: colorScheme.outlineVariant,
               textColor: colorScheme.onSurface,
             ),
             _colorContainer(
               title: 'Inverse Surface',
-              backgroungColor: colorScheme.inverseSurface,
+              backgroundColor: colorScheme.inverseSurface,
               textColor: colorScheme.onInverseSurface,
             ),
             _colorContainer(
               title: 'On Inverse Surface',
-              backgroungColor: colorScheme.onInverseSurface,
+              backgroundColor: colorScheme.onInverseSurface,
               textColor: colorScheme.inverseSurface,
             ),
             _colorContainer(
               title: 'Inverse Primary',
-              backgroungColor: colorScheme.inversePrimary,
+              backgroundColor: colorScheme.inversePrimary,
               textColor: colorScheme.onPrimaryContainer,
             ),
             _colorContainer(
               title: 'Background',
-              backgroungColor: colorScheme.background,
+              backgroundColor: colorScheme.background,
               textColor: colorScheme.onBackground,
             ),
             _colorContainer(
               title: 'On Background',
-              backgroungColor: colorScheme.onBackground,
+              backgroundColor: colorScheme.onBackground,
               textColor: colorScheme.background,
             ),
             _colorContainer(
               title: 'Scrim',
-              backgroungColor: colorScheme.scrim,
+              backgroundColor: colorScheme.scrim,
               textColor: colorScheme.onInverseSurface,
             ),
             _colorContainer(
               title: 'Shadow',
-              backgroungColor: colorScheme.shadow,
+              backgroundColor: colorScheme.shadow,
               textColor: colorScheme.onInverseSurface,
             ),
           ],
@@ -176,12 +176,13 @@ class _ColorThemePageState extends State<ColorThemePage> {
     );
   }
 
-  Widget _colorContainer(
-      {required String title,
-      required Color backgroungColor,
-      required Color textColor}) {
+  Widget _colorContainer({
+    required String title,
+    required Color backgroundColor,
+    required Color textColor,
+  }) {
     return Container(
-      color: backgroungColor,
+      color: backgroundColor,
       alignment: Alignment.centerLeft,
       padding: const EdgeInsets.all(16),
       child: Text(

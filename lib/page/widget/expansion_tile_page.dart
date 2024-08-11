@@ -18,7 +18,7 @@ class _ExpansionTilePageState extends State<ExpansionTilePage> {
       title: widget.title,
       children: const [
         ExpansionTile(
-          title: Text("ExpansionTile"),
+          title: Text('ExpansionTile'),
           children: [
             ListTile(
               title: Text('Item 1'),

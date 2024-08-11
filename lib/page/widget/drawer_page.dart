@@ -46,15 +46,17 @@ class _DrawerPageState extends State<DrawerPage> {
         children: [
           DrawerHeader(
             decoration: BoxDecoration(color: Theme.of(context).primaryColor),
-            child: Text('Title',
-                style: Theme.of(context)
-                    .textTheme
-                    .displaySmall
-                    ?.apply(color: Theme.of(context).colorScheme.onPrimary)),
+            child: Text(
+              'Title',
+              style: Theme.of(context)
+                  .textTheme
+                  .displaySmall
+                  ?.apply(color: Theme.of(context).colorScheme.onPrimary),
+            ),
           ),
-          ...List.generate(5, (index) => index + 1).map((e) => _createMenu(e)),
+          ...List.generate(5, (index) => index + 1).map(_createMenu),
           const Divider(),
-          ...List.generate(7, (index) => index + 6).map((e) => _createMenu(e)),
+          ...List.generate(7, (index) => index + 6).map(_createMenu),
         ],
       ),
     );

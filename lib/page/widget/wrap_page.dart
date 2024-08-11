@@ -28,7 +28,7 @@ class _WrapPageState extends State<WrapPage> {
                 color: Theme.of(context).primaryColor,
               ),
           ],
-        )
+        ),
       ],
     );
   }

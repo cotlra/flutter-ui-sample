@@ -22,7 +22,7 @@ class _GridViewPageState extends State<GridViewPage> {
           53,
           (index) {
             final colorScheme = Theme.of(context).colorScheme;
-            final color = index % 2 == 0
+            final color = index.isEven
                 ? colorScheme.primary
                 : colorScheme.primaryContainer;
             return Container(

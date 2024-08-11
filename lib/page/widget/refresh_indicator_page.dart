@@ -46,9 +46,11 @@ class _RefreshIndicatorPageState extends State<RefreshIndicatorPage> {
               if (snapshot.hasData) {
                 return ListView(
                   children: _data!
-                      .map((e) => ListTile(
-                            title: Text(e),
-                          ))
+                      .map(
+                        (e) => ListTile(
+                          title: Text(e),
+                        ),
+                      )
                       .toList(),
                 );
               } else if (snapshot.hasError) {

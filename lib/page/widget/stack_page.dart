@@ -31,7 +31,7 @@ class _StackPageState extends State<StackPage> {
               color: Theme.of(context).colorScheme.primaryContainer,
             ),
           ],
-        )
+        ),
       ],
     );
   }

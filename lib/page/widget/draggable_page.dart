@@ -13,7 +13,7 @@ class _DraggablePageState extends State<DraggablePage> {
   Color? draggedColor;
   @override
   Widget build(BuildContext context) {
-    var themeColor = Theme.of(context).colorScheme;
+    final themeColor = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -24,8 +24,11 @@ class _DraggablePageState extends State<DraggablePage> {
             Expanded(
               child: Center(
                 child: DragTarget<Color>(
-                  builder: (BuildContext context, List<Color?> candidateData,
-                      List<dynamic> rejectedData) {
+                  builder: (
+                    BuildContext context,
+                    List<Color?> candidateData,
+                    List<dynamic> rejectedData,
+                  ) {
                     return Container(
                       width: 128,
                       height: 128,
@@ -36,7 +39,7 @@ class _DraggablePageState extends State<DraggablePage> {
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium
-                            ?.copyWith(color: themeColor.background),
+                            ?.copyWith(color: themeColor.surface),
                       ),
                     );
                   },

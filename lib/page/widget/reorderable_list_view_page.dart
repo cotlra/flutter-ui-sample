@@ -25,7 +25,7 @@ class _ReorderableListViewPageState extends State<ReorderableListViewPage> {
             if (oldIndex < newIndex) {
               newIndex -= 1;
             }
-            var value = _list.removeAt(oldIndex);
+            final value = _list.removeAt(oldIndex);
             _list.insert(newIndex, value);
           },
           itemBuilder: (BuildContext context, int index) {

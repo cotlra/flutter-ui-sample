@@ -56,11 +56,12 @@ class _FlipCardPageState extends State<FlipCardPage> {
     );
   }
 
-  Widget _customCard(
-      {required String faceName, required Color backgroundColor}) {
+  Widget _customCard({
+    required String faceName,
+    required Color backgroundColor,
+  }) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        shape: BoxShape.rectangle,
         borderRadius: BorderRadius.circular(16),
         color: backgroundColor,
       ),

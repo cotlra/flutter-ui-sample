@@ -25,7 +25,7 @@ class _SingleChildScrollViewPageState extends State<SingleChildScrollViewPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(20, (index) {
                 final colorSheme = Theme.of(context).colorScheme;
-                final color = index % 2 == 0
+                final color = index.isEven
                     ? colorSheme.primary
                     : colorSheme.primaryContainer;
                 return Container(

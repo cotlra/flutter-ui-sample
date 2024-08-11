@@ -22,8 +22,11 @@ class _SharedAxisTransitionPageState extends State<SharedAxisTransitionPage> {
       children: [
         PageTransitionSwitcher(
           duration: const Duration(milliseconds: 480),
-          transitionBuilder: (Widget child, Animation<double> primaryAnimation,
-              Animation<double> secondaryAnimation) {
+          transitionBuilder: (
+            Widget child,
+            Animation<double> primaryAnimation,
+            Animation<double> secondaryAnimation,
+          ) {
             return SharedAxisTransition(
               animation: primaryAnimation,
               secondaryAnimation: secondaryAnimation,
@@ -33,16 +36,16 @@ class _SharedAxisTransitionPageState extends State<SharedAxisTransitionPage> {
             );
           },
           child: _isOne
-              ? Text(
+              ? const Text(
                   'One',
                   key: ValueKey('One'),
                 )
-              : Text(
+              : const Text(
                   'Two',
                   key: ValueKey('Two'),
                 ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 32,
         ),
         ElevatedButton(
@@ -51,7 +54,7 @@ class _SharedAxisTransitionPageState extends State<SharedAxisTransitionPage> {
               _isOne = !_isOne;
             });
           },
-          child: Text('Press'),
+          child: const Text('Press'),
         ),
       ],
     );

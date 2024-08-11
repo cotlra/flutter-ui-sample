@@ -23,7 +23,7 @@ class _SearchAnchorPageState extends State<SearchAnchorPage> {
     'orange',
     'muscat',
     'kiwi',
-    'pear'
+    'pear',
   ];
 
   @override

@@ -16,41 +16,47 @@ class _RadioPageState extends State<RadioPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseFrame(title: widget.title, children: [
-      Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Radio<String>(
+    return BaseFrame(
+      title: widget.title,
+      children: [
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Radio<String>(
               value: 'sunny',
               groupValue: _value,
               onChanged: (newValue) {
                 setState(() {
                   _value = newValue;
                 });
-              }),
-          const Text('Sunny'),
-          const SizedBox(width: 32),
-          Radio<String>(
+              },
+            ),
+            const Text('Sunny'),
+            const SizedBox(width: 32),
+            Radio<String>(
               value: 'cloudy',
               groupValue: _value,
               onChanged: (newValue) {
                 setState(() {
                   _value = newValue;
                 });
-              }),
-          const Text('Cloudy'),
-          const SizedBox(width: 32),
-          Radio<String>(
+              },
+            ),
+            const Text('Cloudy'),
+            const SizedBox(width: 32),
+            Radio<String>(
               value: 'rainy',
               groupValue: _value,
               onChanged: (newValue) {
                 setState(() {
                   _value = newValue;
                 });
-              }),
-          const Text('Rainy'),
-        ],
-      ),
-    ]);
+              },
+            ),
+            const Text('Rainy'),
+          ],
+        ),
+      ],
+    );
   }
 }

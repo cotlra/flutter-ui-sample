@@ -41,7 +41,7 @@ class _StreamBuilderPageState extends State<StreamBuilderPage> {
 
   Stream<String> clock() async* {
     while (true) {
-      var now = DateTime.now();
+      final now = DateTime.now();
       yield _format.format(now);
       await Future<void>.delayed(const Duration(milliseconds: 500));
     }

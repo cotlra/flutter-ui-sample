@@ -75,11 +75,12 @@ class _DismissiblePageState extends State<DismissiblePage> {
     );
   }
 
-  Future<bool?> showConfirmDialog(
-      {required String action,
-      required String target,
-      required ColorScheme colorScheme}) async {
-    return await showDialog<bool?>(
+  Future<bool?> showConfirmDialog({
+    required String action,
+    required String target,
+    required ColorScheme colorScheme,
+  }) async {
+    return showDialog<bool?>(
       context: context,
       builder: (context) {
         return AlertDialog(

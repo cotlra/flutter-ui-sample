@@ -18,7 +18,6 @@ class _MaterialWidgetPageState extends State<MaterialWidgetPage> {
       title: widget.title,
       children: [
         Material(
-          type: MaterialType.canvas,
           elevation: 8,
           borderRadius: BorderRadius.circular(8),
           color: Theme.of(context).colorScheme.primaryContainer,

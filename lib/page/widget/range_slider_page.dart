@@ -21,7 +21,6 @@ class _RangeSliderPageState extends State<RangeSliderPage> {
       children: [
         RangeSlider(
           max: 100,
-          min: 0,
           divisions: 10,
           values: _values,
           onChanged: (RangeValues value) {

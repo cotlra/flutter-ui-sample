@@ -16,9 +16,7 @@ class _GridPaperPageState extends State<GridPaperPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: SizedBox(
-        width: double.infinity,
-        height: double.infinity,
+      body: SizedBox.expand(
         child: GridPaper(
           color: Theme.of(context).primaryColor,
         ),

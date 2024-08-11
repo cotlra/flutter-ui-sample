@@ -22,24 +22,27 @@ class _FadeScaleTransitionPageState extends State<FadeScaleTransitionPage> {
       children: [
         PageTransitionSwitcher(
           duration: const Duration(milliseconds: 480),
-          transitionBuilder: (Widget child, Animation<double> primaryAnimation,
-              Animation<double> secondaryAnimation) {
+          transitionBuilder: (
+            Widget child,
+            Animation<double> primaryAnimation,
+            Animation<double> secondaryAnimation,
+          ) {
             return FadeScaleTransition(
               animation: primaryAnimation,
               child: child,
             );
           },
           child: _isOne
-              ? Text(
+              ? const Text(
                   'One',
                   key: ValueKey('One'),
                 )
-              : Text(
+              : const Text(
                   'Two',
                   key: ValueKey('Two'),
                 ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 32,
         ),
         ElevatedButton(
@@ -48,7 +51,7 @@ class _FadeScaleTransitionPageState extends State<FadeScaleTransitionPage> {
               _isOne = !_isOne;
             });
           },
-          child: Text('Press'),
+          child: const Text('Press'),
         ),
       ],
     );

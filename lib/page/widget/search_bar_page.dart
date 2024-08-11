@@ -23,7 +23,7 @@ class _SearchBarPageState extends State<SearchBarPage> {
     'orange',
     'muscat',
     'kiwi',
-    'pear'
+    'pear',
   ];
 
   @override
@@ -49,16 +49,16 @@ class _SearchBarPageState extends State<SearchBarPage> {
           },
           suggestionsBuilder:
               (BuildContext context, SearchController controller) {
-            return _list
-                .where((e) => e.contains(controller.text))
-                .map((e) => ListTile(
-                      title: Text(e),
-                      onTap: () {
-                        setState(() {
-                          controller.closeView(e);
-                        });
-                      },
-                    ));
+            return _list.where((e) => e.contains(controller.text)).map(
+                  (e) => ListTile(
+                    title: Text(e),
+                    onTap: () {
+                      setState(() {
+                        controller.closeView(e);
+                      });
+                    },
+                  ),
+                );
           },
         ),
       ],

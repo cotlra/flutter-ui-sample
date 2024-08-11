@@ -22,17 +22,19 @@ class _NavigatorPageState extends State<NavigatorPage> {
             mainAxisSize: MainAxisSize.min,
             children: [
               ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return const NavigatorChildPage(
-                              title: 'Navigator Child (push)');
-                        },
-                      ),
-                    );
-                  },
-                  child: const Text('push')),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const NavigatorChildPage(
+                          title: 'Navigator Child (push)',
+                        );
+                      },
+                    ),
+                  );
+                },
+                child: const Text('push'),
+              ),
               const SizedBox(height: 32),
               ElevatedButton(
                 onPressed: () {

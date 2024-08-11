@@ -30,7 +30,7 @@ class _DateRangePickerPageState extends State<DateRangePickerPage> {
           onPressed: () async {
             final dateTimeRange = await showDateRangePicker(
               context: context,
-              firstDate: DateTime(1950, 1, 1),
+              firstDate: DateTime(1950),
               lastDate: DateTime(2050, 12, 31),
               initialDateRange: _dateTimeRange,
             );

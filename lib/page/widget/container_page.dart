@@ -25,20 +25,21 @@ class _ContainerPageState extends State<ContainerPage> {
           alignment: Alignment.bottomRight,
           transform: Matrix4.rotationZ(0.2),
           decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(Radius.circular(8)),
-              color: Theme.of(context).colorScheme.primaryContainer,
-              border: Border.all(
-                color: Theme.of(context).colorScheme.secondary,
-                width: 4,
+            borderRadius: const BorderRadius.all(Radius.circular(8)),
+            color: Theme.of(context).colorScheme.primaryContainer,
+            border: Border.all(
+              color: Theme.of(context).colorScheme.secondary,
+              width: 4,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Theme.of(context).shadowColor,
+                spreadRadius: 4,
+                blurRadius: 4,
+                offset: const Offset(8, 8),
               ),
-              boxShadow: [
-                BoxShadow(
-                  color: Theme.of(context).shadowColor,
-                  spreadRadius: 4,
-                  blurRadius: 4,
-                  offset: const Offset(8, 8),
-                )
-              ]),
+            ],
+          ),
           child: const Text('Text'),
         ),
         const SizedBox(height: 32),

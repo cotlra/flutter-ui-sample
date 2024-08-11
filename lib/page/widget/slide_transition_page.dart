@@ -51,8 +51,9 @@ class _SlideTransitionPageState extends State<SlideTransitionPage>
           onPressed: () {
             if (_animationController.value < 0.5 ||
                 _animationController.value == 1) {
-              _animationController.value = 0;
-              _animationController.animateTo(0.5);
+              _animationController
+                ..value = 0
+                ..animateTo(0.5);
             } else {
               _animationController.animateTo(1);
             }

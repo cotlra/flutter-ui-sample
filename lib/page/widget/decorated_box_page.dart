@@ -29,7 +29,7 @@ class _DecoratedBoxPageState extends State<DecoratedBoxPage> {
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }

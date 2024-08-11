@@ -53,6 +53,7 @@ import '../page/widget/floating_action_button_page.dart';
 import '../page/widget/flutter_logo_page.dart';
 import '../page/widget/fractionally_sized_box_page.dart';
 import '../page/widget/future_builder_page.dart';
+import '../page/widget/gesture_detector_page.dart';
 import '../page/widget/grid_paper_page.dart';
 import '../page/widget/grid_tile_bar_page.dart';
 import '../page/widget/grid_tile_page.dart';
@@ -128,6 +129,11 @@ import 'page_info.dart';
 import 'page_tag.dart';
 
 class PageList {
+  PageList() {
+    allList.sort((a, b) {
+      return a.pageName.compareTo(b.pageName);
+    });
+  }
   final allList = [
     PageInfo(
       pageName: 'Navigator',
@@ -399,7 +405,7 @@ class PageList {
       subKeywords: [
         'SliverAppBar',
         'CustomScrollView',
-        'SliverChildBuilderDelegate'
+        'SliverChildBuilderDelegate',
       ],
     ),
     PageInfo(
@@ -493,7 +499,7 @@ class PageList {
     PageInfo(
       pageName: 'FadeTransition',
       page: const FadeTransitionPage(title: 'FadeTransition'),
-      subKeywords: ["AnimationController", "Tween"],
+      subKeywords: ['AnimationController', 'Tween'],
       tags: [PageTag.animation],
     ),
     PageInfo(
@@ -505,7 +511,7 @@ class PageList {
           page: const HeroChildPage(
             title: 'Hero (Child)',
           ),
-        )
+        ),
       ],
     ),
     PageInfo(
@@ -756,31 +762,33 @@ class PageList {
         'AspectRatio',
       ],
     ),
+    PageInfo(
+      pageName: 'GestureDetector',
+      page: const GestureDetectorPage(
+        title: 'GestureDetector',
+      ),
+    ),
     // PageInfo(
     //   pageName: 'ClipRect',
     //   page: const ClipRectPage(title: 'ClipRect'),
     // ),
   ];
 
-  PageList() {
-    allList.sort((a, b) {
-      return a.pageName.compareTo(b.pageName);
-    });
-  }
-
   Map<String, Widget Function(BuildContext)> getRootMap() {
     final pageRoutes = <String, Widget Function(BuildContext)>{};
-    for (var page in allList) {
+    for (final page in allList) {
       pageRoutes[page.pageRoute] = (context) => page.page;
-      for (var childPage in page.childPages) {
+      for (final childPage in page.childPages) {
         pageRoutes[childPage.pageRoute] = (context) => childPage.page;
       }
     }
     return pageRoutes;
   }
 
-  Iterable<PageInfo> searchWords(String words,
-      {String tagPrefix = PageConsts.tagPrefix}) {
+  Iterable<PageInfo> searchWords(
+    String words, {
+    String tagPrefix = PageConsts.tagPrefix,
+  }) {
     final list = words.trim().split(' ');
 
     if (list.isEmpty) {
@@ -795,9 +803,9 @@ class PageList {
         .map((e) => e.toLowerCase().substring(tagPrefix.length, e.length));
 
     late List<PageTag> tagList;
-    if (tagTextList.every((e) => allTagNameList.contains(e))) {
+    if (tagTextList.every(allTagNameList.contains)) {
       tagList = tagTextList
-          .where((e) => allTagNameList.contains(e))
+          .where(allTagNameList.contains)
           .map<PageTag>((e) => PageTag.values.byName(e))
           .toList();
     } else {
@@ -809,7 +817,8 @@ class PageList {
 
   Iterable<PageInfo> _filter(List<String> words, List<PageTag> tags) {
     return allList.where(
-        (element) => element.isMatchWords(words) && element.isMatchTags(tags));
+      (element) => element.isMatchWords(words) && element.isMatchTags(tags),
+    );
   }
 }
 
