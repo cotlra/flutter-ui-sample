@@ -12,7 +12,7 @@ class SlideTransitionPage extends StatefulWidget {
 }
 
 class _SlideTransitionPageState extends State<SlideTransitionPage>
-    with TickerProviderStateMixin {
+    with SingleTickerProviderStateMixin {
   late final AnimationController _animationController = AnimationController(
     vsync: this,
     duration: const Duration(milliseconds: 500),
@@ -31,6 +31,12 @@ class _SlideTransitionPageState extends State<SlideTransitionPage>
       curve: const Interval(0.5, 1, curve: Curves.fastOutSlowIn),
     ),
   );
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

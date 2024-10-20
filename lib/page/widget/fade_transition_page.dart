@@ -12,7 +12,7 @@ class FadeTransitionPage extends StatefulWidget {
 }
 
 class _FadeTransitionPageState extends State<FadeTransitionPage>
-    with TickerProviderStateMixin {
+    with SingleTickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 1),
     vsync: this,

@@ -12,7 +12,7 @@ class ScaleTransitionPage extends StatefulWidget {
 }
 
 class _ScaleTransitionPageState extends State<ScaleTransitionPage>
-    with TickerProviderStateMixin {
+    with SingleTickerProviderStateMixin {
   late final AnimationController _animationController = AnimationController(
     vsync: this,
     duration: const Duration(milliseconds: 500),
@@ -21,6 +21,12 @@ class _ScaleTransitionPageState extends State<ScaleTransitionPage>
         _animationController.reverse();
       }
     });
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

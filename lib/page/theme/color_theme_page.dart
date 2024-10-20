@@ -41,6 +41,26 @@ class _ColorThemePageState extends State<ColorThemePage> {
               textColor: colorScheme.primaryContainer,
             ),
             _colorContainer(
+              title: 'Primary Fixed',
+              backgroundColor: colorScheme.primaryFixed,
+              textColor: colorScheme.onPrimaryFixed,
+            ),
+            _colorContainer(
+              title: 'Primary Fixed Dim',
+              backgroundColor: colorScheme.primaryFixedDim,
+              textColor: colorScheme.onPrimaryFixed,
+            ),
+            _colorContainer(
+              title: 'On Primary Fixed',
+              backgroundColor: colorScheme.onPrimaryFixed,
+              textColor: colorScheme.primaryFixed,
+            ),
+            _colorContainer(
+              title: 'On Primary Fixed Variant',
+              backgroundColor: colorScheme.onPrimaryFixedVariant,
+              textColor: colorScheme.primaryFixed,
+            ),
+            _colorContainer(
               title: 'Secondary',
               backgroundColor: colorScheme.secondary,
               textColor: colorScheme.onSecondary,
@@ -59,6 +79,26 @@ class _ColorThemePageState extends State<ColorThemePage> {
               title: 'On Secondary Container',
               backgroundColor: colorScheme.onSecondaryContainer,
               textColor: colorScheme.secondaryContainer,
+            ),
+            _colorContainer(
+              title: 'Secondary Fixed',
+              backgroundColor: colorScheme.secondaryFixed,
+              textColor: colorScheme.onSecondaryFixed,
+            ),
+            _colorContainer(
+              title: 'Secondary Fixed Dim',
+              backgroundColor: colorScheme.secondaryFixedDim,
+              textColor: colorScheme.onSecondaryFixed,
+            ),
+            _colorContainer(
+              title: 'On Secondary Fixed',
+              backgroundColor: colorScheme.onSecondaryFixed,
+              textColor: colorScheme.secondaryFixed,
+            ),
+            _colorContainer(
+              title: 'On Secondary Fixed Variant',
+              backgroundColor: colorScheme.onSecondaryFixedVariant,
+              textColor: colorScheme.secondaryFixed,
             ),
             _colorContainer(
               title: 'Tertiary',
@@ -81,6 +121,26 @@ class _ColorThemePageState extends State<ColorThemePage> {
               textColor: colorScheme.tertiaryContainer,
             ),
             _colorContainer(
+              title: 'Tertiary Fixed',
+              backgroundColor: colorScheme.tertiaryFixed,
+              textColor: colorScheme.onTertiaryFixed,
+            ),
+            _colorContainer(
+              title: 'Tertiary Fixed Dim',
+              backgroundColor: colorScheme.tertiaryFixedDim,
+              textColor: colorScheme.onTertiaryFixed,
+            ),
+            _colorContainer(
+              title: 'On Tertiary Fixed',
+              backgroundColor: colorScheme.onTertiaryFixed,
+              textColor: colorScheme.tertiaryFixed,
+            ),
+            _colorContainer(
+              title: 'On Tertiary Fixed Variant',
+              backgroundColor: colorScheme.onTertiaryFixedVariant,
+              textColor: colorScheme.tertiaryFixed,
+            ),
+            _colorContainer(
               title: 'Error',
               backgroundColor: colorScheme.error,
               textColor: colorScheme.onError,
@@ -101,8 +161,43 @@ class _ColorThemePageState extends State<ColorThemePage> {
               textColor: colorScheme.errorContainer,
             ),
             _colorContainer(
+              title: 'Surface Dim',
+              backgroundColor: colorScheme.surfaceDim,
+              textColor: colorScheme.onSurface,
+            ),
+            _colorContainer(
               title: 'Surface',
               backgroundColor: colorScheme.surface,
+              textColor: colorScheme.onSurface,
+            ),
+            _colorContainer(
+              title: 'Surface Bright',
+              backgroundColor: colorScheme.surfaceBright,
+              textColor: colorScheme.onSurface,
+            ),
+            _colorContainer(
+              title: 'Surface Container Lowest',
+              backgroundColor: colorScheme.surfaceContainerLowest,
+              textColor: colorScheme.onSurface,
+            ),
+            _colorContainer(
+              title: 'Surface Container Low',
+              backgroundColor: colorScheme.surfaceContainerLow,
+              textColor: colorScheme.onSurface,
+            ),
+            _colorContainer(
+              title: 'Surface Container',
+              backgroundColor: colorScheme.surfaceContainer,
+              textColor: colorScheme.onSurface,
+            ),
+            _colorContainer(
+              title: 'Surface Container High',
+              backgroundColor: colorScheme.surfaceContainerHigh,
+              textColor: colorScheme.onSurface,
+            ),
+            _colorContainer(
+              title: 'Surface Container Highest',
+              backgroundColor: colorScheme.surfaceContainerHighest,
               textColor: colorScheme.onSurface,
             ),
             _colorContainer(
@@ -111,24 +206,14 @@ class _ColorThemePageState extends State<ColorThemePage> {
               textColor: colorScheme.surface,
             ),
             _colorContainer(
-              title: 'Surface Variant',
-              backgroundColor: colorScheme.surfaceVariant,
-              textColor: colorScheme.onSurfaceVariant,
-            ),
-            _colorContainer(
               title: 'On Surface Variant',
               backgroundColor: colorScheme.onSurfaceVariant,
-              textColor: colorScheme.surfaceVariant,
-            ),
-            _colorContainer(
-              title: 'Surface Tint',
-              backgroundColor: colorScheme.surfaceTint,
-              textColor: colorScheme.onInverseSurface,
+              textColor: colorScheme.surface,
             ),
             _colorContainer(
               title: 'Outline',
               backgroundColor: colorScheme.outline,
-              textColor: colorScheme.onInverseSurface,
+              textColor: colorScheme.onSurface,
             ),
             _colorContainer(
               title: 'Outline Variant',
@@ -149,16 +234,6 @@ class _ColorThemePageState extends State<ColorThemePage> {
               title: 'Inverse Primary',
               backgroundColor: colorScheme.inversePrimary,
               textColor: colorScheme.onPrimaryContainer,
-            ),
-            _colorContainer(
-              title: 'Background',
-              backgroundColor: colorScheme.background,
-              textColor: colorScheme.onBackground,
-            ),
-            _colorContainer(
-              title: 'On Background',
-              backgroundColor: colorScheme.onBackground,
-              textColor: colorScheme.background,
             ),
             _colorContainer(
               title: 'Scrim',

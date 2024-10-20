@@ -71,6 +71,7 @@ import '../page/widget/list_view_page.dart';
 import '../page/widget/list_wheel_scroll_view_page.dart';
 import '../page/widget/material_banner_page.dart';
 import '../page/widget/material_page.dart';
+import '../page/widget/matrix_transition_page.dart';
 import '../page/widget/menu_anchor_page.dart';
 import '../page/widget/navigation_rail_page.dart';
 import '../page/widget/opacity_page.dart';
@@ -88,6 +89,7 @@ import '../page/widget/refresh_indicator_page.dart';
 import '../page/widget/reorderable_list_view_page.dart';
 import '../page/widget/rich_text_page.dart';
 import '../page/widget/rotated_box_page.dart';
+import '../page/widget/rotation_transition_page.dart';
 import '../page/widget/row_page.dart';
 import '../page/widget/safe_area_page.dart';
 import '../page/widget/scale_transition.dart';
@@ -99,6 +101,7 @@ import '../page/widget/selectable_text_page.dart';
 import '../page/widget/shader_mask_page.dart';
 import '../page/widget/simple_dialog_page.dart';
 import '../page/widget/single_child_scroll_view_page.dart';
+import '../page/widget/size_transition_page.dart';
 import '../page/widget/slide_transition_page.dart';
 import '../page/widget/slider_page.dart';
 import '../page/widget/sliver_fill_remaining_page.dart';
@@ -767,6 +770,27 @@ class PageList {
       page: const GestureDetectorPage(
         title: 'GestureDetector',
       ),
+    ),
+    PageInfo(
+      pageName: 'MatrixTransition',
+      page: const MatrixTransitionPage(
+        title: 'MatrixTransition',
+      ),
+      tags: [PageTag.animation],
+    ),
+    PageInfo(
+      pageName: 'RotationTransition',
+      page: const RotationTransitionPage(
+        title: 'RotationTransition',
+      ),
+      tags: [PageTag.animation],
+    ),
+    PageInfo(
+      pageName: 'SizeTransition',
+      page: const SizeTransitionPage(
+        title: 'SizeTransition',
+      ),
+      tags: [PageTag.animation],
     ),
     // PageInfo(
     //   pageName: 'ClipRect',
