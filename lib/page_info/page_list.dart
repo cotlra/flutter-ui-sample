@@ -793,6 +793,13 @@ class PageList {
       tags: [PageTag.animation],
     ),
     // PageInfo(
+    //   pageName: 'PositionedTransition',
+    //   page: const PositionedTransitionPage(
+    //     title: 'PositionedTransition',
+    //   ),
+    //   tags: [PageTag.animation],
+    // ),
+    // PageInfo(
     //   pageName: 'ClipRect',
     //   page: const ClipRectPage(title: 'ClipRect'),
     // ),

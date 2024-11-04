@@ -13,13 +13,16 @@ class FadeTransitionPage extends StatefulWidget {
 
 class _FadeTransitionPageState extends State<FadeTransitionPage>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _controller = AnimationController(
+  late final _controller = AnimationController(
     duration: const Duration(seconds: 1),
     vsync: this,
-  )..repeat(reverse: true);
+  );
 
-  late final Animation<double> _animation =
-      Tween(begin: 0.0, end: 1.0).animate(_controller);
+  @override
+  void initState() {
+    _controller.repeat(reverse: true);
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -33,7 +36,7 @@ class _FadeTransitionPageState extends State<FadeTransitionPage>
       title: widget.title,
       children: [
         FadeTransition(
-          opacity: _animation,
+          opacity: _controller,
           child: const Text('Fade Transition'),
         ),
       ],

@@ -22,31 +22,62 @@ class _HomePageState extends State<HomePage> {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('UI Collection'),
-          actions: [
-            SearchAnchor(
-              builder: (BuildContext context, SearchController controller) {
-                return IconButton(
-                  onPressed: () {
-                    controller.openView();
-                  },
-                  icon: const Icon(Icons.search),
-                );
-              },
-              suggestionsBuilder:
-                  (BuildContext context, SearchController controller) {
-                if (controller.text.isEmpty) {
-                  return [_tags(controller)];
-                } else {
-                  final candidates = widget.pageList
-                      .searchWords(controller.text)
-                      .map(_pageListTile);
+          title: SearchAnchor(
+            builder: (BuildContext context, SearchController controller) {
+              return SearchBar(
+                elevation: const WidgetStatePropertyAll(0),
+                controller: controller,
+                padding: const WidgetStatePropertyAll(
+                  EdgeInsets.symmetric(horizontal: 16),
+                ),
+                backgroundColor:
+                    const WidgetStatePropertyAll(Colors.transparent),
+                onTap: () {
+                  controller.openView();
+                },
+                onChanged: (_) {
+                  controller.openView();
+                },
+                leading: const Icon(Icons.search),
+              );
+            },
+            suggestionsBuilder:
+                (BuildContext context, SearchController controller) {
+              if (controller.text.isEmpty) {
+                return [_tags(controller)];
+              } else {
+                final candidates = widget.pageList
+                    .searchWords(controller.text)
+                    .map(_pageListTile);
 
-                  return [_tags(controller), ...candidates];
-                }
-              },
-            ),
-          ],
+                return [_tags(controller), ...candidates];
+              }
+            },
+          ),
+          // actions: [
+          //   SearchAnchor(
+          //     builder: (BuildContext context, SearchController controller) {
+          //       return IconButton(
+          //         onPressed: () {
+          //           controller.openView();
+          //         },
+          //         icon: const Icon(Icons.search),
+          //       );
+          //     },
+          //     suggestionsBuilder:
+          //         (BuildContext context, SearchController controller) {
+          //       if (controller.text.isEmpty) {
+          //         return [_tags(controller)];
+          //       } else {
+          //         final candidates = widget.pageList
+          //             .searchWords(controller.text)
+          //             .map(_pageListTile);
+          //
+          //         return [_tags(controller), ...candidates];
+          //       }
+          //     },
+          //   ),
+          // ],
           bottom: TabBar(
             tabs: PageCategory.values
                 .map(
