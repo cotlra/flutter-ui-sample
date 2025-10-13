@@ -27,6 +27,14 @@ class _SwitchPageState extends State<SwitchPage> {
             });
           },
         ),
+        const Switch(
+          value: false,
+          onChanged: null,
+        ),
+        const Switch(
+          value: true,
+          onChanged: null,
+        ),
       ],
     );
   }
