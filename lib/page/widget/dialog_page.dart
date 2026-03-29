@@ -20,7 +20,7 @@ class _DialogPageState extends State<DialogPage> {
         ElevatedButton(
           child: const Text('Show Dialog'),
           onPressed: () {
-            showDialog(
+            showDialog<void>(
               context: context,
               builder: (context) {
                 return const Dialog(

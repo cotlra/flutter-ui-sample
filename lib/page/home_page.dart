@@ -7,9 +7,16 @@ import '../page_info/page_tag.dart';
 import '../util/converters.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.pageList});
+  const HomePage({
+    super.key,
+    required this.pageList,
+    required this.onLightModeChanged,
+    required this.isDarkMode,
+  });
 
   final PageList pageList;
+  final ValueChanged<bool>? onLightModeChanged;
+  final bool isDarkMode;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -22,37 +29,53 @@ class _HomePageState extends State<HomePage> {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
-          title: SearchAnchor(
-            builder: (BuildContext context, SearchController controller) {
-              return SearchBar(
-                elevation: const WidgetStatePropertyAll(0),
-                controller: controller,
-                padding: const WidgetStatePropertyAll(
-                  EdgeInsets.symmetric(horizontal: 16),
-                ),
-                backgroundColor:
-                    const WidgetStatePropertyAll(Colors.transparent),
-                onTap: () {
-                  controller.openView();
-                },
-                onChanged: (_) {
-                  controller.openView();
-                },
-                leading: const Icon(Icons.search),
-              );
-            },
-            suggestionsBuilder:
-                (BuildContext context, SearchController controller) {
-              if (controller.text.isEmpty) {
-                return [_tags(controller)];
-              } else {
-                final candidates = widget.pageList
-                    .searchWords(controller.text)
-                    .map(_pageListTile);
+          title: Row(
+            children: [
+              Expanded(
+                child: SearchAnchor(
+                  builder: (BuildContext context, SearchController controller) {
+                    return SearchBar(
+                      elevation: const WidgetStatePropertyAll(0),
+                      controller: controller,
+                      padding: const WidgetStatePropertyAll(
+                        EdgeInsets.symmetric(horizontal: 16),
+                      ),
+                      backgroundColor: const WidgetStatePropertyAll(
+                        Colors.transparent,
+                      ),
+                      onTap: () {
+                        controller.openView();
+                      },
+                      onChanged: (_) {
+                        controller.openView();
+                      },
+                      leading: const Icon(Icons.search),
+                    );
+                  },
+                  suggestionsBuilder:
+                      (BuildContext context, SearchController controller) {
+                        if (controller.text.isEmpty) {
+                          return [_tags(controller)];
+                        } else {
+                          final candidates = widget.pageList
+                              .searchWords(controller.text)
+                              .map(_pageListTile);
 
-                return [_tags(controller), ...candidates];
-              }
-            },
+                          return [_tags(controller), ...candidates];
+                        }
+                      },
+                ),
+              ),
+              Icon(
+                widget.isDarkMode ? Icons.dark_mode : Icons.light_mode,
+                color: Theme.of(context).colorScheme.onPrimaryContainer,
+              ),
+              const SizedBox(width: 8),
+              Switch(
+                value: widget.isDarkMode,
+                onChanged: widget.onLightModeChanged,
+              ),
+            ],
           ),
           // actions: [
           //   SearchAnchor(
@@ -82,8 +105,9 @@ class _HomePageState extends State<HomePage> {
             tabs: PageCategory.values
                 .map(
                   (e) => Tab(
-                    child:
-                        Text(Converters.convertCamelCaseToPascalCase(e.name)),
+                    child: Text(
+                      Converters.convertCamelCaseToPascalCase(e.name),
+                    ),
                   ),
                 )
                 .toList(),
@@ -112,8 +136,9 @@ class _HomePageState extends State<HomePage> {
       child: Wrap(
         spacing: 8,
         children: PageTag.values.where((e) => e != PageTag.error).map((e) {
-          final pascalCaseName =
-              Converters.convertCamelCaseToPascalCase(e.name);
+          final pascalCaseName = Converters.convertCamelCaseToPascalCase(
+            e.name,
+          );
           return ActionChip(
             padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
             label: Text(pascalCaseName),

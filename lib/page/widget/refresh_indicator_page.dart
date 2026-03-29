@@ -34,7 +34,7 @@ class _RefreshIndicatorPageState extends State<RefreshIndicatorPage> {
       body: SafeArea(
         child: RefreshIndicator(
           onRefresh: () async {
-            await Future.delayed(const Duration(seconds: 1));
+            await Future<void>.delayed(const Duration(seconds: 1));
             setState(() {
               _value += 12;
               _data = List.generate(12, (index) => 'Item ${index + _value}');

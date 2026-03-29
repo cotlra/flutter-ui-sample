@@ -60,18 +60,12 @@ class _CustomCalenderState extends State<CustomCalender> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 8,
-            vertical: 4,
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           child: Row(
             children: [
               Padding(
                 padding: const EdgeInsets.all(8),
-                child: _arrowButton(
-                  isRight: false,
-                  onTap: _onBackMonth,
-                ),
+                child: _arrowButton(isRight: false, onTap: _onBackMonth),
               ),
               Expanded(
                 child: Center(
@@ -87,29 +81,18 @@ class _CustomCalenderState extends State<CustomCalender> {
               ),
               Padding(
                 padding: const EdgeInsets.all(8),
-                child: _arrowButton(
-                  isRight: true,
-                  onTap: _onForwardMonth,
-                ),
+                child: _arrowButton(isRight: true, onTap: _onForwardMonth),
               ),
             ],
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(
-            right: 8,
-            left: 8,
-            bottom: 8,
-          ),
-          child: Row(
-            children: _weekDayNamesWidget(),
-          ),
+          padding: const EdgeInsets.only(right: 8, left: 8, bottom: 8),
+          child: Row(children: _weekDayNamesWidget()),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: Column(
-            children: _daysNoWidget(),
-          ),
+          child: Column(children: _daysNoWidget()),
         ),
       ],
     );
@@ -124,9 +107,7 @@ class _CustomCalenderState extends State<CustomCalender> {
         padding: const EdgeInsets.all(7),
         style: IconButton.styleFrom(
           splashFactory: NoSplash.splashFactory,
-          side: BorderSide(
-            color: Theme.of(context).colorScheme.outlineVariant,
-          ),
+          side: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
         ),
         splashRadius: 24,
         icon: Icon(
@@ -168,10 +149,7 @@ class _CustomCalenderState extends State<CustomCalender> {
         count++;
       }
       noList.add(
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: oneWeek,
-        ),
+        Row(mainAxisAlignment: MainAxisAlignment.center, children: oneWeek),
       );
     }
     return noList;
@@ -195,16 +173,20 @@ class _CustomCalenderState extends State<CustomCalender> {
                   right: _isEndDateRadius(date) ? 4 : 0,
                 ),
                 decoration: BoxDecoration(
-                  color: _isRange(date) ? primaryColor.withOpacity(0.4) : null,
+                  color: _isRange(date) ? primaryColor.withAlpha(0x66) : null,
                   borderRadius: BorderRadius.only(
-                    bottomLeft:
-                        _isStartDateRadius(date) ? circleRadius : Radius.zero,
-                    topLeft:
-                        _isStartDateRadius(date) ? circleRadius : Radius.zero,
-                    topRight:
-                        _isEndDateRadius(date) ? circleRadius : Radius.zero,
-                    bottomRight:
-                        _isEndDateRadius(date) ? circleRadius : Radius.zero,
+                    bottomLeft: _isStartDateRadius(date)
+                        ? circleRadius
+                        : Radius.zero,
+                    topLeft: _isStartDateRadius(date)
+                        ? circleRadius
+                        : Radius.zero,
+                    topRight: _isEndDateRadius(date)
+                        ? circleRadius
+                        : Radius.zero,
+                    bottomRight: _isEndDateRadius(date)
+                        ? circleRadius
+                        : Radius.zero,
                   ),
                 ),
               ),
@@ -227,14 +209,15 @@ class _CustomCalenderState extends State<CustomCalender> {
                   child: Text(
                     date.day.toString(),
                     style: TextStyle(
-                      fontSize:
-                          MediaQuery.of(context).size.width > 360 ? 18 : 16,
+                      fontSize: MediaQuery.of(context).size.width > 360
+                          ? 18
+                          : 16,
                       color: _isStartOrEndDate(date)
                           ? Colors.white
                           : _currentMonthDate.month == date.month &&
-                                  _canTap(date)
-                              ? Colors.black
-                              : Colors.grey,
+                                _canTap(date)
+                          ? Colors.black
+                          : Colors.grey,
                       fontWeight: _isStartOrEndDate(date)
                           ? FontWeight.bold
                           : FontWeight.normal,
@@ -262,8 +245,8 @@ class _CustomCalenderState extends State<CustomCalender> {
         decoration: BoxDecoration(
           color: _isToday(date)
               ? _isRange(date)
-                  ? Colors.white
-                  : primaryColor
+                    ? Colors.white
+                    : primaryColor
               : Colors.transparent,
           shape: BoxShape.circle,
         ),
@@ -275,31 +258,25 @@ class _CustomCalenderState extends State<CustomCalender> {
     return BoxDecoration(
       color: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(32),
-      border: Border.all(
-        color: Colors.white,
-        width: 2,
-      ),
-      boxShadow: [
-        BoxShadow(
-          color: Colors.grey.withOpacity(0.6),
-          blurRadius: 4,
-        ),
-      ],
+      border: Border.all(color: Colors.white, width: 2),
+      boxShadow: [BoxShadow(color: Colors.grey.withAlpha(0x9a), blurRadius: 4)],
     );
   }
 
   void _onBackMonth() {
     setState(() {
-      _currentMonthDate =
-          _currentMonthDate.copyWith(month: _currentMonthDate.month - 1);
+      _currentMonthDate = _currentMonthDate.copyWith(
+        month: _currentMonthDate.month - 1,
+      );
       _setListOfDate(_currentMonthDate);
     });
   }
 
   void _onForwardMonth() {
     setState(() {
-      _currentMonthDate =
-          _currentMonthDate.copyWith(month: _currentMonthDate.month + 1);
+      _currentMonthDate = _currentMonthDate.copyWith(
+        month: _currentMonthDate.month + 1,
+      );
       _setListOfDate(_currentMonthDate);
     });
   }
@@ -343,9 +320,7 @@ class _CustomCalenderState extends State<CustomCalender> {
     for (var i = 0; i < numOfPreviousMonthDay; i++) {
       _dateList.add(
         fistDayOfCurrentMonth.subtract(
-          Duration(
-            days: numOfPreviousMonthDay - i,
-          ),
+          Duration(days: numOfPreviousMonthDay - i),
         ),
       );
     }

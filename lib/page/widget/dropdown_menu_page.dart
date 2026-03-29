@@ -12,7 +12,9 @@ class DropdownMenuPage extends StatefulWidget {
 }
 
 class _DropdownMenuPageState extends State<DropdownMenuPage> {
+  // ignore: unused_field
   String? _value1;
+  // ignore: unused_field
   String? _value2;
 
   @override

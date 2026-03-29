@@ -22,6 +22,7 @@ class _MatrixTransitionPageState extends State<MatrixTransitionPage>
 
   @override
   void initState() {
+    super.initState();
     _animationController.repeat();
   }
 
@@ -41,7 +42,7 @@ class _MatrixTransitionPageState extends State<MatrixTransitionPage>
           onTransform: (value) {
             return Matrix4.identity()
               ..rotateZ(value * 2 * math.pi)
-              ..scale(value, value);
+              ..scaleByDouble(value, value, 1.0, 1.0);
           },
           child: const Text('MatrixTransition'),
         ),

@@ -29,19 +29,11 @@ class _FlipState extends State<Flip> {
       duration: widget.duration,
       transitionBuilder: _transitionBuilder,
       layoutBuilder: (w, list) {
-        return Stack(
-          children: [if (w != null) w, ...list],
-        );
+        return Stack(children: [?w, ...list]);
       },
       child: widget.isFront
-          ? Container(
-              key: const ValueKey(true),
-              child: widget.front,
-            )
-          : Container(
-              key: const ValueKey(false),
-              child: widget.back,
-            ),
+          ? Container(key: const ValueKey(true), child: widget.front)
+          : Container(key: const ValueKey(false), child: widget.back),
     );
   }
 

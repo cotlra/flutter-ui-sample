@@ -54,8 +54,8 @@ class _TransformPageState extends State<TransformPage> {
               child: Center(
                 child: Transform(
                   transform: Matrix4.identity()
-                    ..scale(scaleX, scaleY, scaleZ)
-                    ..translate(translateX, translateY, translateZ)
+                    ..scaleByDouble(scaleX, scaleY, scaleZ, 1.0)
+                    ..translateByDouble(translateX, translateY, translateZ, 1.0)
                     ..rotateX(rotateX)
                     ..rotateY(rotateY)
                     ..rotateZ(rotateZ),

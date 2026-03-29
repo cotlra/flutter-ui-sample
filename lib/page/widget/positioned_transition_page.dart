@@ -20,9 +20,9 @@ class _PositionedTransitionPageState extends State<PositionedTransitionPage>
   );
 
   late final _animation = RelativeRectTween(
-          begin: const RelativeRect.fromLTRB(10, 0, 0, 0),
-          end: const RelativeRect.fromLTRB(0, 0, 10, 0))
-      .animate(_controller);
+    begin: const RelativeRect.fromLTRB(30, 0, 0, 0),
+    end: const RelativeRect.fromLTRB(0, 0, 200, 0),
+  ).animate(_controller);
 
   @override
   void initState() {
@@ -41,10 +41,16 @@ class _PositionedTransitionPageState extends State<PositionedTransitionPage>
     return BaseFrame(
       title: widget.title,
       children: [
-        Container(
-          child: PositionedTransition(
-            rect: _animation,
-            child: const Text('Positioned Transition'),
+        SizedBox(
+          width: 300,
+          height: 300,
+          child: Stack(
+            children: [
+              PositionedTransition(
+                rect: _animation,
+                child: const Text('Positioned Transition'),
+              ),
+            ],
           ),
         ),
       ],

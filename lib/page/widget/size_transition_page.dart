@@ -37,7 +37,7 @@ class _SizeTransitionPageState extends State<SizeTransitionPage>
           axis: Axis.horizontal,
           sizeFactor: _animationController,
           child: const Text('SizeTransition'),
-        )
+        ),
       ],
     );
   }

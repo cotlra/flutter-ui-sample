@@ -83,6 +83,7 @@ import '../page/widget/physical_shape_page.dart';
 import '../page/widget/placeholder_page.dart';
 import '../page/widget/pop_menu_button_page.dart';
 import '../page/widget/positioned_page.dart';
+import '../page/widget/positioned_transition_page.dart';
 import '../page/widget/radio_page.dart';
 import '../page/widget/range_slider_page.dart';
 import '../page/widget/refresh_indicator_page.dart';
@@ -183,9 +184,7 @@ class PageList {
     ),
     PageInfo(
       pageName: 'BottomNavigationBar',
-      page: const BottomNavigationBarPage(
-        title: 'BottomNavigationBar',
-      ),
+      page: const BottomNavigationBarPage(title: 'BottomNavigationBar'),
       tags: [PageTag.navigation],
       subKeywords: ['BottomNavigationBarItem'],
     ),
@@ -424,18 +423,12 @@ class PageList {
     PageInfo(
       pageName: 'SliverToBoxAdapter',
       page: const SliverToBoxAdapterPage(title: 'SliverToBoxAdapter'),
-      subKeywords: [
-        'SliverAppBar',
-        'CustomScrollView',
-      ],
+      subKeywords: ['SliverAppBar', 'CustomScrollView'],
     ),
     PageInfo(
       pageName: 'SliverFillRemaining',
       page: const SliverFillRemainingPage(title: 'SliverFillRemaining'),
-      subKeywords: [
-        'SliverAppBar',
-        'CustomScrollView',
-      ],
+      subKeywords: ['SliverAppBar', 'CustomScrollView'],
     ),
     PageInfo(
       pageName: 'DateRangePicker',
@@ -511,9 +504,7 @@ class PageList {
       childPages: [
         ChildPageInfo(
           pageName: 'HeroChild',
-          page: const HeroChildPage(
-            title: 'Hero (Child)',
-          ),
+          page: const HeroChildPage(title: 'Hero (Child)'),
         ),
       ],
     ),
@@ -681,68 +672,50 @@ class PageList {
     ),
     PageInfo(
       pageName: 'PhysicalModel',
-      page: const PhysicalModelPage(
-        title: 'PhysicalModel',
-      ),
+      page: const PhysicalModelPage(title: 'PhysicalModel'),
     ),
     PageInfo(
       pageName: 'PhysicalShape',
-      page: const PhysicalShapePage(
-        title: 'PhysicalShape',
-      ),
+      page: const PhysicalShapePage(title: 'PhysicalShape'),
     ),
     PageInfo(
       pageName: 'Material',
-      page: const MaterialWidgetPage(
-        title: 'Material',
-      ),
+      page: const MaterialWidgetPage(title: 'Material'),
     ),
     PageInfo(
       pageName: 'SlideTransition',
-      page: const SlideTransitionPage(
-        title: 'SlideTransition',
-      ),
+      page: const SlideTransitionPage(title: 'SlideTransition'),
       tags: [PageTag.animation],
     ),
     PageInfo(
       pageName: 'ScaleTransition',
-      page: const ScaleTransitionPage(
-        title: 'ScaleTransition',
-      ),
+      page: const ScaleTransitionPage(title: 'ScaleTransition'),
       tags: [PageTag.animation],
     ),
     PageInfo(
       pageName: 'SharedAxisTransition',
-      page: const SharedAxisTransitionPage(
-        title: 'SharedAxisTransition',
-      ),
+      page: const SharedAxisTransitionPage(title: 'SharedAxisTransition'),
       category: PageCategory.library,
       tags: [PageTag.animation],
       subKeywords: ['PageTransitionSwitcher'],
     ),
     PageInfo(
       pageName: 'FadeThroughTransition',
-      page: const FadeThroughTransitionPage(
-        title: 'FadeThroughTransition',
-      ),
+      page: const FadeThroughTransitionPage(title: 'FadeThroughTransition'),
       category: PageCategory.library,
       tags: [PageTag.animation],
       subKeywords: ['PageTransitionSwitcher'],
     ),
     PageInfo(
       pageName: 'FadeScaleTransition',
-      page: const FadeScaleTransitionPage(
-        title: 'FadeScaleTransition',
-      ),
+      page: const FadeScaleTransitionPage(title: 'FadeScaleTransition'),
       category: PageCategory.library,
       tags: [PageTag.animation],
       subKeywords: ['PageTransitionSwitcher'],
     ),
     PageInfo(
       pageName: 'ColorSlider',
-      page: const ColorSliderPage(
-        title: 'ColorSlider',
-      ),
+      page: const ColorSliderPage(title: 'ColorSlider'),
       category: PageCategory.others,
       subKeywords: [
         'Slider',
@@ -753,9 +726,7 @@ class PageList {
     ),
     PageInfo(
       pageName: 'CustomCalender',
-      page: const CustomCalenderPage(
-        title: 'CustomCalender',
-      ),
+      page: const CustomCalenderPage(title: 'CustomCalender'),
       category: PageCategory.others,
       subKeywords: [
         'Material',
@@ -767,42 +738,28 @@ class PageList {
     ),
     PageInfo(
       pageName: 'GestureDetector',
-      page: const GestureDetectorPage(
-        title: 'GestureDetector',
-      ),
+      page: const GestureDetectorPage(title: 'GestureDetector'),
     ),
     PageInfo(
       pageName: 'MatrixTransition',
-      page: const MatrixTransitionPage(
-        title: 'MatrixTransition',
-      ),
+      page: const MatrixTransitionPage(title: 'MatrixTransition'),
       tags: [PageTag.animation],
     ),
     PageInfo(
       pageName: 'RotationTransition',
-      page: const RotationTransitionPage(
-        title: 'RotationTransition',
-      ),
+      page: const RotationTransitionPage(title: 'RotationTransition'),
       tags: [PageTag.animation],
     ),
     PageInfo(
       pageName: 'SizeTransition',
-      page: const SizeTransitionPage(
-        title: 'SizeTransition',
-      ),
+      page: const SizeTransitionPage(title: 'SizeTransition'),
       tags: [PageTag.animation],
     ),
-    // PageInfo(
-    //   pageName: 'PositionedTransition',
-    //   page: const PositionedTransitionPage(
-    //     title: 'PositionedTransition',
-    //   ),
-    //   tags: [PageTag.animation],
-    // ),
-    // PageInfo(
-    //   pageName: 'ClipRect',
-    //   page: const ClipRectPage(title: 'ClipRect'),
-    // ),
+    PageInfo(
+      pageName: 'PositionedTransition',
+      page: const PositionedTransitionPage(title: 'PositionedTransition'),
+      tags: [PageTag.animation],
+    ),
   ];
 
   Map<String, Widget Function(BuildContext)> getRootMap() {

@@ -24,7 +24,7 @@ class _NavigatorPageState extends State<NavigatorPage> {
               ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute(
+                    MaterialPageRoute<void>(
                       builder: (context) {
                         return const NavigatorChildPage(
                           title: 'Navigator Child (push)',
